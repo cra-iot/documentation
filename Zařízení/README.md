@@ -1,1 +1,1 @@
-# V této sekci najdete potřebná informace ohledně různých typů IoT zařízeních
+# V této sekci najdete potřebná informace ohledně různých typů IoT zařízení
