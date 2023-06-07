@@ -47,7 +47,7 @@ Response:
 ```
 
 Struktura geo zprávy je následující:
-* `"EUI":"A81758FFFE04505A"`		Id LoRa zařízení
+* `"EUI":"A81758FFFE04505A"`		Id LoRa zařízení (pozor velkými - "upper case")
 * `"ts":1638178757178`  			čas související LoRa zprávy
 * `"lat":50.10953803374609`		Zeměpisná šířka
 * `"lon":14.470567400491364`		Zeměpisná délka
