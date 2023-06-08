@@ -24,12 +24,14 @@ Detailně pak takto:
 255=stav baterie není přenášen
 
 Ve filtru v GUI se požávájí následující filtry:
->152  = 100%-60%
-<=152 = méně než 60%
-<=102 = méně než 40%
-<=52  = méně než 20%
-=255  = N/A ~ nezjištěno
-=0    = externí napájení
+| DEC  | Hodnota ve filtru |
+|------|-------------------|
+|>152  | 100%-60%          |
+|<=152 | méně než 60%      |
+|<=102 | méně než 40%      |
+|<=52  | méně než 20%      |
+|=255  | N/A ~ nezjištěno  |
+|=0    |externí napájení   |
 
 
 ## dopopsat
