@@ -15,6 +15,9 @@ Vlastní zpráva je v JSON formátu a má tyto atributy:
 ### ts (timestamp)
   "ts": 1685019178341,
 ### EUI 
+Původně LoRa unikátní identifikátor, využíváno však plošně přes platformu.
+Unikátní je vždy v rámci technologie (LoRa, MQTT, HTTP, UDP, atp.).
+
 ### bat
 Stav baterie v decimální hodnota 0-255 stavu baterie, odpovídající 0-100%
 
