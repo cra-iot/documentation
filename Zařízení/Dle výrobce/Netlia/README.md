@@ -5,6 +5,50 @@ Hlavní seznam výrobků najdete na jejich webových stránkách: https://netlia
 Konfigurace, včetně identifikace zařízení je popsána na této stránce:
 https://github.com/Netlia/documentation/blob/main/DeviceComunication/DeviceComunication_CZ.md
 
+Pokud používáte tato čidla s připojením NB IoT, pak je potřeba převést příchozí zprávu, pokud chcete, aby jí CRA IoT cloud rozumněl (zobrazoval stav baterie, payload, uměl parsovat data na fyzické veličiny, atp.)
+
+Při využití O2 SIM s CRA APN lze čidla nasměrovat na námi vystavený UDP port. Díky tomu začnou IoT zprávy přicházet v JSON struktuře:
+```json
+{
+  "payload": "023002953000054718005f40630000050303000000",
+  "imsi":"230029530000547"
+}
+```
+ale to je stále pro CRA IoT cloud nesrozumitelné.
+
+Je potřeba definovat transformaci pro Netlia čidlo.
+
+Zde je příklad transformace (zatím není implementováno převádění stavu baterie na DEC hodnotu jako je uvedena u LoRa zařízení)
+```JavaScript
+function parceNetlia(msg) { 
+  o = {}; 
+  m = JSON.parse(msg); 
+  o.imsi = m.payload.slice(1, 16); 
+  o.header = m.payload.slice(16,32); 
+  o.seqno = (parseInt(m.payload.slice(16, 18), 16)).toString(); 
+  o.bat_V = (((parseInt(m.payload.slice(20, 22), 16)) / 100) + 1.8).toFixed(2); 
+  o.data = m.payload.slice(32); 
+  return JSON.stringify(o); 
+}   
+```
+
+Do API je potřeba vložit jako jednořádkový string
+```JavaScript
+function parceNetlia(msg) { o = {}; m = JSON.parse(msg); o.imsi = m.payload.slice(1, 16); o.header = m.payload.slice(16,32); o.seqno = (parseInt(m.payload.slice(16, 18), 16)).toString(); o.bat_V = (((parseInt(m.payload.slice(20, 22), 16)) / 100) + 1.8).toFixed(2); o.data = m.payload.slice(32); return JSON.stringify(o); }   
+```
+
+tj. API request bude vypadat např. takto:
+```
+curl --location --request PUT 'https://api.iot.cra.cz/cxf/api/v1/projects/T202108231049932zrp/transformations/60' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Bearer eyJhb....6d26' \
+--data '{
+  "type": "DEV",
+  "subType": "MQTT",
+  "label": "Netlia NB IoT v01",
+  "definition": "function parceNetlia(msg) { o = {}; m = JSON.parse(msg); o.imsi = m.payload.slice(1, 16); o.header = m.payload.slice(16,32); o.seqno = (parseInt(m.payload.slice(16, 18), 16)).toString(); o.bat_V = (((parseInt(m.payload.slice(20, 22), 16)) / 100) + 1.8).toFixed(2); o.data = m.payload.slice(32); return JSON.stringify(o); }"
+}'
+```
 
 Napětí převádíme cca tímto převodem:
 
@@ -62,3 +106,5 @@ Napětí převádíme cca tímto převodem:
 |2,99|98|247|
 |3|100|253|
 |>3|100|254|
+
+
