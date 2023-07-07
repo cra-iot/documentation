@@ -4,15 +4,15 @@
 
 # **Obsah**
 
-[1.Úvod](#úvod)
+[1 Úvod](#úvod)
 
-[2.Základní pravidla API](#základní-pravidla-api)
+[2 Základní pravidla API](#základní-pravidla-api)
 
-[2.1.Ověření](##ověření)
+[  2.1 Ověření](##ověření)
 
-[2.2.Pagination](##pagination)
+[  2.2 Pagination](##pagination)
 
-[2.3.Řazení](#řazení)
+[  2.3.Řazení](#řazení)
 
 [2.4.Filtrace](#filtrace)
 
