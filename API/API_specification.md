@@ -349,13 +349,13 @@ Standardně volání také vracejí celkový počet záznamů, viz kapitola 2.9.
 
 ## Řazení
 
-Řazení dat je definováno pomocí query parametru sort. Ten specifikuje atribut, přes který je požadováno řazení, kdy tento je uvozen znakem + popř. jeho reprezentace jako %2F pro vzestupné řazení (implicitní), resp. – pro sestupné řazení.
+Řazení dat je definováno pomocí query parametru sort. Ten specifikuje atribut, přes který je požadováno řazení, kdy tento je uvozen znakem + popř. jeho reprezentace jako %2B pro vzestupné řazení (implicitní), resp. – (resp. %2D) pro sestupné řazení.
 
 Seznam konkrétních atributů, přes které lze v daném volání řadit, je vždy uveden u konkrétního volání.
 
 ```
 curl --request GET \
---url http://localhost:8185/cxf/api/v1/customers?sort=- customerName \
+--url http://api.iot.cra.cz/cxf/api/v1/load/devices?sort=%2BlastMessageIn \
 --header'authorization: Bearer dXNlcjpw…' \
 ```
 
