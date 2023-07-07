@@ -659,8 +659,8 @@ Vrátí seznam všech projektů (včetně parametrů).
 
 | **URL** | GET http://\<URL\>/cxf/api/v1/projects |
 | --- | --- |
-| **Filtr** | projectIdprojectNamecustomerIdsuspendedsuspendTimeresumeTimefreemium |
-| **Řazení** | projectIdprojectNamecustomerIdsuspendedsuspendTimeresumeTimefreemium |
+| **Filtr** | projectId<br/>projectName<br/>customerId<br/>suspended<br/>suspendTime<br/>resumeTime<br/>freemium |
+| **Řazení** | projectId<br/>projectName<br/>customerId<br/>suspended<br/>suspendTime<br/>resumeTime<br/>freemium |
 | **Fulltext** | Ano |
 | **Katalog** | data.parameters.name |
 
@@ -739,8 +739,8 @@ Informace o konkrétní službě (včetně parametrů).
 
 | **URL** | GET http://\<URL\>/cxf/api/v1/projects/{id}/counters |
 | --- | --- |
-| **Filtr** | counterIdnamevaluelimit |
-| **Řazení** | counterIdnamevaluelimit |
+| **Filtr** | counterId<br/>name<br/>value<br/>limit |
+| **Řazení** | counterId<br/>name<br/>value<br/>limit |
 | **Fulltext** | Ne |
 | **Katalog** | name |
 
@@ -750,8 +750,8 @@ Vrátí seznam všech služeb (včetně parametrů), které jsou přiřazeny pro
 
 | **URL** | GET http://\<URL\>/cxf/api/v1/projects/{id}/services |
 | --- | --- |
-| **Filtr** | custServiceIdcustServiceNametarifIdtarifNamecustomerIdproductElementIdserviceActivationTimesuspendedsuspendTimeresumeTimeenableddeviceServiceIddiscontinueddiscontinuationTime |
-| **Řazení** | custServiceIdcustServiceNametarifIdtarifNamecustomerIdproductElementIdserviceActivationTimesuspendedsuspendTimeresumeTimeenableddeviceServiceIddiscontinueddiscontinuationTime |
+| **Filtr** | custServiceId<br/>custServiceName<br/>tarifId<br/>tarifName<br/>customerId<br/>productElementId<br/>serviceActivationTime<br/>suspended<br/>suspendTime<br/>resumeTime<br/>enabled<br/>deviceServiceId<br/>discontinued<br/>discontinuationTime |
+| **Řazení** | custServiceId<br/>custServiceName<br/>tarifId<br/>tarifName<br/>customerId<br/>productElementId<br/>serviceActivationTime<br/>suspended<br/>suspendTime<br/>resumeTime<br/>enabled<br/>deviceServiceId<br/>discontinued<br/>discontinuationTime |
 | **Fulltext** | Ano |
 | **Katalog** | data.parameters.name |
 
@@ -783,8 +783,8 @@ Vrátí analytický přehled skupin zařízení.
 
 | **URL** | GET http://\<URL\>/cxf/api/v1/projects/{id}/device-groups/overview |
 | --- | --- |
-| **Filtr** | deviceGroupIddeviceGroupNameenabledlastEnableTimelastDisableTime |
-| **Řazení** | deviceGroupIddeviceGroupNameenabledlastEnableTimelastDisableTime |
+| **Filtr** | deviceGroupId<br/>deviceGroupName<br/>enabled<br/>lastEnableTime<br/>lastDisableTime |
+| **Řazení** | deviceGroupId<br/>deviceGroupName<br/>enabled<br/>lastEnableTime<br/>lastDisableTime |
 | **Fulltext** | Ne |
 | **Katalog** |
 
@@ -798,8 +798,8 @@ Vrátí seznam všech http endpointů (včetně parametrů, tagů, atributů a s
 
 | **URL** | GET http://\<URL\>/cxf/api/v1/http/endpoints |
 | --- | --- |
-| **Filtr** | custDestIdprojectIdcustDestNamecustDestEnabledtransformationIdlastSuccessfulDeliveryfailedDeliveries |
-| **Řazení** | custDestIdprojectIdcustDestNamecustDestEnabledtransformationIdlastSuccessfulDeliveryfailedDeliveries |
+| **Filtr** | custDestId<br/>projectId<br/>custDestName<br/>custDestEnabled<br/>transformationId<br/>lastSuccessfulDelivery<br/>failedDeliveries |
+| **Řazení** | custDestId<br/>projectId<br/>custDestName<br/>custDestEnabled<br/>transformationId<br/>lastSuccessfulDelivery<br/>failedDeliveries |
 | **Fulltext** | Ano |
 | **Katalog** |
 
@@ -868,8 +868,8 @@ Parametr from je validován konstantou 2021-04-20 06:26 V případě požadavku 
 
 | **URL** | GET http://\<URL\>/cxf/api/v1/http​/endpoints​/{id}​/deliveries |
 | --- | --- |
-| **Filtr** | messageIdtransformationIdcodeerror |
-| **Řazení** | messageIdtransformationIdrequestTime |
+| **Filtr** | messageId<br/>transformationId<br/>code<br/>error |
+| **Řazení** | messageId<br/>transformationId<br/>requestTime |
 | **Fulltext** | Ne |
 | **Katalog** |
 
@@ -883,8 +883,8 @@ Parametr from je validován konstantou 2021-04-20 06:26 V případě požadavku 
 
 | **URL** | GET http://\<URL\>/cxf/api/v1/http​/endpoints​/{id}​/deliveries/full-detail |
 | --- | --- |
-| **Filtr** | messageIdtransformationIdcodeerrorcustDeviceName |
-| **Řazení** | messageIdtransformationIdrequestTime |
+| **Filtr** | messageId<br/>transformationId<br/>code<br/>error<br/>custDeviceName |
+| **Řazení** | messageId<br/>transformationId<br/>requestTime |
 | **Fulltext** | Ne |
 | **Katalog** |
 
@@ -931,8 +931,8 @@ Vrátí seznam všech mqtt gateways (včetně parametrů, tagů, atributů a sez
 
 | **URL** | GET http://\<URL\>/cxf/api/v1/mqtt/gateways |
 | --- | --- |
-| **Filtr** | custDestIdprojectIdcustDestNamecustDestEnabledtransformationIdlastSuccessfulDeliveryfailedDeliveries |
-| **Řazení** | custDestIdprojectIdcustDestNamecustDestEnabledtransformationIdlastSuccessfulDeliveryfailedDeliveries |
+| **Filtr** | custDestId<br/>projectId<br/>custDestName<br/>custDestEnabled<br/>transformationId<br/>lastSuccessfulDelivery<br/>failedDeliveries |
+| **Řazení** | custDestId<br/>projectId<br/>custDestName<br/>custDestEnabled<br/>transformationId<br/>lastSuccessfulDelivery<br/>failedDeliveries |
 | **Fulltext** | Ano |
 | **Katalog** |
 
@@ -1001,8 +1001,8 @@ Parametr from je validován konstantou 2021-04-20 06:26 V případě požadavku 
 
 | **URL** | GET http://\<URL\>/cxf/api/v1/mqtt​/ gateways ​/{id}​/deliveries |
 | --- | --- |
-| **Filtr** | messageIdtransformationIdcodeerror |
-| **Řazení** | messageIdtransformationIdrequestTime |
+| **Filtr** | messageId<br/>transformationId<br/>code<br/>error |
+| **Řazení** | messageId<br/>transformationId<br/>requestTime |
 | **Fulltext** | Ne |
 | **Katalog** |
 
@@ -1016,8 +1016,8 @@ Parametr from je validován konstantou 2021-04-20 06:26 V případě požadavku 
 
 | **URL** | GET http://\<URL\>/cxf/api/v1/mqtt​/ gateways ​/{id}​/deliveries/full-detail |
 | --- | --- |
-| **Filtr** | messageIdtransformationIdcodeerrorcustDeviceName |
-| **Řazení** | messageIdtransformationIdrequestTime |
+| **Filtr** | messageId<br/>transformationId<br/>code<br/>error<br/>custDeviceName |
+| **Řazení** | messageId<br/>transformationId<br/>requestTime |
 | **Fulltext** | Ne |
 | **Katalog** |
 
@@ -1053,8 +1053,8 @@ Vrátí seznam všech mqtt zařízení (včetně tagů, atributů a seznamu skup
 
 | **URL** | GET http://\<URL\>/cxf/api/v1/mqtt​/devices​/ |
 | --- | --- |
-| **Filtr** | deviceIdcustDeviceNamecustServiceIdstatusenabledenableTimedisableTimesuspendedsuspendTimeresumeTimeprovisionTimecustomerIdprojectIdlastMessageInlastMessageOuttagsdeviceGroupId |
-| **Řazení** | deviceIdcustDeviceNamecustServiceIdstatusenabledenableTimedisableTimesuspendedsuspendTimeresumeTimeprovisionTimecustomerIdprojectIdlastMessageInlastMessageOuttags |
+| **Filtr** | deviceId<br/>custDeviceName<br/>custServiceId<br/>status<br/>enabled<br/>enableTime<br/>disableTime<br/>suspended<br/>suspendTime<br/>resumeTime<br/>provisionTime<br/>customerId<br/>projectId<br/>lastMessageIn<br/>lastMessageOut<br/>tags<br/>deviceGroupId |
+| **Řazení** | deviceId<br/>custDeviceName<br/>custServiceId<br/>status<br/>enabled<br/>enableTime<br/>disableTime<br/>suspended<br/>suspendTime<br/>resumeTime<br/>provisionTime<br/>customerId<br/>projectId<br/>lastMessageIn<br/>lastMessageOut<br/>tags |
 | **Fulltext** | Ano |
 | **Katalog** |
 
@@ -1267,8 +1267,8 @@ Vrátí seznam všech lora zařízení (včetně tagů, atributů a seznamu skup
 
 | **URL** | GET http://\<URL\>/cxf/api/v1/lora​/devices​/ |
 | --- | --- |
-| **Filtr** | deviceIdcustDeviceNamecustServiceIdstatusenabledenableTimedisableTimesuspendedsuspendTimeresumeTimeprovisionTimecustomerIdprojectIdlastMessageInlastMessageOuttagssignalStrengthbateryStatusdeviceTypedeviceGroupIddeviceStatus |
-| **Řazení** | deviceIdcustDeviceNamecustServiceIdenabledenableTimedisableTimestatussuspendedsuspendTimeresumeTimeprovisionTimecustomerIdprojectIdlastMessageInlastMessageOuttagssignalStrengthbateryStatusdeviceTypedeviceStatus |
+| **Filtr** | deviceId<br/>custDeviceName<br/>custServiceId<br/>status<br/>enabled<br/>enableTime<br/>disableTime<br/>suspended<br/>suspendTime<br/>resumeTime<br/>provisionTime<br/>customerId<br/>projectId<br/>lastMessageIn<br/>lastMessageOut<br/>tags<br/>signalStrength<br/>bateryStatus<br/>deviceType<br/>deviceGroupId<br/>deviceStatus |
+| **Řazení** | deviceId<br/>custDeviceName<br/>custServiceId<br/>enabled<br/>enableTime<br/>disableTime<br/>status<br/>suspended<br/>suspendTime<br/>resumeTime<br/>provisionTime<br/>customerId<br/>projectId<br/>lastMessageIn<br/>lastMessageOut<br/>tags<br/>signalStrength<br/>bateryStatus<br/>deviceType<br/>deviceStatus |
 | **Fulltext** | Ano |
 | **Katalog** |
 
@@ -1405,7 +1405,7 @@ Zjištění stavu importu zařízení.
 
 Výpis stavu counterů na zařízení.
 
-| **URL** | GET http://\<URL\>/cxf/api/v1/lora​/devices /counters |
+| **URL** | GET http://\<URL\>/cxf/api/v1/lora​/devices/counters |
 | --- | --- |
 | **Filtr** |
 | **Řazení** |
@@ -1466,7 +1466,7 @@ Maximální rozpětí mezi query parametry from a to je 31 dní.
 
 | **URL** | GET http://\<URL\>/cxf/api/v1/lora/devices​/{id}​/up​/messages |
 | --- | --- |
-| **Filtr** | dataid |
+| **Filtr** | data<br/>id |
 | **Řazení** | messageTimeid |
 | **Fulltext** | Ne |
 | **Katalog** |
@@ -1551,8 +1551,8 @@ Vrátí seznam všech skupin zařízení (včetně tagů a atributů).
 
 | **URL** | GET http://\<URL\>/cxf/api/v1/device-groups |
 | --- | --- |
-| **Filtr** | deviceGroupIdprojectIddeviceGroupNameenabledlastEnableTimelastDisableTime |
-| **Řazení** | deviceGroupIdprojectIddeviceGroupNameenabledlastEnableTimelastDisableTime |
+| **Filtr** | deviceGroupId<br/>projectId<br/>deviceGroupName<br/>enabled<br/>lastEnableTime<br/>lastDisableTime |
+| **Řazení** | deviceGroupId<br/>projectId<br/>deviceGroupName<br/>enabled<br/>lastEnableTime<br/>lastDisableTime |
 | **Fulltext** | Ano |
 | **Katalog** |
 
@@ -1639,8 +1639,8 @@ Výpis zjednodušeného seznamu zařízení přiřazených ke skupině. Pro deta
 
 | **URL** | GET http://\<URL\>/cxf/api/v1/device-groups​/devices |
 | --- | --- |
-| **Filtr** | deviceIddeviceProtocolprojectIdcustDeviceName |
-| **Řazení** | deviceIddeviceProtocolprojectIdcustDeviceName |
+| **Filtr** | deviceId<br/>deviceProtocol<br/>projectId<br/>custDeviceName |
+| **Řazení** | deviceId<br/>deviceProtocol<br/>projectId<br/>custDeviceName |
 | **Fulltext** | Ano |
 | **Katalog** |
 
@@ -1650,8 +1650,8 @@ Výpis zjednodušeného seznamu endpointů přiřazených ke skupině. Pro detai
 
 | **URL** | GET http://\<URL\>/cxf/api/v1/device-groups​/endpoints |
 | --- | --- |
-| **Filtr** | custDestIdprojectIdcustDestNamecustDestType |
-| **Řazení** | custDestIdprojectIdcustDestNamecustDestType |
+| **Filtr** | custDestId<br/>projectId<br/>custDestName<br/>custDestType |
+| **Řazení** | custDestId<br/>projectId<br/>custDestName<br/>custDestType |
 | **Fulltext** | Ano |
 | **Katalog** |
 
@@ -1707,8 +1707,8 @@ Vrátí seznam všech uživatelů (včetně práv a parametrů).
 
 | **URL** | GET http://\<URL\>/cxf/api/v1/users |
 | --- | --- |
-| **Filtr** | userIdfirstNamelastNamephoneemailcustomerIdprojectId |
-| **Řazení** | userIdfirstNamelastNamephoneemail |
+| **Filtr** | userId<br/>firstName<br/>lastName<br/>phone<br/>email<br/>customerId<br/>projectId |
+| **Řazení** | userId<br/>firstName<br/>lastName<br/>phone<br/>email |
 | **Fulltext** | Ano |
 | **Katalog** |
 
@@ -1879,8 +1879,8 @@ parameters obsahuje páry klíč hodnota dle placeholderů v textu dané katalog
 
 | **URL** | GET http://\<URL\>/cxf/api/v1/audits |
 | --- | --- |
-| **Filtr** | customerIdprojectIdcodeleveltimestamporiginatorsource |
-| **Řazení** | customerIdprojectIdcodeleveltimestamporiginatorsource |
+| **Filtr** | customerId<br/>projectId<br/>code<br/>level<br/>timestamp<br/>originator<br/>source |
+| **Řazení** | customerId<br/>projectId<br/>code<br/>level<br/>timestamp<br/>originator<br/>source |
 | **Fulltext** | Ano |
 | **Katalog** | code |
 
@@ -1892,8 +1892,8 @@ parameters obsahuje páry klíč hodnota dle placeholderů v textu dané katalog
 
 | **URL** | GET http://\<URL\>/cxf/api/v1/audits​/customers​/{customerId} |
 | --- | --- |
-| **Filtr** | customerIdprojectIdcodeleveltimespamporiginatorsource |
-| **Řazení** | customerIdprojectIdcodeleveltimespamporiginatorsource |
+| **Filtr** | customerId<br/>projectId<br/>code<br/>level<br/>timespamp<br/>originator<br/>source |
+| **Řazení** | customerId<br/>projectId<br/>code<br/>level<br/>timespamp<br/>originator<br/>source |
 | **Fulltext** | Ano |
 | **Katalog** | code |
 
@@ -1905,8 +1905,8 @@ parameters obsahuje páry klíč hodnota dle placeholderů v textu dané katalog
 
 | **URL** | GET http://\<URL\>/cxf/api/v1/audits​/projects​/{projectId} |
 | --- | --- |
-| **Filtr** | customerIdprojectIdcodeleveltimestamporiginatorsource |
-| **Řazení** | customerIdprojectIdcodeleveltimestamporiginatorsource |
+| **Filtr** | customerId<br/>projectId<br/>code<br/>level<br/>timestamp<br/>originator<br/>source |
+| **Řazení** | customerId<br/>projectId<br/>code<br/>level<br/>timestamp<br/>originator<br/>source |
 | **Fulltext** | Ano |
 | **Katalog** | code |
 
@@ -1918,8 +1918,8 @@ parameters obsahuje páry klíč hodnota dle placeholderů v textu dané katalog
 
 | **URL** | GET http://\<URL\>/cxf/api/v1/audits​/devices​/{protocol}/{deviceId} |
 | --- | --- |
-| **Filtr** | customerIdprojectIdcodeleveltimespamporiginatorsource |
-| **Řazení** | customerIdprojectIdcodeleveltimespamporiginatorsource |
+| **Filtr** | customerId<br/>projectId<br/>code<br/>level<br/>timestamp<br/>originator<br/>source |
+| **Řazení** | customerId<br/>projectId<br/>code<br/>level<br/>timestamp<br/>originator<br/>source |
 | **Fulltext** | Ano |
 | **Katalog** | code |
 
@@ -1931,8 +1931,8 @@ parameters obsahuje páry klíč hodnota dle placeholderů v textu dané katalog
 
 | **URL** | GET http://\<URL\>/cxf/api/v1/audits​/device-groups​/{groupId} |
 | --- | --- |
-| **Filtr** | customerIdprojectIdcodeleveltimespamporiginatorsource |
-| **Řazení** | customerIdprojectIdcodeleveltimespamporiginatorsource |
+| **Filtr** | customerId<br/>projectId<br/>code<br/>level<br/>timestamp<br/>originator<br/>source |
+| **Řazení** | customerId<br/>projectId<br/>code<br/>level<br/>timestamp<br/>originator<br/>source |
 | **Fulltext** | Ano |
 | **Katalog** | code |
 
@@ -1946,7 +1946,7 @@ Kompletní seznam tagů.
 
 | **URL** | GET http://\<URL\>/cxf/api/v1/tags/devices |
 | --- | --- |
-| **Filtr** | customerIdprojectIddeviceIdtag |
+| **Filtr** | customerId<br/>projectId<br/>deviceId<br/>tag |
 | **Řazení** | tag |
 | **Fulltext** | Ano |
 | **Katalog** |
@@ -1961,7 +1961,7 @@ Kompletní seznam atributů.
 
 | **URL** | GET http://\<URL\>/cxf/api/v1/tags/devices |
 | --- | --- |
-| **Filtr** | customerIdprojectIddeviceIdattributevalue |
+| **Filtr** | customerId<br/>projectId<br/>deviceId<br/>attribute<br/>value |
 | **Řazení** | attribute |
 | **Fulltext** | Ano |
 | **Katalog** |
