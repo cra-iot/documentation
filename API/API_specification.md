@@ -30,8 +30,6 @@
 
 [2.11 Obecné](#obecné)
 
-[2.12 Interní poznámky](#interní-poznámky)
-
 [3 API](#api)
 
 [3.1 Customers](#customers)
@@ -323,27 +321,19 @@ Následující kapitola popisuje základní pravidla pro použití API, jako ov�
 
 U všech volání je vyžadováno ověření volajícího pomocí metody _Bearer authorization_, kde token je OpenId token získaný ověřením na SSO. Tzn., že každé volání musí obsahovat hlavičku authorization, např.:
 
+```
 curl --request GET \
-
---url http://localhost:8185/cxf/api/v1/customers \
-
+--url http://api.:8185/cxf/api/v1/customers \
 --header'authorization: Bearer eyJhbGciOiJSUzI1 …' \
-
 Access\_token získáte požadavkem na naši SSO platformu takto:
-
 POST '[https://sso.cra.cz/auth/realms/CRA/protocol/openid-connect/token](https://sso.cra.cz/auth/realms/CRA/protocol/openid-connect/token)' \
-
 --header 'Content-Type: application/x-www-form-urlencoded' \
-
 --data-urlencode 'username=\>' \
-
 --data-urlencode 'password=\>' \
-
 --data-urlencode 'grant\_type=password' \
-
 --data-urlencode 'client\_id=iot-api-client' \
-
 --data-urlencode 'client\_secret=41a113b7-5486-45e3-8a3d-e0b106a5d446'
+```
 
 Detailní popis autentizačního API najdete zde: [API Documentation Red Hat Single Sign-On 7.2 | Red Hat Customer Portal](https://access.redhat.com/documentation/en-us/red_hat_single_sign-on/7.2/html/api_documentation/index)
 
@@ -359,11 +349,11 @@ Standardně volání také vracejí celkový počet záznamů, viz kapitola 2.9.
 
 Seznam konkrétních atributů, přes které lze v daném volání řadit, je vždy uveden u konkrétního volání.
 
+```
 curl --request GET \
-
 --url http://localhost:8185/cxf/api/v1/customers?sort=- customerName \
-
 --header'authorization: Bearer dXNlcjpw…' \
+```
 
 ## Filtrace
 
@@ -465,44 +455,27 @@ Standardní JSON odpověď JSON u GET metod obsahuje následující atributy:
 
 Příklad:
 
+```JSON
 {
-
-"status": "success",
-
-"metadata": {
-
-"count": 1,
-
-"result": 1
-
-},
-
-"data": [
-
-{
-
-"deviceGroupId": 634,
-
-…
-
-"links": {
-
-"self": "/cxf/api/v1/devices/FA3134WQWE"
-
+  "status": "success",
+  "metadata": {
+    "count": 1,
+    "result": 1
+  },
+  "data": [
+    {
+      "deviceGroupId": 634,
+      …
+      "links": {
+        "self": "/cxf/api/v1/device-groups/634"
+      }
+    }
+  ],
+  "links": {
+    "self": "/cxf/api/v1/device-groups"
+  }
 }
-
-}
-
-],
-
-"links": {
-
-"self": "/cxf/api/v1/devices"
-
-}
-
-}
-
+```
 
 ## Standardní Error Response
 
@@ -510,19 +483,15 @@ Standartní chybová odpověď obsahuje následující JSON (viz swagger).
 
 Příklad:
 
+```
 {
-
-"code": 100,
-
-"status": "error",
-
-"errors": [
-
-"error"
-
-]
-
+  "code": 100,
+  "status": "error",
+  "errors": [
+    "error"
+  ]
 }
+```
 
 status je vždy error
 
