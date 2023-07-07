@@ -319,7 +319,7 @@ Tento dokument slouží jako doprovodný dokument k dodanému swagger. Definuje 
 Následující kapitola popisuje základní pravidla pro použití API, jako ověření, filtrace, atd.
 
 
-# Ověření
+## Ověření
 
 U všech volání je vyžadováno ověření volajícího pomocí metody _Bearer authorization_, kde token je OpenId token získaný ověřením na SSO. Tzn., že každé volání musí obsahovat hlavičku authorization, např.:
 
@@ -347,13 +347,13 @@ POST '[https://sso.cra.cz/auth/realms/CRA/protocol/openid-connect/token](https:/
 
 Detailní popis autentizačního API najdete zde: [API Documentation Red Hat Single Sign-On 7.2 | Red Hat Customer Portal](https://access.redhat.com/documentation/en-us/red_hat_single_sign-on/7.2/html/api_documentation/index)
 
-# Pagination
+## Pagination
 
 Volání, která podporují stránkování, obsahují ve specifikaci query parametr offset a limit. Limit definuje maximální počet vrácených záznamů a Offset stanovuje číslo záznamu (v rámci řazení), od kterého budou záznamy vráceny.
 
 Standardně volání také vracejí celkový počet záznamů, viz kapitola 2.9.
 
-# Řazení
+## Řazení
 
 Řazení dat je definováno pomocí query parametru sort. Ten specifikuje atribut, přes který je požadováno řazení, kdy tento je uvozen znakem + popř. jeho reprezentace jako %2F pro vzestupné řazení (implicitní), resp. – pro sestupné řazení.
 
@@ -365,7 +365,7 @@ curl --request GET \
 
 --header'authorization: Bearer dXNlcjpw…' \
 
-# Filtrace
+## Filtrace
 
 Seznam konkrétních atributů, přes které lze v daném volání řadit, je vždy uveden u konkrétního volání.
 
@@ -392,7 +392,7 @@ Pokud je uveden více než jeden filtrační parametr, tak tyto jsou spojeny pom
 
 Pokud je třeba filtrovat prázdné hodnoty, lze pomocí kombinace eq a NULL. Příklad: batteryStatus[eq]=NULL
 
-# Fulltextové vyhledávání
+## Fulltextové vyhledávání
 
 Fulltextové vyhledávání je prováděno pomocí query parametru search. U relevantního volání je vždy uvedeno, zda umožňuje fulltextové vyhledávání.
 
@@ -434,13 +434,13 @@ search="České Ra"
 | --- |
 | České Radiokomunikace a.s. |
 
-# Našeptávače
+## Našeptávače
 
 Pokud je pro daný resource implementován _našeptávač_, tak existuje URI \*/suggestions. Jako query parametr je použít atribut search, popsaný v kapitole 2.6.
 
 Našeptávač vrátí vždy maximálně prvních 5 záznamů. Našeptávače podporují pouze vyhledávání pomocí výrazu _text\*_, např. Elektro\*
 
-# Lokalizace
+## Lokalizace
 
 Lokalizace se předpokládá na úrovni GUI dle předaného katalogu. Pokud API předává text, u kterého je třeba lokalizace, uvede do daného řetězce kód textu z katalogu, např. MQTT-INVALIDADDRESSFORMAT.
 
@@ -452,7 +452,7 @@ Katalogové hláška - MQTT-DUPLICITDEVICE – Zařízení %deviceId% již exist
 
 Chybové hlášení z API - MQTT-DUPLICITDEVICE,951DCE3092180032
 
-# Standardní Success Response u GET
+## Standardní Success Response u GET
 
 Standardní JSON odpověď JSON u GET metod obsahuje následující atributy:
 
@@ -504,7 +504,7 @@ Příklad:
 }
 
 
-# Standardní Error Response
+## Standardní Error Response
 
 Standartní chybová odpověď obsahuje následující JSON (viz swagger).
 
@@ -530,14 +530,14 @@ Pokud je hodnota code \<= 100, pak se jedná o interní chybu (např. špatně p
 
 Pokud je hodnotacode \> 100, jedná se o uživatelskou chybu a v atributuerrors budou kódy z katalogu a případně parametry dle specifikace v kapitole 2.8.
 
-# Indikace v komentářích Swagger
+## Indikace v komentářích Swagger
 
 | **Zkratka** | Význam |
 | --- | --- |
 | INT | Interní atribut |
 | **NYI** | Zatím není implementováno |
 
-# Obecné
+## Obecné
 
 Pokud se v rámci popisu API hovoří o vrácení _všech_ záznamů (případně kompletním seznamu), tak se vždy jedná o kompletní seznam v rámci práv daného uživatele.
 
@@ -549,13 +549,6 @@ Doplňující tabulka v jednotlivých volání:
 | **Řazení** | Seznam atributů, nad kterými lze řadit |
 | **Fulltext** | Zda je možné použít query parametrsearch |
 | **Katalog** | Seznam atributů, které obsahují hlášku z katalogu k lokalizaci |
-
-# Interní poznámky
-
-Interní poznámky, u kterých se neočekává zveřejnění:
-
-- Call PUT /projects/{id}/parameters (kapitola 3.3.6) je docela komplexní a velmi spoléhá na znalost IoT business na counterů. Domnívám se, že možná v této podobě není ke zveřejnění pro někoho, kdo nezná aplikaci.
--
 
 # API
 
