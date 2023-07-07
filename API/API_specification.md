@@ -314,12 +314,11 @@
 
 Tento dokument slouží jako doprovodný dokument k dodanému swagger. Definuje základy použití API a také v případě potřeby upřesňuje použití konkrétních REST volání.
 
-1.
 # Základní pravidla API
 
 Následující kapitola popisuje základní pravidla pro použití API, jako ověření, filtrace, atd.
 
-  1.
+
 # Ověření
 
 U všech volání je vyžadováno ověření volajícího pomocí metody _Bearer authorization_, kde token je OpenId token získaný ověřením na SSO. Tzn., že každé volání musí obsahovat hlavičku authorization, např.:
@@ -348,14 +347,12 @@ POST '[https://sso.cra.cz/auth/realms/CRA/protocol/openid-connect/token](https:/
 
 Detailní popis autentizačního API najdete zde: [API Documentation Red Hat Single Sign-On 7.2 | Red Hat Customer Portal](https://access.redhat.com/documentation/en-us/red_hat_single_sign-on/7.2/html/api_documentation/index)
 
-  1.
 # Pagination
 
 Volání, která podporují stránkování, obsahují ve specifikaci query parametr offset a limit. Limit definuje maximální počet vrácených záznamů a Offset stanovuje číslo záznamu (v rámci řazení), od kterého budou záznamy vráceny.
 
 Standardně volání také vracejí celkový počet záznamů, viz kapitola 2.9.
 
-  1.
 # Řazení
 
 Řazení dat je definováno pomocí query parametru sort. Ten specifikuje atribut, přes který je požadováno řazení, kdy tento je uvozen znakem + popř. jeho reprezentace jako %2F pro vzestupné řazení (implicitní), resp. – pro sestupné řazení.
@@ -368,7 +365,6 @@ curl --request GET \
 
 --header'authorization: Bearer dXNlcjpw…' \
 
-  1.
 # Filtrace
 
 Seznam konkrétních atributů, přes které lze v daném volání řadit, je vždy uveden u konkrétního volání.
@@ -396,7 +392,6 @@ Pokud je uveden více než jeden filtrační parametr, tak tyto jsou spojeny pom
 
 Pokud je třeba filtrovat prázdné hodnoty, lze pomocí kombinace eq a NULL. Příklad: batteryStatus[eq]=NULL
 
-  1.
 # Fulltextové vyhledávání
 
 Fulltextové vyhledávání je prováděno pomocí query parametru search. U relevantního volání je vždy uvedeno, zda umožňuje fulltextové vyhledávání.
@@ -439,14 +434,12 @@ search="České Ra"
 | --- |
 | České Radiokomunikace a.s. |
 
-  1.
 # Našeptávače
 
 Pokud je pro daný resource implementován _našeptávač_, tak existuje URI \*/suggestions. Jako query parametr je použít atribut search, popsaný v kapitole 2.6.
 
 Našeptávač vrátí vždy maximálně prvních 5 záznamů. Našeptávače podporují pouze vyhledávání pomocí výrazu _text\*_, např. Elektro\*
 
-  1.
 # Lokalizace
 
 Lokalizace se předpokládá na úrovni GUI dle předaného katalogu. Pokud API předává text, u kterého je třeba lokalizace, uvede do daného řetězce kód textu z katalogu, např. MQTT-INVALIDADDRESSFORMAT.
@@ -459,7 +452,6 @@ Katalogové hláška - MQTT-DUPLICITDEVICE – Zařízení %deviceId% již exist
 
 Chybové hlášení z API - MQTT-DUPLICITDEVICE,951DCE3092180032
 
-  1.
 # Standardní Success Response u GET
 
 Standardní JSON odpověď JSON u GET metod obsahuje následující atributy:
@@ -511,7 +503,7 @@ Příklad:
 
 }
 
-  1.
+
 # Standardní Error Response
 
 Standartní chybová odpověď obsahuje následující JSON (viz swagger).
@@ -538,7 +530,6 @@ Pokud je hodnota code \<= 100, pak se jedná o interní chybu (např. špatně p
 
 Pokud je hodnotacode \> 100, jedná se o uživatelskou chybu a v atributuerrors budou kódy z katalogu a případně parametry dle specifikace v kapitole 2.8.
 
-  1.
 # Indikace v komentářích Swagger
 
 | **Zkratka** | Význam |
@@ -546,7 +537,6 @@ Pokud je hodnotacode \> 100, jedná se o uživatelskou chybu a v atributuerrors 
 | INT | Interní atribut |
 | **NYI** | Zatím není implementováno |
 
-  1.
 # Obecné
 
 Pokud se v rámci popisu API hovoří o vrácení _všech_ záznamů (případně kompletním seznamu), tak se vždy jedná o kompletní seznam v rámci práv daného uživatele.
@@ -560,7 +550,6 @@ Doplňující tabulka v jednotlivých volání:
 | **Fulltext** | Zda je možné použít query parametrsearch |
 | **Katalog** | Seznam atributů, které obsahují hlášku z katalogu k lokalizaci |
 
-  1.
 # Interní poznámky
 
 Interní poznámky, u kterých se neočekává zveřejnění:
@@ -568,13 +557,10 @@ Interní poznámky, u kterých se neočekává zveřejnění:
 - Call PUT /projects/{id}/parameters (kapitola 3.3.6) je docela komplexní a velmi spoléhá na znalost IoT business na counterů. Domnívám se, že možná v této podobě není ke zveřejnění pro někoho, kdo nezná aplikaci.
 -
 
-1.
 # API
 
-  1.
 # Customers
 
-    1.
 # GET ​/customers
 
 Kompletní seznam zákazníků.
@@ -587,7 +573,6 @@ Kompletní seznam zákazníků.
 | **Katalog** |
  |
 
-    1.
 # GET /customers​/{id}
 
 Informace o konkrétním zákazníkovi.
@@ -602,7 +587,6 @@ Informace o konkrétním zákazníkovi.
 | **Katalog** |
  |
 
-    1.
 # GET /customers​/{id}​/services
 
 Vrátí seznam všech nasmlouvaných služeb zákazníka (včetně parametrů).
@@ -614,7 +598,6 @@ Vrátí seznam všech nasmlouvaných služeb zákazníka (včetně parametrů).
 | **Fulltext** | Ano |
 | **Katalog** | data.parameters.name |
 
-    1.
 # GET /customers​/{id}​/projects
 
 Vrátí seznam všech projektů (včetně parametrů) daného zákazníka.
@@ -626,10 +609,8 @@ Vrátí seznam všech projektů (včetně parametrů) daného zákazníka.
 | **Fulltext** | Ano |
 | **Katalog** | data.parameters.name |
 
-  1.
 # Services
 
-    1.
 # GET /services
 
 Vrátí seznam všech služeb (včetně parametrů).
@@ -641,7 +622,6 @@ Vrátí seznam všech služeb (včetně parametrů).
 | **Fulltext** | Ano |
 | **Katalog** | data.parameters.name |
 
-    1.
 # GET ​/services​/{id}
 
 Informace o konkrétní službě (včetně parametrů).
@@ -655,7 +635,6 @@ Informace o konkrétní službě (včetně parametrů).
 | **Fulltext** | Ne |
 | **Katalog** | data.parameters.name |
 
-    1.
 # GET ​/services​/{id}​/counters
 
 Stav counterů dané služby.
@@ -667,7 +646,6 @@ Stav counterů dané služby.
 | **Fulltext** | Ne |
 | **Katalog** | data.name |
 
-    1.
 # GET ​/services​/{id}​/projects
 
 Vrátí seznam všech projektů (včetně parametrů), které mají přiřazenu danou službu.
@@ -679,7 +657,6 @@ Vrátí seznam všech projektů (včetně parametrů), které mají přiřazenu 
 | **Fulltext** | Ano |
 | **Katalog** | data.parameters.name |
 
-    1.
 # POST ​/services​/{id}​/projects​/{projectId}​/assign
 
 Přiřadí službu na projekt. Bez této akce nelze v rámci daného projektu čerpat danou službu a importovat na ni zařízení.
@@ -694,7 +671,6 @@ Přiřadí službu na projekt. Bez této akce nelze v rámci daného projektu č
 | **Katalog** |
  |
 
-    1.
 # DELETE ​/services​/{id}​/projects​/{projectId}​/assign
 
 Odebere službu z projektu. Nelze provést, pokud existují zařízení, která jsou na tuto službu přiřazena.
@@ -709,7 +685,6 @@ Odebere službu z projektu. Nelze provést, pokud existují zařízení, která 
 | **Katalog** |
  |
 
-    1.
 # POST ​/services​/{id}​/devices​/{protocol}/{deviceId}​/assign
 
 Migrace zařízení na novou službu v rámci stejného projektu a zákazníka. Projekt musí mít cílovou službu k dispozici.
@@ -724,10 +699,8 @@ Migrace zařízení na novou službu v rámci stejného projektu a zákazníka. 
 | **Katalog** |
  |
 
-  1.
 # Projects
 
-    1.
 # GET ​/projects
 
 Vrátí seznam všech projektů (včetně parametrů).
@@ -739,7 +712,6 @@ Vrátí seznam všech projektů (včetně parametrů).
 | **Fulltext** | Ano |
 | **Katalog** | data.parameters.name |
 
-    1.
 # POST ​/projects
 
 Založení nového projektu. Akce obvykle trvá déle (10-20s), protože je třeba provést např. založení databáze, atd.
@@ -754,7 +726,6 @@ Založení nového projektu. Akce obvykle trvá déle (10-20s), protože je tře
 | **Katalog** |
  |
 
-    1.
 # GET ​/projects​/{id}
 
 Informace o projektu včetně parametrů.
@@ -768,7 +739,6 @@ Informace o projektu včetně parametrů.
 | **Fulltext** | Ne |
 | **Katalog** | data.parameters.name |
 
-    1.
 # PUT ​/projects​/{id}
 
 Aktualizace atributů projektu.
@@ -783,7 +753,6 @@ Aktualizace atributů projektu.
 | **Katalog** |
  |
 
-    1.
 # DELETE ​/projects​/{id}
 
 Zrušení projektu. Projekt nelze zrušit, pokud obsahuje některý z podřízených objektů, jako zařízení, endpoint, skupinu zařízení, atd.
@@ -798,7 +767,6 @@ Zrušení projektu. Projekt nelze zrušit, pokud obsahuje některý z podřízen
 | **Katalog** |
  |
 
-    1.
 # PUT ​/projects​/{id}​/parameters
 
 Editace parametrů projektu. Tato funkcionalita je dostupná pouze zákazníkům typu _Reseller_.
@@ -827,7 +795,6 @@ Přípustné atributy:
 
 _Další specifika je třeba konzultovat se zadavatelem._
 
-    1.
 # GET ​/projects​/{id}​/counters
 
 Informace o konkrétní službě (včetně parametrů).
@@ -839,7 +806,6 @@ Informace o konkrétní službě (včetně parametrů).
 | **Fulltext** | Ne |
 | **Katalog** | name |
 
-    1.
 # GET ​/projects​/{id}​/services
 
 Vrátí seznam všech služeb (včetně parametrů), které jsou přiřazeny projektu.
@@ -851,7 +817,6 @@ Vrátí seznam všech služeb (včetně parametrů), které jsou přiřazeny pro
 | **Fulltext** | Ano |
 | **Katalog** | data.parameters.name |
 
-    1.
 # GET ​/projects​/{id}​/endpoints​/overview
 
 Analytický přehled o endpointech na projektu.
@@ -866,7 +831,6 @@ Analytický přehled o endpointech na projektu.
 | **Katalog** |
  |
 
-    1.
 # GET ​/projects​/{id}​/devices​/overview
 
 Vrátí analytický přehled o zařízeních na projektu.
@@ -881,7 +845,6 @@ Vrátí analytický přehled o zařízeních na projektu.
 | **Katalog** |
  |
 
-    1.
 # GET /projects/{id}/device-groups/overview
 
 Vrátí analytický přehled skupin zařízení.
@@ -894,13 +857,10 @@ Vrátí analytický přehled skupin zařízení.
 | **Katalog** |
  |
 
-  1.
 # HTTP
 
-    1.
 # Endpoints
 
-      1.
 # GET /http​/endpoints
 
 Vrátí seznam všech http endpointů (včetně parametrů, tagů, atributů a seznamu skupin, do kterých je přiřazen).
@@ -913,7 +873,6 @@ Vrátí seznam všech http endpointů (včetně parametrů, tagů, atributů a s
 | **Katalog** |
  |
 
-      1.
 # POST ​/http​/endpoints
 
 Založení http endpointu.
@@ -928,7 +887,6 @@ Založení http endpointu.
 | **Katalog** |
  |
 
-      1.
 # GET ​/http​/endpoints​/suggestions
 
 Našeptávač k http endpointům.
@@ -942,7 +900,6 @@ Našeptávač k http endpointům.
 | **Katalog** |
  |
 
-      1.
 # GET ​/http​/endpoints​/{id}
 
 Vrátí informace o http endpointu (včetně parametrů, tagů, atributů a seznamu skupin, do kterých je přiřazen).
@@ -957,7 +914,6 @@ Vrátí informace o http endpointu (včetně parametrů, tagů, atributů a sezn
 | **Katalog** |
  |
 
-      1.
 # PUT ​/http​/endpoints​/{id}
 
 Aktualizace nastavení http endpointu.
@@ -972,7 +928,6 @@ Aktualizace nastavení http endpointu.
 | **Katalog** |
  |
 
-      1.
 # DELETE ​/http​/endpoints​/{id}
 
 Výmaz http endpointu. Nelze provést, pokud je endpoint přiřazen skupině zařízení.
@@ -987,7 +942,6 @@ Výmaz http endpointu. Nelze provést, pokud je endpoint přiřazen skupině za�
 | **Katalog** |
  |
 
-      1.
 # GET ​/http​/endpoints​/{id}​/deliveries
 
 Zobrazení doručení zpráv na endpoint.
@@ -1004,7 +958,6 @@ Parametr from je validován konstantou 2021-04-20 06:26 V případě požadavku 
 | **Katalog** |
  |
 
-      1.
 # GET ​/http​/endpoints​/{id}​/deliveries/full-detail
 
 Zobrazení doručení zpráv na endpoint včetně obsahu zpráv a ID zařízení.
@@ -1021,7 +974,6 @@ Parametr from je validován konstantou 2021-04-20 06:26 V případě požadavku 
 | **Katalog** |
  |
 
-      1.
 # POST ​/http​/endpoints​/{id}​/ping
 
 Test http endpointu. Zašle požadavek dle specifikace a vrátí odpověď.
@@ -1036,7 +988,6 @@ Test http endpointu. Zašle požadavek dle specifikace a vrátí odpověď.
 | **Katalog** |
  |
 
-      1.
 # [NYI] PUT ​/http​/endpoints​/{id}​/tags
 
 Aktualizace tagů endpointu.
@@ -1051,7 +1002,6 @@ Aktualizace tagů endpointu.
 | **Katalog** |
  |
 
-      1.
 # [NYI] PUT ​/http​/endpoints​/{id}​/attributes
 
 Aktualizace atributů endpointu.
@@ -1066,13 +1016,10 @@ Aktualizace atributů endpointu.
 | **Katalog** |
  |
 
-  1.
 # MQTT
 
-    1.
 # Gateways
 
-      1.
 # GET /mqtt​/gateways
 
 Vrátí seznam všech mqtt gateways (včetně parametrů, tagů, atributů a seznamu skupin, do kterých je přiřazen).
@@ -1085,7 +1032,6 @@ Vrátí seznam všech mqtt gateways (včetně parametrů, tagů, atributů a sez
 | **Katalog** |
  |
 
-      1.
 # POST ​/mqtt​/gateways
 
 Založení mqtt gateway.
@@ -1100,7 +1046,6 @@ Založení mqtt gateway.
 | **Katalog** |
  |
 
-      1.
 # GET ​/mqtt​/gateways ​/suggestions
 
 Našeptávač k mqtt gateways.
@@ -1114,7 +1059,6 @@ Našeptávač k mqtt gateways.
 | **Katalog** |
  |
 
-      1.
 # GET ​/mqtt​/gateways ​/{id}
 
 Vrátí informace o mqtt gateway (včetně parametrů, tagů, atributů a seznamu skupin, do kterých je přiřazen).
@@ -1129,7 +1073,6 @@ Vrátí informace o mqtt gateway (včetně parametrů, tagů, atributů a seznam
 | **Katalog** |
  |
 
-      1.
 # PUT ​/mqtt​/gateways ​/{id}
 
 Aktualizace nastavení mqtt gateway.
@@ -1144,7 +1087,6 @@ Aktualizace nastavení mqtt gateway.
 | **Katalog** |
  |
 
-      1.
 # DELETE ​/mqtt​/gateways ​/{id}
 
 Výmaz mqtt gateway. Nelze provést, pokud je gatewaypřiřazena skupině zařízení.
@@ -1159,7 +1101,6 @@ Výmaz mqtt gateway. Nelze provést, pokud je gatewaypřiřazena skupině zaří
 | **Katalog** |
  |
 
-      1.
 # GET ​/mqtt​/gateways​/{id}​/deliveries
 
 Zobrazení informací jednotlivých pokusech o doručení na gateway.
@@ -1176,7 +1117,6 @@ Parametr from je validován konstantou 2021-04-20 06:26 V případě požadavku 
 | **Katalog** |
  |
 
-      1.
 # GET ​/mqtt​/gateways​/{id}​/deliveries/full-detail
 
 Zobrazení informací jednotlivých pokusech o doručení na gateway, včetně obsahu zpráv a ID zařízení.
@@ -1193,7 +1133,6 @@ Parametr from je validován konstantou 2021-04-20 06:26 V případě požadavku 
 | **Katalog** |
  |
 
-      1.
 # [NYI] PUT ​/mqtt​/gateways​/{id}​/tags
 
 Aktualizace tagů gateway.
@@ -1208,7 +1147,6 @@ Aktualizace tagů gateway.
 | **Katalog** |
  |
 
-      1.
 # [NYI] PUT ​/mqtt​/gateways​/{id}​/attributes
 
 Aktualizace atributů gateways.
@@ -1223,13 +1161,10 @@ Aktualizace atributů gateways.
 | **Katalog** |
  |
 
-  1.
 # MQTT
 
-    1.
 # Devices
 
-      1.
 # GET ​/mqtt​/devices​/
 
 Vrátí seznam všech mqtt zařízení (včetně tagů, atributů a seznamu skupin, do kterých jsou přiřazena).
@@ -1242,7 +1177,6 @@ Vrátí seznam všech mqtt zařízení (včetně tagů, atributů a seznamu skup
 | **Katalog** |
  |
 
-      1.
 # POST ​/mqtt​/devices​/
 
 Import MQTT zařízení (lze importovat více než jedno zařízení najednou). Provádí se asynchronně. Pokud je základní validace úspěšná, je v odpovědi vráceno batchId, přes které se dá dotazovat na stav, viz kapitola 3.6.1.9.
@@ -1259,7 +1193,6 @@ Importní dávka musí obsahovat pouze jednu službu a projekt.
 | **Katalog** |
  |
 
-      1.
 # GET ​/mqtt​/devices​/suggestions
 
 Našeptávač pro MQTT zařízení.
@@ -1273,7 +1206,6 @@ Našeptávač pro MQTT zařízení.
 | **Katalog** |
  |
 
-      1.
 # GET ​/mqtt​/devices​/{id}
 
 Vrátí informace o mqtt zařízení (včetně tagů, atributů a seznamu skupin, do kterých je přiřazeno).
@@ -1288,7 +1220,6 @@ Vrátí informace o mqtt zařízení (včetně tagů, atributů a seznamu skupin
 | **Katalog** |
  |
 
-      1.
 # PUT ​/mqtt​/devices​/{id}
 
 Editace mqtt zařízení.
@@ -1303,7 +1234,6 @@ Editace mqtt zařízení.
 | **Katalog** |
  |
 
-      1.
 # DELETE ​/mqtt​/devices​/{id}
 
 Výmaz mqtt zařízení. Zařízení nelze vymazat, pokud je přiřazeno do skupiny zařízení.
@@ -1318,7 +1248,6 @@ Výmaz mqtt zařízení. Zařízení nelze vymazat, pokud je přiřazeno do skup
 | **Katalog** |
  |
 
-      1.
 # PUT ​/mqtt​/devices​/{id}​/tags
 
 Aktualizace tagů mqtt zařízení.
@@ -1333,7 +1262,6 @@ Aktualizace tagů mqtt zařízení.
 | **Katalog** |
  |
 
-      1.
 # PUT ​/mqtt​/devices​/{id}​/attributes
 
 Aktualizace atributů mqtt zařízení.
@@ -1348,7 +1276,6 @@ Aktualizace atributů mqtt zařízení.
 | **Katalog** |
  |
 
-      1.
 # GET ​/mqtt​/devices​/import​/{id}
 
 Zjištění stavu importu zařízení.
@@ -1362,7 +1289,6 @@ Zjištění stavu importu zařízení.
 | **Fulltext** | Ne |
 | **Katalog** | errors.errorMessage |
 
-      1.
 # GET ​/mqtt​/devices​/{id}​/counters
 
 Výpis stavu counterů na zařízení.
@@ -1376,7 +1302,6 @@ Výpis stavu counterů na zařízení.
 | **Fulltext** | Ne |
 | **Katalog** | name |
 
-      1.
 # POST ​/mqtt​/devices​/{id}​/enable
 
 Povolení zařízení (implicitní stav). Zprávy z takového zařízení jsou přijímány na platformu a jsou doručovány.
@@ -1391,7 +1316,6 @@ Povolení zařízení (implicitní stav). Zprávy z takového zařízení jsou p
 | **Katalog** |
  |
 
-      1.
 # DELETE ​/mqtt​/devices​/{id}​/enable
 
 Pozastavení zařízení. Zprávy z takového zařízení jsou přijímány na platformu, ale nejsou doručovány.
@@ -1406,7 +1330,6 @@ Pozastavení zařízení. Zprávy z takového zařízení jsou přijímány na p
 | **Katalog** |
  |
 
-      1.
 # GET ​/mqtt​/devices​/{id}​/down​/messages
 
 Zobrazení zpráv odeslaných na zařízení.
@@ -1421,7 +1344,6 @@ Maximální rozpětí mezi query parametry from a to je 31 dní.
 | **Katalog** |
  |
 
-      1.
 # POST ​/mqtt​/devices​/{id}​/down​/messages
 
 Odeslání zprávy na MQTT zařízení.
@@ -1436,7 +1358,6 @@ Odeslání zprávy na MQTT zařízení.
 | **Katalog** |
  |
 
-      1.
 # GET /mqtt/devices/{id}/up/messages
 
 Výpis zpráv z MQTT zařízení.
@@ -1451,7 +1372,6 @@ Maximální rozpětí mezi query parametry from a to je 31 dní.
 | **Katalog** |
  |
 
-      1.
 # GET ​/mqtt​/devices​/{id}​/up​/messages/{messageId}/deliveries
 
 Výpis doručení zprávy na endpointy.
@@ -1468,7 +1388,6 @@ Parametr messageId je validován konstantou 2021-04-20 06:26 V případě požad
 | **Katalog** |
  |
 
-      1.
 # GET /mqtt​/devices​/{id}​/down​/messages/stats
 
 Denní statistika zpráv odeslaných na MQTT zařízení.
@@ -1485,7 +1404,6 @@ Maximální rozpětí mezi query parametry from a to je 31 dní.
 | **Katalog** |
  |
 
-      1.
 # GET ​/mqtt​/devices​/{id}​/up​/messages/stats
 
 Denní statistika zpráv z MQTT zařízení. Jedná se o kompletní počty, tj. včetně zpráv, které byly přijaty, ale nebyly doručeny z důvodu překročení limitu.
@@ -1502,13 +1420,10 @@ Maximální rozpětí mezi query parametry from a to je 31 dní.
 | **Katalog** |
  |
 
-  1.
 # LoRa
 
-    1.
 # Devices
 
-      1.
 # GET ​/lora​/devices​/
 
 Vrátí seznam všech lora zařízení (včetně tagů, atributů a seznamu skupin, do kterých jsou přiřazena).
@@ -1521,7 +1436,6 @@ Vrátí seznam všech lora zařízení (včetně tagů, atributů a seznamu skup
 | **Katalog** |
  |
 
-      1.
 # GET ​/lora/devices​/suggestions
 
 Našeptávač pro lora zařízení.
@@ -1535,7 +1449,6 @@ Našeptávač pro lora zařízení.
 | **Katalog** |
  |
 
-      1.
 # POST /lora​/devices​/abp​/csv
 
 Hromadný import ABP zařízení z CSV souboru (definice dle dokumentace). Provádí se asynchronně. Pokud je základní validace úspěšná, je v odpovědi vráceno batchId, přes které se dá dotazovat na stav, viz kapitola 3.7.1.12.
@@ -1552,7 +1465,6 @@ Importní dávka musí obsahovat pouze jednu službu a projekt.
 | **Katalog** |
  |
 
-      1.
 # POST /lora​/devices​/otaa​/csv
 
 Hromadný import OTAA zařízení z CSV souboru (definice dle dokumentace). Provádí se asynchronně. Pokud je základní validace úspěšná, je v odpovědi vráceno batchId, přes které se dá dotazovat na stav, viz kapitola 3.7.1.12.
@@ -1569,7 +1481,6 @@ Importní dávka musí obsahovat pouze jednu službu a projekt.
 | **Katalog** |
  |
 
-      1.
 # POST /lora​/devices​/abp
 
 Hromadný import ABP zařízení. Provádí se asynchronně. Pokud je základní validace úspěšná, je v odpovědi vráceno batchId, přes které se dá dotazovat na stav, viz kapitola 3.7.1.12.
@@ -1586,7 +1497,6 @@ Importní dávka musí obsahovat pouze jednu službu a projekt.
 | **Katalog** |
  |
 
-      1.
 # POST /lora​/devices​/otaa
 
 Hromadný import OTAA zařízení. Provádí se asynchronně. Pokud je základní validace úspěšná, je v odpovědi vráceno batchId, přes které se dá dotazovat na stav, viz kapitola 3.7.1.12.
@@ -1603,7 +1513,6 @@ Importní dávka musí obsahovat pouze jednu službu a projekt.
 | **Katalog** |
  |
 
-      1.
 # GET ​/lora​/devices​/{id}
 
 Vrátí informace o lora zařízení (včetně tagů, atributů a seznamu skupin, do kterých je přiřazeno).
@@ -1618,7 +1527,6 @@ Vrátí informace o lora zařízení (včetně tagů, atributů a seznamu skupin
 | **Katalog** |
  |
 
-      1.
 # PUT ​/lora​/devices​/{id}
 
 Editace lora zařízení.
@@ -1633,7 +1541,6 @@ Editace lora zařízení.
 | **Katalog** |
  |
 
-      1.
 # DELETE ​/lora​/devices​/{id}
 
 Výmaz lora zařízení. Zařízení nelze vymazat, pokud je přiřazeno do skupiny zařízení.
@@ -1648,7 +1555,6 @@ Výmaz lora zařízení. Zařízení nelze vymazat, pokud je přiřazeno do skup
 | **Katalog** |
  |
 
-      1.
 # PUT ​/lora​/devices​/{id}​/tags
 
 Aktualizace tagů lora zařízení.
@@ -1663,7 +1569,6 @@ Aktualizace tagů lora zařízení.
 | **Katalog** |
  |
 
-      1.
 # PUT ​/lora/devices​/{id}​/attributes
 
 Aktualizace atributů lora zařízení.
@@ -1678,7 +1583,6 @@ Aktualizace atributů lora zařízení.
 | **Katalog** |
  |
 
-      1.
 # GET ​/lora​/devices​/import​/{id}
 
 Zjištění stavu importu zařízení.
@@ -1692,7 +1596,6 @@ Zjištění stavu importu zařízení.
 | **Fulltext** | Ne |
 | **Katalog** | errors.errorMessage |
 
-      1.
 # GET ​/lora/devices​/{id}​/counters
 
 Výpis stavu counterů na zařízení.
@@ -1706,7 +1609,6 @@ Výpis stavu counterů na zařízení.
 | **Fulltext** | Ne |
 | **Katalog** | name |
 
-      1.
 # POST ​/lora​/devices​/{id}​/enable
 
 Povolení zařízení (implicitní stav). Zprávy z takového zařízení jsou přijímány na platformu a jsou doručovány.
@@ -1721,7 +1623,6 @@ Povolení zařízení (implicitní stav). Zprávy z takového zařízení jsou p
 | **Katalog** |
  |
 
-      1.
 # DELETE ​/lora​/devices​/{id}​/enable
 
 Pozastavení zařízení. Zprávy z takového zařízení jsou přijímány na platformu, ale nejsou doručovány.
@@ -1736,7 +1637,6 @@ Pozastavení zařízení. Zprávy z takového zařízení jsou přijímány na p
 | **Katalog** |
  |
 
-      1.
 # GET ​/lora​/devices​/{id}​/down​/messages
 
 Zobrazení zpráv odeslaných na zařízení.
@@ -1751,7 +1651,6 @@ Maximální rozpětí mezi query parametry from a to je 31 dní.
 | **Katalog** |
  |
 
-      1.
 # POST ​/lora/devices​/{id}​/down​/messages
 
 Odeslání zprávy na lora zařízení.
@@ -1766,7 +1665,6 @@ Odeslání zprávy na lora zařízení.
 | **Katalog** |
  |
 
-      1.
 # GET ​/lora​/devices​/{id}​/up​/messages
 
 Výpis zpráv z lora zařízení.
@@ -1781,7 +1679,6 @@ Maximální rozpětí mezi query parametry from a to je 31 dní.
 | **Katalog** |
  |
 
-      1.
 # GET ​/lora​/devices​/{id}​/up​/messages/{messageId}/deliveries
 
 Výpis doručení zprávy na endpointy.
@@ -1798,7 +1695,6 @@ Parametr messageId je validován konstantou 2021-04-20 06:26 V případě požad
 | **Katalog** |
  |
 
-      1.
 # ​POST /lora/signal/{id}
 
 Zjištění síly signálu dle souřadnic a typu zařízení.
@@ -1813,7 +1709,6 @@ Zjištění síly signálu dle souřadnic a typu zařízení.
 | **Katalog** |
  |
 
-      1.
 # GET /lora/devices​/{id}​/down​/messages/stats
 
 Denní statistika zpráv odeslaných na LoRa zařízení.
@@ -1830,7 +1725,6 @@ Maximální rozpětí mezi query parametry from a to je 31 dní.
 | **Katalog** |
  |
 
-      1.
 # ​GET lora/devices​/{id}​/up​/messages/stats
 
 Denní statistika zpráv z LoRa zařízení. Jedná se o kompletní počty, tj. včetně zpráv, které byly přijaty, ale nebyly doručeny z důvodu překročení limitu.
@@ -1875,10 +1769,8 @@ Aktivace LoRa zařízení z prekativního stavu
 | **Katalog** |
  |
 
-  1.
 # Device Groups
 
-    1.
 # GET ​/device-groups
 
 Vrátí seznam všech skupin zařízení (včetně tagů a atributů).
@@ -1891,7 +1783,6 @@ Vrátí seznam všech skupin zařízení (včetně tagů a atributů).
 | **Katalog** |
  |
 
-    1.
 # POST ​/device-groups
 
 Založení skupiny zařízení
@@ -1906,7 +1797,6 @@ Založení skupiny zařízení
 | **Katalog** |
  |
 
-    1.
 # GET ​/device-groups​/suggestions
 
 Našeptávač pro skupiny zařízení.
@@ -1920,7 +1810,6 @@ Našeptávač pro skupiny zařízení.
 | **Katalog** |
  |
 
-    1.
 # GET ​/device-groups​/{id}
 
 Vrátí informace o skupině zařízení (včetně tagů a atributů).
@@ -1935,7 +1824,6 @@ Vrátí informace o skupině zařízení (včetně tagů a atributů).
 | **Katalog** |
  |
 
-    1.
 # PUT ​/device-groups​/{id}
 
 Editace skupiny zařízení.
@@ -1950,7 +1838,6 @@ Editace skupiny zařízení.
 | **Katalog** |
  |
 
-    1.
 # DELETE ​/device-groups​/{id}
 
 Výmaz skupiny zařízení. Skupinu nelze vymazat, pokud je k ní přiřazeny endpointy nebo zařízení.
@@ -1965,7 +1852,6 @@ Výmaz skupiny zařízení. Skupinu nelze vymazat, pokud je k ní přiřazeny en
 | **Katalog** |
  |
 
-    1.
 # [NYI] PUT ​/device-groups​/{id}​/tags
 
 Aktualizace tagů skupiny zařízení.
@@ -1980,7 +1866,6 @@ Aktualizace tagů skupiny zařízení.
 | **Katalog** |
  |
 
-    1.
 # [NYI] PUT /device-groups​/{id}​/attributes
 
 Aktualizace atributů skupiny zařízení.
@@ -1995,7 +1880,6 @@ Aktualizace atributů skupiny zařízení.
 | **Katalog** |
  |
 
-    1.
 # GET ​/device-groups​/devices
 
 Výpis zjednodušeného seznamu zařízení přiřazených ke skupině. Pro detail k zařízení je třeba provést extra dotaz.
@@ -2008,7 +1892,6 @@ Výpis zjednodušeného seznamu zařízení přiřazených ke skupině. Pro deta
 | **Katalog** |
  |
 
-    1.
 # GET ​/device-groups​/endpoints
 
 Výpis zjednodušeného seznamu endpointů přiřazených ke skupině. Pro detail k endpontu je třeba provést extra dotaz.
@@ -2021,7 +1904,6 @@ Výpis zjednodušeného seznamu endpointů přiřazených ke skupině. Pro detai
 | **Katalog** |
  |
 
-    1.
 # POST ​/device-groups​/{id}​/devices/{protocol} ​/{deviceId}​/assign
 
 Přiřazení zařízení skupině zařízení. Povolené hodnoty atributu protocol jsou _lora_ a _mqtt._
@@ -2036,7 +1918,6 @@ Přiřazení zařízení skupině zařízení. Povolené hodnoty atributu protoc
 | **Katalog** |
  |
 
-    1.
 # DELETE ​/device-groups​/{id}​/devices​/{protocol}/{deviceId}​/assign
 
 Odebrání zařízení ze skupiny. Povolené hodnoty atributu protocol jsou _lora_ a _mqtt._
@@ -2051,7 +1932,6 @@ Odebrání zařízení ze skupiny. Povolené hodnoty atributu protocol jsou _lor
 | **Katalog** |
  |
 
-    1.
 # POST ​/device-groups​/{id}​/endpoints​/{endpointId}​/assign
 
 Přiřazení endpointu skupině zařízení.
@@ -2066,7 +1946,6 @@ Přiřazení endpointu skupině zařízení.
 | **Katalog** |
  |
 
-    1.
 # DELETE ​/device-groups​/{id}​/endpoints​/{endpointId}​/assign
 
 Odebrání endpointu ze skupiny.
@@ -2081,10 +1960,8 @@ Odebrání endpointu ze skupiny.
 | **Katalog** |
  |
 
-  1.
 # Users
 
-    1.
 # GET ​/users
 
 Vrátí seznam všech uživatelů (včetně práv a parametrů).
@@ -2097,7 +1974,6 @@ Vrátí seznam všech uživatelů (včetně práv a parametrů).
 | **Katalog** |
  |
 
-    1.
 # GET ​/users​/suggestions
 
 Našeptávač pro uživatele.
@@ -2111,7 +1987,6 @@ Našeptávač pro uživatele.
 | **Katalog** |
  |
 
-    1.
 # GET ​/users​/{id}
 
 Informace o uživateli (včetně práv a parametrů).
@@ -2126,7 +2001,6 @@ Informace o uživateli (včetně práv a parametrů).
 | **Katalog** |
  |
 
-    1.
 # PUT ​/users​/{id}​
 
 Aktualizace uživatelských preferencí.
@@ -2141,7 +2015,6 @@ Aktualizace uživatelských preferencí.
 | **Katalog** |
  |
 
-    1.
 # PUT ​/users​/{id}​/customers​/{customerId}​/projects​/{projectId}​/privileges
 
 Přiřazení, případně odebrání práva uživatele k danému projektu.
@@ -2156,10 +2029,8 @@ Přiřazení, případně odebrání práva uživatele k danému projektu.
 | **Katalog** |
  |
 
-  1.
 # Notifications
 
-    1.
 # GET ​/notifications
 
 Načtení nastavení notifikací uživatelů.
@@ -2172,7 +2043,6 @@ Načtení nastavení notifikací uživatelů.
 | **Katalog** |
  |
 
-    1.
 # GET ​/notifications​/customers​/{customerId}
 
 Načtení nastavení notifikací uživatele.
@@ -2187,7 +2057,6 @@ Načtení nastavení notifikací uživatele.
 | **Katalog** |
  |
 
-    1.
 # [NYI] GET ​/notifications​/customers​/{customerId}​/sent
 
 Načtení odeslaných notifikací uživatele.
@@ -2202,7 +2071,6 @@ Načtení odeslaných notifikací uživatele.
 | **Katalog** |
  |
 
-    1.
 # GET ​/notifications​/customers​/{customerId}​/emails
 
 Načtení nastavení notifikací neuživatelských emailů.
@@ -2215,7 +2083,6 @@ Načtení nastavení notifikací neuživatelských emailů.
 | **Katalog** |
  |
 
-    1.
 # POST /notifications​/customers​/{customerId}​/emails
 
 Registrace notifikačního emailu.
@@ -2230,7 +2097,6 @@ Registrace notifikačního emailu.
 | **Katalog** |
  |
 
-    1.
 # GET ​/notifications​/customers​/{customerId}​/emails​/{email}
 
 Načtení nastavení notifikací neuživatelského emailu.
@@ -2245,7 +2111,6 @@ Načtení nastavení notifikací neuživatelského emailu.
 | **Katalog** |
  |
 
-    1.
 # DELETE ​/notifications​/customers​/{customerId}​/emails​/{email}
 
 Odregistrace notifikačního emailu.
@@ -2260,7 +2125,6 @@ Odregistrace notifikačního emailu.
 | **Katalog** |
  |
 
-    1.
 # [NYI] GET ​/notifications​/customers​/{customerId}​/emails​/{email}​/sent
 
 Načtení odeslaných notifikací neuživatelského emailu.
@@ -2275,7 +2139,6 @@ Načtení odeslaných notifikací neuživatelského emailu.
 | **Katalog** |
  |
 
-    1.
 # PATCH ​/notifications​/customers​/{customerId}​/templates​/{template}
 
 Úprava nastavení notifikací uživatele.
@@ -2290,7 +2153,7 @@ Načtení odeslaných notifikací neuživatelského emailu.
 | **Katalog** |
  |
 
-    1.
+
 # PATCH ​/notifications​/customers​/{customerId}​/templates​/{template}​/emails​/{email}
 
 Úprava nastavení notifikací neuživatelského emailu.
@@ -2305,10 +2168,8 @@ Načtení odeslaných notifikací neuživatelského emailu.
 | **Katalog** |
  |
 
-  1.
 # Audits
 
-    1.
 # GET /audits
 
 Zobrazení kompletního auditního logu.
@@ -2322,7 +2183,6 @@ parameters obsahuje páry klíč hodnota dle placeholderů v textu dané katalog
 | **Fulltext** | Ano |
 | **Katalog** | code |
 
-    1.
 # GET ​/audits​/customers​/{customerId}
 
 Zobrazení auditního logu zákazníka.
@@ -2336,7 +2196,6 @@ parameters obsahuje páry klíč hodnota dle placeholderů v textu dané katalog
 | **Fulltext** | Ano |
 | **Katalog** | code |
 
-    1.
 # GET ​/audits​/projects​/{projectId}
 
 Zobrazení auditního logu projektu.
@@ -2350,7 +2209,6 @@ parameters obsahuje páry klíč hodnota dle placeholderů v textu dané katalog
 | **Fulltext** | Ano |
 | **Katalog** | code |
 
-    1.
 # [NYI] GET ​/audits​/devices​/{protocol}/{deviceId}
 
 Zobrazení auditního logu zařízení.
@@ -2364,7 +2222,6 @@ parameters obsahuje páry klíč hodnota dle placeholderů v textu dané katalog
 | **Fulltext** | Ano |
 | **Katalog** | code |
 
-    1.
 # [NYI] GET ​/audits​/device-groups​/{groupId}
 
 Zobrazení auditního logu skupiny zařízení.
@@ -2378,7 +2235,6 @@ parameters obsahuje páry klíč hodnota dle placeholderů v textu dané katalog
 | **Fulltext** | Ano |
 | **Katalog** | code |
 
-  1.
 # Tags
 
 # GET /tags/devices
