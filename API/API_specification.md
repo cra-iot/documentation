@@ -39,262 +39,270 @@
 [3.1.1 GET ​/customers](#get-customers)
 
 [3.1.2 GET /customers​/{id}](#get-customersid)
+
 [3.1.3 GET /customers​/{id}​/services](#get-customersidservices)
+
 [3.1.4 GET /customers​/{id}​/projects](#get-customersidprojects)
+
 [3.2 Services](#services)
+
 [3.2.1 GET /services](#get-services)
+
 [3.2.2 GET ​/services​/{id}](#get-servicesid)
+
 [3.2.3 GET ​/services​/{id}​/counters](#get-servicesidcounters)
+
 [3.2.4 GET ​/services​/{id}​/projects](#get-servicesidprojects)
-[3.2.5.POST ​/services​/{id}​/projects​/{projectId}​/assign](#post-servicesidprojectsprojectidassign)
 
-[3.2.6.DELETE ​/services​/{id}​/projects​/{projectId}​/assign](#delete-servicesidprojectsprojectidassign)
+[3.2.5 POST ​/services​/{id}​/projects​/{projectId}​/assign](#post-servicesidprojectsprojectidassign)
 
-[3.2.7.POST ​/services​/{id}​/devices​/{protocol}/{deviceId}​/assign](#post-servicesiddevicesprotocoldeviceidassign)
+[3.2.6 DELETE ​/services​/{id}​/projects​/{projectId}​/assign](#delete-servicesidprojectsprojectidassign)
 
-[3.3.Projects](#projects)
+[3.2.7 POST ​/services​/{id}​/devices​/{protocol}/{deviceId}​/assign](#post-servicesiddevicesprotocoldeviceidassign)
 
-[3.3.1.GET ​/projects](#get-projects)
+[3.3 Projects](#projects)
 
-[3.3.2.POST ​/projects](#post-projects)
+[3.3.1 GET ​/projects](#get-projects)
 
-[3.3.3.GET ​/projects​/{id}](#get-projectsid)
+[3.3.2 POST ​/projects](#post-projects)
 
-[3.3.4.PUT ​/projects​/{id}](#put-projectsid)
+[3.3.3 GET ​/projects​/{id}](#get-projectsid)
 
-[3.3.5.DELETE ​/projects​/{id}](#delete-projectsid)
+[3.3.4 PUT ​/projects​/{id}](#put-projectsid)
 
-[3.3.6.PUT ​/projects​/{id}​/parameters](#put-projectsidparameters)
+[3.3.5 DELETE ​/projects​/{id}](#delete-projectsid)
 
-[3.3.7.GET ​/projects​/{id}​/counters](#get-projectsidcounters)
+[3.3.6 PUT ​/projects​/{id}​/parameters](#put-projectsidparameters)
 
-[3.3.8.GET ​/projects​/{id}​/services](#get-projectsidservices)
+[3.3.7 GET ​/projects​/{id}​/counters](#get-projectsidcounters)
 
-[3.3.9.GET ​/projects​/{id}​/endpoints​/overview](#get-projectsidendpointsoverview)
+[3.3.8 GET ​/projects​/{id}​/services](#get-projectsidservices)
 
-[3.3.10.GET ​/projects​/{id}​/devices​/overview](#get-projectsiddevicesoverview)
+[3.3.9 GET ​/projects​/{id}​/endpoints​/overview](#get-projectsidendpointsoverview)
 
-[3.3.11.GET /projects/{id}/device-groups/overview](#get-projectsiddevice-groupsoverview)
+[3.3.10 GET ​/projects​/{id}​/devices​/overview](#get-projectsiddevicesoverview)
 
-[3.4.HTTP](#http)
+[3.3.11 GET /projects/{id}/device-groups/overview](#get-projectsiddevice-groupsoverview)
 
-[3.4.1.Endpoints](#endpoints)
+[3.4 HTTP](#http)
 
-[3.4.1.1.GET /http​/endpoints](#get-httpendpoints)
+[3.4.1 Endpoints](#endpoints)
 
-[3.4.1.2.POST ​/http​/endpoints](#post-httpendpoints)
+[3.4.1.1 GET /http​/endpoints](#get-httpendpoints)
 
-[3.4.1.3.GET ​/http​/endpoints​/suggestions](#get-httpendpointssuggestions)
+[3.4.1.2 POST ​/http​/endpoints](#post-httpendpoints)
 
-[3.4.1.4.GET ​/http​/endpoints​/{id}](#get-httpendpointsid)
+[3.4.1.3 GET ​/http​/endpoints​/suggestions](#get-httpendpointssuggestions)
 
-[3.4.1.5.PUT ​/http​/endpoints​/{id}](#put-httpendpointsid)
+[3.4.1.4 GET ​/http​/endpoints​/{id}](#get-httpendpointsid)
 
-[3.4.1.6.DELETE ​/http​/endpoints​/{id}](#delete-httpendpointsid)
+[3.4.1.5 PUT ​/http​/endpoints​/{id}](#put-httpendpointsid)
 
-[3.4.1.7.GET ​/http​/endpoints​/{id}​/deliveries](#get-httpendpointsiddeliveries)
+[3.4.1.6 DELETE ​/http​/endpoints​/{id}](#delete-httpendpointsid)
 
-[3.4.1.8.GET ​/http​/endpoints​/{id}​/deliveries/full-detail](#get-httpendpointsiddeliveriesfull-detail)
+[3.4.1.7 GET ​/http​/endpoints​/{id}​/deliveries](#get-httpendpointsiddeliveries)
 
-[3.4.1.9.POST ​/http​/endpoints​/{id}​/ping](#post-httpendpointsidping)
+[3.4.1.8 GET ​/http​/endpoints​/{id}​/deliveries/full-detail](#get-httpendpointsiddeliveriesfull-detail)
 
-[3.4.1.10.[NYI] PUT ​/http​/endpoints​/{id}​/tags](#nyi-put-httpendpointsidtags)
+[3.4.1.9 POST ​/http​/endpoints​/{id}​/ping](#post-httpendpointsidping)
 
-[3.4.1.11.[NYI] PUT ​/http​/endpoints​/{id}​/attributes](#nyi-put-httpendpointsidtags)
+[3.4.1.10 [NYI] PUT ​/http​/endpoints​/{id}​/tags](#nyi-put-httpendpointsidtags)
 
-[3.5.MQTT](#mqtt)
+[3.4.1.11 [NYI] PUT ​/http​/endpoints​/{id}​/attributes](#nyi-put-httpendpointsidtags)
 
-[3.5.1.Gateways](#gateways)
+[3.5 MQTT](#mqtt)
 
-[3.5.1.1.GET /mqtt​/gateways](#get-mqttgateways)
+[3.5.1 Gateways](#gateways)
 
-[3.5.1.2.POST ​/mqtt​/gateways](#post-mqttgateways)
+[3.5.1.1 GET /mqtt​/gateways](#get-mqttgateways)
 
-[3.5.1.3.GET ​/mqtt​/gateways ​/suggestions](#get-mqttgateways-suggestions)
+[3.5.1.2 POST ​/mqtt​/gateways](#post-mqttgateways)
 
-[3.5.1.4.GET ​/mqtt​/gateways ​/{id1](#get-mqttgateways-id)
+[3.5.1.3 GET ​/mqtt​/gateways ​/suggestions](#get-mqttgateways-suggestions)
 
-[3.5.1.5.PUT ​/mqtt​/gateways ​/{id}](#put-mqttgateways-id)
+[3.5.1.4 GET ​/mqtt​/gateways ​/{id1](#get-mqttgateways-id)
 
-[3.5.1.6.DELETE ​/mqtt​/gateways ​/{id}](#delete-mqttgateways-id)
+[3.5.1.5 PUT ​/mqtt​/gateways ​/{id}](#put-mqttgateways-id)
 
-[3.5.1.7.GET ​/mqtt​/gateways​/{id}​/deliveries](#get-mqttgatewaysiddeliveries)
+[3.5.1.6 DELETE ​/mqtt​/gateways ​/{id}](#delete-mqttgateways-id)
 
-[3.5.1.8.GET ​/mqtt​/gateways​/{id}​/deliveries/full-detail](#get-mqttgatewaysiddeliveriesfull-detail)
+[3.5.1.7 GET ​/mqtt​/gateways​/{id}​/deliveries](#get-mqttgatewaysiddeliveries)
 
-[3.5.1.9.[NYI] PUT ​/mqtt​/gateways​/{id}​/tags](#nyi-put-mqttgatewaysidtags)
+[3.5.1.8 GET ​/mqtt​/gateways​/{id}​/deliveries/full-detail](#get-mqttgatewaysiddeliveriesfull-detail)
 
-[3.5.1.10.[NYI] PUT ​/mqtt​/gateways​/{id}​/attributes](#nyi-put-mqttgatewaysidattributes)
+[3.5.1.9 [NYI] PUT ​/mqtt​/gateways​/{id}​/tags](#nyi-put-mqttgatewaysidtags)
 
-[3.6.MQTT](#mqtt-1)
+[3.5.1.10 [NYI] PUT ​/mqtt​/gateways​/{id}​/attributes](#nyi-put-mqttgatewaysidattributes)
 
-[3.6.1.Devices](#devices)
+[3.6 MQTT](#mqtt-1)
 
-[3.6.1.1.GET ​/mqtt​/devices​/](#get-mqttdevices)
+[3.6.1 Devices](#devices)
 
-[3.6.1.2.POST ​/mqtt​/devices​/](#post-mqttdevices)
+[3.6.1.1 GET ​/mqtt​/devices​/](#get-mqttdevices)
 
-[3.6.1.3.GET ​/mqtt​/devices​/suggestions](#get-mqttdevicessuggestions)
+[3.6.1.2 POST ​/mqtt​/devices​/](#post-mqttdevices)
 
-[3.6.1.4.GET ​/mqtt​/devices​/{id}](#get-mqttdevicesid)
+[3.6.1.3 GET ​/mqtt​/devices​/suggestions](#get-mqttdevicessuggestions)
 
-[3.6.1.5.PUT ​/mqtt​/devices​/{id}](#put-mqttdevicesid)
+[3.6.1.4 GET ​/mqtt​/devices​/{id}](#get-mqttdevicesid)
 
-[3.6.1.6.DELETE ​/mqtt​/devices​/{id}](#delete-mqttdevicesid)
+[3.6.1.5 PUT ​/mqtt​/devices​/{id}](#put-mqttdevicesid)
 
-[3.6.1.7.PUT ​/mqtt​/devices​/{id}​/tags](#put-mqttdevicesidtags)
+[3.6.1.6 DELETE ​/mqtt​/devices​/{id}](#delete-mqttdevicesid)
 
-[3.6.1.8.PUT ​/mqtt​/devices​/{id}​/attributes](#put-mqttdevicesidattributes)
+[3.6.1.7 PUT ​/mqtt​/devices​/{id}​/tags](#put-mqttdevicesidtags)
 
-[3.6.1.9.GET ​/mqtt​/devices​/import​/{id}](#get-mqttdevicesimportid)
+[3.6.1.8 PUT ​/mqtt​/devices​/{id}​/attributes](#put-mqttdevicesidattributes)
 
-[3.6.1.10.GET ​/mqtt​/devices​/{id}​/counters](#get-mqttdevicesidcounters)
+[3.6.1.9 GET ​/mqtt​/devices​/import​/{id}](#get-mqttdevicesimportid)
 
-[3.6.1.11.POST ​/mqtt​/devices​/{id}​/enable](#post-mqttdevicesidenable)
+[3.6.1.10 GET ​/mqtt​/devices​/{id}​/counters](#get-mqttdevicesidcounters)
 
-[3.6.1.12.DELETE ​/mqtt​/devices​/{id}​/enable](#delete-mqttdevicesidenable)
+[3.6.1.11 POST ​/mqtt​/devices​/{id}​/enable](#post-mqttdevicesidenable)
 
-[3.6.1.13.GET ​/mqtt​/devices​/{id}​/down​/messages](#get-mqttdevicesiddownmessages)
+[3.6.1.12 DELETE ​/mqtt​/devices​/{id}​/enable](#delete-mqttdevicesidenable)
 
-[3.6.1.14.POST ​/mqtt​/devices​/{id}​/down​/messages](#post-mqttdevicesiddownmessages)
+[3.6.1.13 GET ​/mqtt​/devices​/{id}​/down​/messages](#get-mqttdevicesiddownmessages)
 
-[3.6.1.15.GET /mqtt/devices/{id}/up/messages](#get-mqttdevicesidupmessages)
+[3.6.1.14 POST ​/mqtt​/devices​/{id}​/down​/messages](#post-mqttdevicesiddownmessages)
 
-[3.6.1.16.GET ​/mqtt​/devices​/{id}​/up​/messages/{messageId}/deliveries](#get-mqttdevicesidupmessagesmessageiddeliveries)
+[3.6.1.15 GET /mqtt/devices/{id}/up/messages](#get-mqttdevicesidupmessages)
 
-[3.6.1.17.GET /mqtt​/devices​/{id}​/down​/messages/stats](#get-mqttdevicesiddownmessagesstats)
+[3.6.1.16 GET ​/mqtt​/devices​/{id}​/up​/messages/{messageId}/deliveries](#get-mqttdevicesidupmessagesmessageiddeliveries)
 
-[3.6.1.18.GET ​​/mqtt​/devices​/{id}​/up​/messages/stats](#get-mqttdevicesidupmessagesstats)
+[3.6.1.17 GET /mqtt​/devices​/{id}​/down​/messages/stats](#get-mqttdevicesiddownmessagesstats)
 
-[3.7.LoRa](#lora)
+[3.6.1.18 GET ​​/mqtt​/devices​/{id}​/up​/messages/stats](#get-mqttdevicesidupmessagesstats)
 
-[3.7.1.Devices](#devices-1)
+[3.7 LoRa](#lora)
 
-[3.7.1.1.GET ​/lora​/devices](#get-loradevices)
+[3.7.1 Devices](#devices-1)
 
-[3.7.1.2.GET ​/lora/devices​/suggestions](#get-loradevicessuggestions)
+[3.7.1.1 GET ​/lora​/devices](#get-loradevices)
 
-[3.7.1.3.POST /lora​/devices​/abp​/csv](#post-loradevicesabpcsv)
+[3.7.1.2 GET ​/lora/devices​/suggestions](#get-loradevicessuggestions)
 
-[3.7.1.4.POST /lora​/devices​/otaa​/csv](#post-loradevicesotaacsv)
+[3.7.1.3 POST /lora​/devices​/abp​/csv](#post-loradevicesabpcsv)
 
-[3.7.1.5.POST /lora​/devices​/abp](#post-loradevicesabp)
+[3.7.1.4 POST /lora​/devices​/otaa​/csv](#post-loradevicesotaacsv)
 
-[3.7.1.6.POST /lora​/devices​/otaa](#post-loradevicesotaa)
+[3.7.1.5 POST /lora​/devices​/abp](#post-loradevicesabp)
 
-[3.7.1.7.GET ​/lora​/devices​/{id}](#get-loradevicesid)
+[3.7.1.6 POST /lora​/devices​/otaa](#post-loradevicesotaa)
 
-[3.7.1.8.PUT ​/lora​/devices​/{id}](#put-loradevicesid)
+[3.7.1.7 GET ​/lora​/devices​/{id}](#get-loradevicesid)
 
-[3.7.1.9.DELETE ​/lora​/devices​/{id}](#delete-loradevicesid)
+[3.7.1.8 PUT ​/lora​/devices​/{id}](#put-loradevicesid)
 
-[3.7.1.10.PUT ​/lora​/devices​/{id}​/tags](#put-loradevicesidtags)
+[3.7.1.9 DELETE ​/lora​/devices​/{id}](#delete-loradevicesid)
 
-[3.7.1.11.PUT ​/lora/devices​/{id}​/attributes](#put-loradevicesidattributes)
+[3.7.1.10 PUT ​/lora​/devices​/{id}​/tags](#put-loradevicesidtags)
 
-[3.7.1.12.GET ​/lora​/devices​/import​/{id}](#get-loradevicesimportid)
+[3.7.1.11 PUT ​/lora/devices​/{id}​/attributes](#put-loradevicesidattributes)
 
-[3.7.1.13.GET ​/lora/devices​/{id}​/counters](#get-loradevicesidcounters)
+[3.7.1.12 GET ​/lora​/devices​/import​/{id}](#get-loradevicesimportid)
 
-[3.7.1.14.POST ​/lora​/devices​/{id}​/enable](#post-loradevicesidenable)
+[3.7.1.13 GET ​/lora/devices​/{id}​/counters](#get-loradevicesidcounters)
 
-[3.7.1.15.DELETE ​/lora​/devices​/{id}​/enable](#delete-loradevicesidenable)
+[3.7.1.14 POST ​/lora​/devices​/{id}​/enable](#post-loradevicesidenable)
 
-[3.7.1.16.GET ​/lora​/devices​/{id}​/down​/messages](#get-loradevicesiddownmessages)
+[3.7.1.15 DELETE ​/lora​/devices​/{id}​/enable](#delete-loradevicesidenable)
 
-[3.7.1.17.POST ​/lora/devices​/{id}​/down​/messages](#post-loradevicesiddownmessages)
+[3.7.1.16 GET ​/lora​/devices​/{id}​/down​/messages](#get-loradevicesiddownmessages)
 
-[3.7.1.18.GET ​/lora​/devices​/{id}​/up​/messages](#get-loradevicesidupmessages)
+[3.7.1.17 POST ​/lora/devices​/{id}​/down​/messages](#post-loradevicesiddownmessages)
 
-[3.7.1.19.GET ​/lora​/devices​/{id}​/up​/messages/{messageId}/deliveries](#get-loradevicesidupmessagesmessageiddeliveries)
+[3.7.1.18 GET ​/lora​/devices​/{id}​/up​/messages](#get-loradevicesidupmessages)
 
-[3.7.1.20.​POST /lora/signal/{id})](#post-lorasignalid)
+[3.7.1.19 GET ​/lora​/devices​/{id}​/up​/messages/{messageId}/deliveries](#get-loradevicesidupmessagesmessageiddeliveries)
 
-[3.7.1.21.GET /lora/devices​/{id}​/down​/messages/stats](#get-loradevicesiddownmessagesstats)
+[3.7.1.20 ​POST /lora/signal/{id})](#post-lorasignalid)
 
-[3.7.1.22.​GET lora/devices​/{id}​/up​/messages/stats](#get-loradevicesidupmessagesstats)
+[3.7.1.21 GET /lora/devices​/{id}​/down​/messages/stats](#get-loradevicesiddownmessagesstats)
 
-[3.7.1.23. PUT /lora/devices/{id}/parameters](#put-loradevicesidparameters)
+[3.7.1.22 ​GET lora/devices​/{id}​/up​/messages/stats](#get-loradevicesidupmessagesstats)
 
-[3.7.1.24. POST /lora/devices/{id}/activate](#post-loradevicesidactivate)
+[3.7.1.23 PUT /lora/devices/{id}/parameters](#put-loradevicesidparameters)
 
-[3.8.Device Groups](#device-groups)
+[3.7.1.24 POST /lora/devices/{id}/activate](#post-loradevicesidactivate)
 
-[3.8.1.GET ​/device-groups](#get-device-groups)
+[3.8 Device Groups](#device-groups)
 
-[3.8.2.POST ​/device-groups](#post-device-groups)
+[3.8.1 GET ​/device-groups](#get-device-groups)
 
-[3.8.3.GET ​/device-groups​/suggestions](#get-device-groupssuggestions)
+[3.8.2 POST ​/device-groups](#post-device-groups)
 
-[3.8.4.GET ​/device-groups​/{id}](#get-device-groupsid)
+[3.8.3 GET ​/device-groups​/suggestions](#get-device-groupssuggestions)
 
-[3.8.5.PUT ​/device-groups​/{id}](#put-device-groupsid)
+[3.8.4 GET ​/device-groups​/{id}](#get-device-groupsid)
 
-[3.8.6.DELETE ​/device-groups​/{id}](#delete-device-groupsid)
+[3.8.5 PUT ​/device-groups​/{id}](#put-device-groupsid)
 
-[3.8.7.[NYI] PUT ​/device-groups​/{id}​/tags](#nyi-put-device-groupsidtags)
+[3.8.6 DELETE ​/device-groups​/{id}](#delete-device-groupsid)
 
-[3.8.8.[NYI] PUT /device-groups​/{id}​/attributes](#nyi-put-device-groupsidattributes)
+[3.8.7 [NYI] PUT ​/device-groups​/{id}​/tags](#nyi-put-device-groupsidtags)
 
-[3.8.9.GET ​/device-groups​/devices](#get-device-groupsdevices)
+[3.8.8 [NYI] PUT /device-groups​/{id}​/attributes](#nyi-put-device-groupsidattributes)
 
-[3.8.10.GET ​/device-groups​/endpoints](#get-device-groupsendpoints)
+[3.8.9 GET ​/device-groups​/devices](#get-device-groupsdevices)
 
-[3.8.11.POST ​/device-groups​/{id}​/devices/{protocol} ​/{deviceId}​/assign](#post-device-groupsiddevicesprotocol-deviceidassign)
+[3.8.10 GET ​/device-groups​/endpoints](#get-device-groupsendpoints)
 
-[3.8.12.DELETE ​/device-groups​/{id}​/devices​/{protocol}/{deviceId}​/assign](#delete-device-groupsiddevicesprotocoldeviceidassign)
+[3.8.11 POST ​/device-groups​/{id}​/devices/{protocol} ​/{deviceId}​/assign](#post-device-groupsiddevicesprotocol-deviceidassign)
 
-[3.8.13.POST ​/device-groups​/{id}​/endpoints​/{endpointId}​/assign](#post-device-groupsidendpointsendpointidassign)
+[3.8.12 DELETE ​/device-groups​/{id}​/devices​/{protocol}/{deviceId}​/assign](#delete-device-groupsiddevicesprotocoldeviceidassign)
 
-[3.8.14.DELETE ​/device-groups​/{id}​/endpoints​/{endpointId}​/assign](#delete-device-groupsidendpointsendpointidassign)
+[3.8.13 POST ​/device-groups​/{id}​/endpoints​/{endpointId}​/assign](#post-device-groupsidendpointsendpointidassign)
 
-[3.9.Users](#users)
+[3.8.14 DELETE ​/device-groups​/{id}​/endpoints​/{endpointId}​/assign](#delete-device-groupsidendpointsendpointidassign)
 
-[3.9.1.GET ​/users](#get-users)
+[3.9 Users](#users)
 
-[3.9.2.GET ​/users​/suggestions](#get-userssuggestions)
+[3.9.1 GET ​/users](#get-users)
 
-[3.9.3.GET ​/users​/{id}](#get-usersid)
+[3.9.2 GET ​/users​/suggestions](#get-userssuggestions)
 
-[3.9.4.PUT ​/users​/{id}0](#put-usersid)
+[3.9.3 GET ​/users​/{id}](#get-usersid)
 
-[3.9.5.PUT ​/users​/{id}​/customers​/{customerId}​/projects​/{projectId}​/privileges](#put-usersidcustomerscustomeridprojectsprojectidprivileges)
+[3.9.4 PUT ​/users​/{id}0](#put-usersid)
 
-[3.10.Notifications](#notifications)
+[3.9.5 PUT ​/users​/{id}​/customers​/{customerId}​/projects​/{projectId}​/privileges](#put-usersidcustomerscustomeridprojectsprojectidprivileges)
 
-[3.10.1.GET ​/notifications](#get-notifications)
+[3.10 Notifications](#notifications)
 
-[3.10.2.GET ​/notifications​/customers​/{customerId}](#get-notificationscustomerscustomerid)
+[3.10.1 GET ​/notifications](#get-notifications)
 
-[3.10.3.[NYI] GET ​/notifications​/customers​/{customerId}​/sent](#nyi-get-notificationscustomerscustomeridsent)
+[3.10.2 GET ​/notifications​/customers​/{customerId}](#get-notificationscustomerscustomerid)
 
-[3.10.4.GET ​/notifications​/customers​/{customerId}​/emails](#get-notificationscustomerscustomeridemails)
+[3.10.3 [NYI] GET ​/notifications​/customers​/{customerId}​/sent](#nyi-get-notificationscustomerscustomeridsent)
 
-[3.10.5.POST /notifications​/customers​/{customerId}​/emails](#post-notificationscustomerscustomeridemails)
+[3.10.4 GET ​/notifications​/customers​/{customerId}​/emails](#get-notificationscustomerscustomeridemails)
 
-[3.10.6.GET ​/notifications​/customers​/{customerId}​/emails​/{email}](#get-notificationscustomerscustomeridemailsemail)
+[3.10.5 POST /notifications​/customers​/{customerId}​/emails](#post-notificationscustomerscustomeridemails)
 
-[3.10.7.DELETE ​/notifications​/customers​/{customerId}​/emails​/{email}](#delete-notificationscustomerscustomeridemailsemail)
+[3.10.6 GET ​/notifications​/customers​/{customerId}​/emails​/{email}](#get-notificationscustomerscustomeridemailsemail)
 
-[3.10.8.[NYI] GET ​/notifications​/customers​/{customerId}​/emails​/{email}​/sent](#nyi-get-notificationscustomerscustomeridemailsemailsent)
+[3.10.7 DELETE ​/notifications​/customers​/{customerId}​/emails​/{email}](#delete-notificationscustomerscustomeridemailsemail)
 
-[3.10.9.PATCH ​/notifications​/customers​/{customerId}​/templates​/{template}](#patch-notificationscustomerscustomeridtemplatestemplate)
+[3.10.8 [NYI] GET ​/notifications​/customers​/{customerId}​/emails​/{email}​/sent](#nyi-get-notificationscustomerscustomeridemailsemailsent)
 
-[3.10.10.PATCH ​/notifications​/customers​/{customerId}​/templates​/{template}​/emails​/{email}](#patch-notificationscustomerscustomeridtemplatestemplateemailsemail)
+[3.10.9 PATCH ​/notifications​/customers​/{customerId}​/templates​/{template}](#patch-notificationscustomerscustomeridtemplatestemplate)
 
-[3.11.Audits](#audits)
+[3.10.10 PATCH ​/notifications​/customers​/{customerId}​/templates​/{template}​/emails​/{email}](#patch-notificationscustomerscustomeridtemplatestemplateemailsemail)
 
-[3.11.1.GET /audits](#get-audits)
+[3.11 Audits](#audits)
 
-[3.11.2.GET ​/audits​/customers​/{customerId}](#get-auditscustomerscustomerid)
+[3.11.1 GET /audits](#get-audits)
 
-[3.11.3.GET ​/audits​/projects​/{projectId}](#get-auditsprojectsprojectid)
+[3.11.2 GET ​/audits​/customers​/{customerId}](#get-auditscustomerscustomerid)
 
-[3.11.4.[NYI] GET ​/audits​/devices​/{protocol}/{deviceId}](#nyi-get-auditsdevicesprotocoldeviceid)
+[3.11.3 GET ​/audits​/projects​/{projectId}](#get-auditsprojectsprojectid)
 
-[3.11.5.[NYI] GET ​/audits​/device-groups​/{groupId}](#nyi-get-auditsdevice-groupsgroupid)
+[3.11.4 [NYI] GET ​/audits​/devices​/{protocol}/{deviceId}](#nyi-get-auditsdevicesprotocoldeviceid)
 
-[3.12.Tags](#tags)
+[3.11.5 [NYI] GET ​/audits​/device-groups​/{groupId}](#nyi-get-auditsdevice-groupsgroupid)
+
+[3.12 Tags](#tags)
 
 [3.12.1 GET /tags/devices](#get-tagsdevices)
 
