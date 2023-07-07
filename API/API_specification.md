@@ -8,52 +8,44 @@
 
 [2 Základní pravidla API](#základní-pravidla-api)
 
-[  2.1 Ověření](##ověření)
+[2.1 Ověření](#ověření)
 
-[  2.2 Pagination](##pagination)
+[2.2 Pagination](#pagination)
 
-[  2.3.Řazení](#řazení)
+[2.3 Řazení](#řazení)
 
-[2.4.Filtrace](#filtrace)
+[2.4 Filtrace](#filtrace)
 
-[2.5.Fulltextové vyhledávání](#fulltextové-vyhledávání)
+[2.5 Fulltextové vyhledávání](#fulltextové-vyhledávání)
 
-[2.6.Našeptávače](#našeptávače)
+[2.6 Našeptávače](#našeptávače)
 
-[2.7.Lokalizace](#lokalizace)
+[2.7 Lokalizace](#lokalizace)
 
-[2.8.Standardní Success Response u GET](#standardní-success-response-u-get)
+[2.8 Standardní Success Response u GET](#standardní-success-response-u-get)
 
-[2.9.Standardní Error Response](#standardní-error-response)
+[2.9 Standardní Error Response](#standardní-error-response)
 
-[2.10.Indikace v komentářích Swagger](#indikace-v-komentářích-swagger)
+[2.10 Indikace v komentářích Swagger](#indikace-v-komentářích-swagger)
 
-[2.11.Obecné](#obecné)
+[2.11 Obecné](#obecné)
 
-[2.12.Interní poznámky](#interní-poznámky)
+[2.12 Interní poznámky](#interní-poznámky)
 
-[3.API](#api)
+[3 API](#api)
 
-[3.1.Customers](#customers)
+[3.1 Customers](#customers)
 
-[3.1.1.GET ​/customers](#get-customers)
+[3.1.1 GET ​/customers](#get-customers)
 
-[3.1.2.GET /customers​/{id}](#get-customersid)
-
-[3.1.3.GET /customers​/{id}​/services](#get-customersidservices)
-
-[3.1.4.GET /customers​/{id}​/projects](#get-customersidprojects)
-
-[3.2.Services](#services)
-
-[3.2.1.GET /services](#get-services)
-
-[3.2.2.GET ​/services​/{id}](#get-servicesid)
-
-[3.2.3.GET ​/services​/{id}​/counters](#get-servicesidcounters)
-
-[3.2.4.GET ​/services​/{id}​/projects](#get-servicesidprojects)
-
+[3.1.2 GET /customers​/{id}](#get-customersid)
+[3.1.3 GET /customers​/{id}​/services](#get-customersidservices)
+[3.1.4 GET /customers​/{id}​/projects](#get-customersidprojects)
+[3.2 Services](#services)
+[3.2.1 GET /services](#get-services)
+[3.2.2 GET ​/services​/{id}](#get-servicesid)
+[3.2.3 GET ​/services​/{id}​/counters](#get-servicesidcounters)
+[3.2.4 GET ​/services​/{id}​/projects](#get-servicesidprojects)
 [3.2.5.POST ​/services​/{id}​/projects​/{projectId}​/assign](#post-servicesidprojectsprojectidassign)
 
 [3.2.6.DELETE ​/services​/{id}​/projects​/{projectId}​/assign](#delete-servicesidprojectsprojectidassign)
