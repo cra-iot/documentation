@@ -323,7 +323,7 @@ U všech volání je vyžadováno ověření volajícího pomocí metody _Bearer
 
 ```
 curl --request GET \
---url http://api.iot.cra.cz/cxf/api/v1/customers \
+--url https://api.iot.cra.cz/cxf/api/v1/customers \
 --header 'Authorization: Bearer $access\_token' \
 ```
 
@@ -355,7 +355,7 @@ Seznam konkrétních atributů, přes které lze v daném volání řadit, je v�
 
 ```
 curl --request GET \
---url http://api.iot.cra.cz/cxf/api/v1/lora/devices?sort=%2BlastMessageIn \
+--url https://api.iot.cra.cz/cxf/api/v1/lora/devices?sort=%2BlastMessageIn \
 --header'authorization: Bearer dXNlcjpw…' \
 ```
 
@@ -516,7 +516,7 @@ Pokud se v rámci popisu API hovoří o vrácení _všech_ záznamů (případn�
 
 Doplňující tabulka v jednotlivých volání:
 
-| **URL** | \<METODA\> http://\<URL\>/\<cesta\> |
+| **URL** | \<METODA\> https://\<URL\>/\<cesta\> |
 | --- | --- |
 | **Filtr** | Seznam atributů, nad kterými lze filtrovat |
 | **Řazení** | Seznam atributů, nad kterými lze řadit |
@@ -531,7 +531,7 @@ Doplňující tabulka v jednotlivých volání:
 
 Kompletní seznam zákazníků.
 
-| **URL** | GET http://\<URL\>/cxf/api/v1/customers |
+| **URL** | GET https://\<URL\>/cxf/api/v1/customers |
 | --- | --- |
 | **Filtr** | customerId<br/>customerName<br/>isReseller<br/>portalId |
 | **Řazení** | customerId<br/>customerName<br/>isReseller<br/>portalId |
@@ -542,7 +542,7 @@ Kompletní seznam zákazníků.
 
 Informace o konkrétním zákazníkovi.
 
-| **URL** | GET http://\<URL\>/cxf/api/v1/customers/{id} |
+| **URL** | GET https://\<URL\>/cxf/api/v1/customers/{id} |
 | --- | --- |
 | **Filtr** |
 | **Řazení** |
@@ -554,7 +554,7 @@ Informace o konkrétním zákazníkovi.
 
 Vrátí seznam všech nasmlouvaných služeb zákazníka (včetně parametrů).
 
-| **URL** | GET http://\<URL\>/cxf/api/v1/customers/{id}/services |
+| **URL** | GET https://\<URL\>/cxf/api/v1/customers/{id}/services |
 | --- | --- |
 | **Filtr** | custServiceId<br/>custServiceName<br/>tarifId<br/>tarifName<br/>customerId<br/>productElementId<br/>serviceActivationTime<br/>suspended<br/>suspendTime<br/>resumeTime<br/>enabled<br/>deviceServiceId<br/>discontinued<br/>discontinuationTime |
 | **Řazení** | custServiceId<br/>custServiceName<br/>tarifId<br/>tarifName<br/>customerId<br/>productElementId<br/>serviceActivationTime<br/>suspended<br/>suspendTime<br/>resumeTime<br/>enabled<br/>deviceServiceId<br/>discontinued<br/>discontinuationTime |
@@ -565,7 +565,7 @@ Vrátí seznam všech nasmlouvaných služeb zákazníka (včetně parametrů).
 
 Vrátí seznam všech projektů (včetně parametrů) daného zákazníka.
 
-| **URL** | GET http://\<URL\>/cxf/api/v1/customers/{id}/projects |
+| **URL** | GET https://\<URL\>/cxf/api/v1/customers/{id}/projects |
 | --- | --- |
 | **Filtr** | projectId<br/>projectName<br/>customerId<br/>suspended<br/>suspendTime<br/>resumeTime<br/>freemium |
 | **Řazení** | projectId<br/>projectName<br/>customerId<br/>suspended<br/>suspendTime<br/>resumeTime<br/>freemium |
@@ -578,7 +578,7 @@ Vrátí seznam všech projektů (včetně parametrů) daného zákazníka.
 
 Vrátí seznam všech služeb (včetně parametrů).
 
-| **URL** | GET http://\<URL\>/cxf/api/v1/services |
+| **URL** | GET https://\<URL\>/cxf/api/v1/services |
 | --- | --- |
 | **Filtr** | custServiceId<br/>custServiceName<br/>tarifId<br/>tarifName<br/>customerId<br/>productElementId<br/>serviceActivationTime<br/>suspended<br/>suspendTime<br/>resumeTime<br/>enabled<br/>deviceServiceId<br/>discontinued<br/>discontinuationTime |
 | **Řazení** | custServiceId<br/>custServiceName<br/>tarifId<br/>tarifName<br/>customerId<br/>productElementId<br/>serviceActivationTime<br/>suspended<br/>suspendTime<br/>resumeTime<br/>enabled<br/>deviceServiceId<br/>discontinued<br/>discontinuationTime |
@@ -589,7 +589,7 @@ Vrátí seznam všech služeb (včetně parametrů).
 
 Informace o konkrétní službě (včetně parametrů).
 
-| **URL** | GET http://\<URL\>/cxf/api/v1/services/{id} |
+| **URL** | GET https://\<URL\>/cxf/api/v1/services/{id} |
 | --- | --- |
 | **Filtr** |
 | **Řazení** |
@@ -600,7 +600,7 @@ Informace o konkrétní službě (včetně parametrů).
 
 Stav counterů dané služby.
 
-| **URL** | GET http://\<URL\>/cxf/api/v1/services/{id}/counters |
+| **URL** | GET https://\<URL\>/cxf/api/v1/services/{id}/counters |
 | --- | --- |
 | **Filtr** | counterId<br/>name<br/>value<br/>limit |
 | **Řazení** | counterId<br/>name<br/>value<br/>limit |
@@ -611,7 +611,7 @@ Stav counterů dané služby.
 
 Vrátí seznam všech projektů (včetně parametrů), které mají přiřazenu danou službu.
 
-| **URL** | GET http://\<URL\>/cxf/api/v1/services/{id}/projects |
+| **URL** | GET https://\<URL\>/cxf/api/v1/services/{id}/projects |
 | --- | --- |
 | **Filtr** | projectId<br/>projectName<br/>customerId<br/>suspended<br/>suspendTime<br/>resumeTime<br/>freemium |
 | **Řazení** | projectId<br/>projectName<br/>customerId<br/>suspended<br/>suspendTime<br/>resumeTime<br/>freemium |
@@ -622,7 +622,7 @@ Vrátí seznam všech projektů (včetně parametrů), které mají přiřazenu 
 
 Přiřadí službu na projekt. Bez této akce nelze v rámci daného projektu čerpat danou službu a importovat na ni zařízení.
 
-| **URL** | POST http://\<URL\>/cxf/api/v1/services/{id}/projects/{projectId}/assign |
+| **URL** | POST https://\<URL\>/cxf/api/v1/services/{id}/projects/{projectId}/assign |
 | --- | --- |
 | **Filtr** |
 | **Řazení** |
@@ -633,7 +633,7 @@ Přiřadí službu na projekt. Bez této akce nelze v rámci daného projektu č
 
 Odebere službu z projektu. Nelze provést, pokud existují zařízení, která jsou na tuto službu přiřazena.
 
-| **URL** | DELETE http://\<URL\>/cxf/api/v1/services/{id}/projects/{projectId}/assign |
+| **URL** | DELETE https://\<URL\>/cxf/api/v1/services/{id}/projects/{projectId}/assign |
 | --- | --- |
 | **Filtr** |
 | **Řazení** |
@@ -644,7 +644,7 @@ Odebere službu z projektu. Nelze provést, pokud existují zařízení, která 
 
 Migrace zařízení na novou službu v rámci stejného projektu a zákazníka. Projekt musí mít cílovou službu k dispozici.
 
-| **URL** | POST http://\<URL\>/cxf/api/v1/services/{id}/devices/{protocol}/{deviceId}/assign |
+| **URL** | POST https://\<URL\>/cxf/api/v1/services/{id}/devices/{protocol}/{deviceId}/assign |
 | --- | --- |
 | **Filtr** |
 | **Řazení** |
@@ -657,7 +657,7 @@ Migrace zařízení na novou službu v rámci stejného projektu a zákazníka. 
 
 Vrátí seznam všech projektů (včetně parametrů).
 
-| **URL** | GET http://\<URL\>/cxf/api/v1/projects |
+| **URL** | GET https://\<URL\>/cxf/api/v1/projects |
 | --- | --- |
 | **Filtr** | projectId<br/>projectName<br/>customerId<br/>suspended<br/>suspendTime<br/>resumeTime<br/>freemium |
 | **Řazení** | projectId<br/>projectName<br/>customerId<br/>suspended<br/>suspendTime<br/>resumeTime<br/>freemium |
@@ -668,7 +668,7 @@ Vrátí seznam všech projektů (včetně parametrů).
 
 Založení nového projektu. Akce obvykle trvá déle (10-20s), protože je třeba provést např. založení databáze, atd.
 
-| **URL** | POST http://\<URL\>/cxf/api/v1/projects |
+| **URL** | POST https://\<URL\>/cxf/api/v1/projects |
 | --- | --- |
 | **Filtr** |
 | **Řazení** |
@@ -679,7 +679,7 @@ Založení nového projektu. Akce obvykle trvá déle (10-20s), protože je tře
 
 Informace o projektu včetně parametrů.
 
-| **URL** | GET http://\<URL\>/cxf/api/v1/projects/{id} |
+| **URL** | GET https://\<URL\>/cxf/api/v1/projects/{id} |
 | --- | --- |
 | **Filtr** |
 | **Řazení** |
@@ -690,7 +690,7 @@ Informace o projektu včetně parametrů.
 
 Aktualizace atributů projektu.
 
-| **URL** | PUT http://\<URL\>/cxf/api/v1/projects/{id} |
+| **URL** | PUT https://\<URL\>/cxf/api/v1/projects/{id} |
 | --- | --- |
 | **Filtr** |
 | **Řazení** |
@@ -701,7 +701,7 @@ Aktualizace atributů projektu.
 
 Zrušení projektu. Projekt nelze zrušit, pokud obsahuje některý z podřízených objektů, jako zařízení, endpoint, skupinu zařízení, atd.
 
-| **URL** | DELETE http://\<URL\>/cxf/api/v1/projects/{id} |
+| **URL** | DELETE https://\<URL\>/cxf/api/v1/projects/{id} |
 | --- | --- |
 | **Filtr** |
 | **Řazení** |
@@ -712,7 +712,7 @@ Zrušení projektu. Projekt nelze zrušit, pokud obsahuje některý z podřízen
 
 Editace parametrů projektu. Tato funkcionalita je dostupná pouze zákazníkům typu _Reseller_.
 
-| **URL** | PUT http://\<URL\>/cxf/api/v1/projects/{id}/parameters |
+| **URL** | PUT https://\<URL\>/cxf/api/v1/projects/{id}/parameters |
 | --- | --- |
 | **Filtr** |
 | **Řazení** |
@@ -737,7 +737,7 @@ _Další specifika je třeba konzultovat se zadavatelem._
 
 Informace o konkrétní službě (včetně parametrů).
 
-| **URL** | GET http://\<URL\>/cxf/api/v1/projects/{id}/counters |
+| **URL** | GET https://\<URL\>/cxf/api/v1/projects/{id}/counters |
 | --- | --- |
 | **Filtr** | counterId<br/>name<br/>value<br/>limit |
 | **Řazení** | counterId<br/>name<br/>value<br/>limit |
@@ -748,7 +748,7 @@ Informace o konkrétní službě (včetně parametrů).
 
 Vrátí seznam všech služeb (včetně parametrů), které jsou přiřazeny projektu.
 
-| **URL** | GET http://\<URL\>/cxf/api/v1/projects/{id}/services |
+| **URL** | GET https://\<URL\>/cxf/api/v1/projects/{id}/services |
 | --- | --- |
 | **Filtr** | custServiceId<br/>custServiceName<br/>tarifId<br/>tarifName<br/>customerId<br/>productElementId<br/>serviceActivationTime<br/>suspended<br/>suspendTime<br/>resumeTime<br/>enabled<br/>deviceServiceId<br/>discontinued<br/>discontinuationTime |
 | **Řazení** | custServiceId<br/>custServiceName<br/>tarifId<br/>tarifName<br/>customerId<br/>productElementId<br/>serviceActivationTime<br/>suspended<br/>suspendTime<br/>resumeTime<br/>enabled<br/>deviceServiceId<br/>discontinued<br/>discontinuationTime |
@@ -759,7 +759,7 @@ Vrátí seznam všech služeb (včetně parametrů), které jsou přiřazeny pro
 
 Analytický přehled o endpointech na projektu.
 
-| **URL** | GET http://\<URL\>/cxf/api/v1/projects/{id}/endpoint/overview |
+| **URL** | GET https://\<URL\>/cxf/api/v1/projects/{id}/endpoint/overview |
 | --- | --- |
 | **Filtr** |
 | **Řazení** |
@@ -770,7 +770,7 @@ Analytický přehled o endpointech na projektu.
 
 Vrátí analytický přehled o zařízeních na projektu.
 
-| **URL** | GET http://\<URL\>/cxf/api/v1/projects/{id}/devices/overview |
+| **URL** | GET https://\<URL\>/cxf/api/v1/projects/{id}/devices/overview |
 | --- | --- |
 | **Filtr** |
 | **Řazení** |
@@ -781,7 +781,7 @@ Vrátí analytický přehled o zařízeních na projektu.
 
 Vrátí analytický přehled skupin zařízení.
 
-| **URL** | GET http://\<URL\>/cxf/api/v1/projects/{id}/device-groups/overview |
+| **URL** | GET https://\<URL\>/cxf/api/v1/projects/{id}/device-groups/overview |
 | --- | --- |
 | **Filtr** | deviceGroupId<br/>deviceGroupName<br/>enabled<br/>lastEnableTime<br/>lastDisableTime |
 | **Řazení** | deviceGroupId<br/>deviceGroupName<br/>enabled<br/>lastEnableTime<br/>lastDisableTime |
@@ -796,7 +796,7 @@ Vrátí analytický přehled skupin zařízení.
 
 Vrátí seznam všech http endpointů (včetně parametrů, tagů, atributů a seznamu skupin, do kterých je přiřazen).
 
-| **URL** | GET http://\<URL\>/cxf/api/v1/http/endpoints |
+| **URL** | GET https://\<URL\>/cxf/api/v1/http/endpoints |
 | --- | --- |
 | **Filtr** | custDestId<br/>projectId<br/>custDestName<br/>custDestEnabled<br/>transformationId<br/>lastSuccessfulDelivery<br/>failedDeliveries |
 | **Řazení** | custDestId<br/>projectId<br/>custDestName<br/>custDestEnabled<br/>transformationId<br/>lastSuccessfulDelivery<br/>failedDeliveries |
@@ -807,7 +807,7 @@ Vrátí seznam všech http endpointů (včetně parametrů, tagů, atributů a s
 
 Založení http endpointu.
 
-| **URL** | POST http://\<URL\>/cxf/api/v1/http/endpoints |
+| **URL** | POST https://\<URL\>/cxf/api/v1/http/endpoints |
 | --- | --- |
 | **Filtr** |
 | **Řazení** |
@@ -818,7 +818,7 @@ Založení http endpointu.
 
 Našeptávač k http endpointům.
 
-| **URL** | GET http://\<URL\>/cxf/api/v1/http/endpoints/suggestions |
+| **URL** | GET https://\<URL\>/cxf/api/v1/http/endpoints/suggestions |
 | --- | --- |
 | **Filtr** | projectId |
 | **Řazení** |
@@ -829,7 +829,7 @@ Našeptávač k http endpointům.
 
 Vrátí informace o http endpointu (včetně parametrů, tagů, atributů a seznamu skupin, do kterých je přiřazen).
 
-| **URL** | GET http://\<URL\>/cxf/api/v1/http/endpoints ​/{id} |
+| **URL** | GET https://\<URL\>/cxf/api/v1/http/endpoints ​/{id} |
 | --- | --- |
 | **Filtr** |
 | **Řazení** |
@@ -840,7 +840,7 @@ Vrátí informace o http endpointu (včetně parametrů, tagů, atributů a sezn
 
 Aktualizace nastavení http endpointu.
 
-| **URL** | PUT http://\<URL\>/cxf/api/v1/http/endpoints/​{id} |
+| **URL** | PUT https://\<URL\>/cxf/api/v1/http/endpoints/​{id} |
 | --- | --- |
 | **Filtr** |
 | **Řazení** |
@@ -851,7 +851,7 @@ Aktualizace nastavení http endpointu.
 
 Výmaz http endpointu. Nelze provést, pokud je endpoint přiřazen skupině zařízení.
 
-| **URL** | DELETE http://\<URL\>/cxf/api/v1/http/endpoints/​{id} |
+| **URL** | DELETE https://\<URL\>/cxf/api/v1/http/endpoints/​{id} |
 | --- | --- |
 | **Filtr** |
 | **Řazení** |
@@ -866,7 +866,7 @@ Maximální rozpětí mezi query parametry from a to je 31 dní.
 
 Parametr from je validován konstantou 2021-04-20 06:26 V případě požadavku před touto konstantou dojde k odpovědi s response code 303 a textem v body : „From is less than minimal 2021-04-20 06:26:00.000"
 
-| **URL** | GET http://\<URL\>/cxf/api/v1/http​/endpoints​/{id}​/deliveries |
+| **URL** | GET https://\<URL\>/cxf/api/v1/http​/endpoints​/{id}​/deliveries |
 | --- | --- |
 | **Filtr** | messageId<br/>transformationId<br/>code<br/>error |
 | **Řazení** | messageId<br/>transformationId<br/>requestTime |
@@ -881,7 +881,7 @@ Maximální rozpětí mezi query parametry from a to je 31 dní.
 
 Parametr from je validován konstantou 2021-04-20 06:26 V případě požadavku před touto konstantou dojde k odpovědi s response code 303 a textem v body : „From is less than minimal 2021-04-20 06:26:00.000"
 
-| **URL** | GET http://\<URL\>/cxf/api/v1/http​/endpoints​/{id}​/deliveries/full-detail |
+| **URL** | GET https://\<URL\>/cxf/api/v1/http​/endpoints​/{id}​/deliveries/full-detail |
 | --- | --- |
 | **Filtr** | messageId<br/>transformationId<br/>code<br/>error<br/>custDeviceName |
 | **Řazení** | messageId<br/>transformationId<br/>requestTime |
@@ -892,7 +892,7 @@ Parametr from je validován konstantou 2021-04-20 06:26 V případě požadavku 
 
 Test http endpointu. Zašle požadavek dle specifikace a vrátí odpověď.
 
-| **URL** | POST http://\<URL\>/cxf/api/v1​/http​/endpoints​/{id}​/ping |
+| **URL** | POST https://\<URL\>/cxf/api/v1​/http​/endpoints​/{id}​/ping |
 | --- | --- |
 | **Filtr** |
 | **Řazení** |
@@ -903,7 +903,7 @@ Test http endpointu. Zašle požadavek dle specifikace a vrátí odpověď.
 
 Aktualizace tagů endpointu.
 
-| **URL** | POST http://\<URL\>/cxf/api/v1​/http​/endpoints​/{id}​/ping |
+| **URL** | POST https://\<URL\>/cxf/api/v1​/http​/endpoints​/{id}​/ping |
 | --- | --- |
 | **Filtr** |
 | **Řazení** |
@@ -914,7 +914,7 @@ Aktualizace tagů endpointu.
 
 Aktualizace atributů endpointu.
 
-| **URL** | POST http://\<URL\>/cxf/api/v1​/http​/endpoints​/{id}​/ping |
+| **URL** | POST https://\<URL\>/cxf/api/v1​/http​/endpoints​/{id}​/ping |
 | --- | --- |
 | **Filtr** |
 | **Řazení** |
@@ -929,7 +929,7 @@ Aktualizace atributů endpointu.
 
 Vrátí seznam všech mqtt gateways (včetně parametrů, tagů, atributů a seznamu skupin, do kterých je přiřazen).
 
-| **URL** | GET http://\<URL\>/cxf/api/v1/mqtt/gateways |
+| **URL** | GET https://\<URL\>/cxf/api/v1/mqtt/gateways |
 | --- | --- |
 | **Filtr** | custDestId<br/>projectId<br/>custDestName<br/>custDestEnabled<br/>transformationId<br/>lastSuccessfulDelivery<br/>failedDeliveries |
 | **Řazení** | custDestId<br/>projectId<br/>custDestName<br/>custDestEnabled<br/>transformationId<br/>lastSuccessfulDelivery<br/>failedDeliveries |
@@ -940,7 +940,7 @@ Vrátí seznam všech mqtt gateways (včetně parametrů, tagů, atributů a sez
 
 Založení mqtt gateway.
 
-| **URL** | POST http://\<URL\>/cxf/api/v1/mqtt/gateways |
+| **URL** | POST https://\<URL\>/cxf/api/v1/mqtt/gateways |
 | --- | --- |
 | **Filtr** |
 | **Řazení** |
@@ -951,7 +951,7 @@ Založení mqtt gateway.
 
 Našeptávač k mqtt gateways.
 
-| **URL** | GET http://\<URL\>/cxf/api/v1/mqtt/gateways/suggestions |
+| **URL** | GET https://\<URL\>/cxf/api/v1/mqtt/gateways/suggestions |
 | --- | --- |
 | **Filtr** | projectId |
 | **Řazení** |
@@ -962,7 +962,7 @@ Našeptávač k mqtt gateways.
 
 Vrátí informace o mqtt gateway (včetně parametrů, tagů, atributů a seznamu skupin, do kterých je přiřazen).
 
-| **URL** | GET http://\<URL\>/cxf/api/v1/mqtt/gateways ​/{id} |
+| **URL** | GET https://\<URL\>/cxf/api/v1/mqtt/gateways ​/{id} |
 | --- | --- |
 | **Filtr** |
 | **Řazení** |
@@ -973,7 +973,7 @@ Vrátí informace o mqtt gateway (včetně parametrů, tagů, atributů a seznam
 
 Aktualizace nastavení mqtt gateway.
 
-| **URL** | PUT http://\<URL\>/cxf/api/v1/mqtt/gateways/​{id} |
+| **URL** | PUT https://\<URL\>/cxf/api/v1/mqtt/gateways/​{id} |
 | --- | --- |
 | **Filtr** |
 | **Řazení** |
@@ -984,7 +984,7 @@ Aktualizace nastavení mqtt gateway.
 
 Výmaz mqtt gateway. Nelze provést, pokud je gatewaypřiřazena skupině zařízení.
 
-| **URL** | DELETE http://\<URL\>/cxf/api/v1/mqtt/gateways/​{id} |
+| **URL** | DELETE https://\<URL\>/cxf/api/v1/mqtt/gateways/​{id} |
 | --- | --- |
 | **Filtr** |
 | **Řazení** |
@@ -999,7 +999,7 @@ Maximální rozpětí mezi query parametry from a to je 31 dní.
 
 Parametr from je validován konstantou 2021-04-20 06:26 V případě požadavku před touto konstantou dojde k odpovědi s response code 303 a textem v body : „From is less than minimal 2021-04-20 06:26:00.000"
 
-| **URL** | GET http://\<URL\>/cxf/api/v1/mqtt​/gateways ​/{id}​/deliveries |
+| **URL** | GET https://\<URL\>/cxf/api/v1/mqtt​/gateways ​/{id}​/deliveries |
 | --- | --- |
 | **Filtr** | messageId<br/>transformationId<br/>code<br/>error |
 | **Řazení** | messageId<br/>transformationId<br/>requestTime |
@@ -1014,7 +1014,7 @@ Maximální rozpětí mezi query parametry from a to je 31 dní.
 
 Parametr from je validován konstantou 2021-04-20 06:26 V případě požadavku před touto konstantou dojde k odpovědi s response code 303 a textem v body : „From is less than minimal 2021-04-20 06:26:00.000"
 
-| **URL** | GET http://\<URL\>/cxf/api/v1/mqtt​/gateways ​/{id}​/deliveries/full-detail |
+| **URL** | GET https://\<URL\>/cxf/api/v1/mqtt​/gateways ​/{id}​/deliveries/full-detail |
 | --- | --- |
 | **Filtr** | messageId<br/>transformationId<br/>code<br/>error<br/>custDeviceName |
 | **Řazení** | messageId<br/>transformationId<br/>requestTime |
@@ -1025,7 +1025,7 @@ Parametr from je validován konstantou 2021-04-20 06:26 V případě požadavku 
 
 Aktualizace tagů gateway.
 
-| **URL** | POST http://\<URL\>/cxf/api/v1​/mqtt​/gateways ​/{id}​/ping |
+| **URL** | POST https://\<URL\>/cxf/api/v1​/mqtt​/gateways ​/{id}​/ping |
 | --- | --- |
 | **Filtr** |
 | **Řazení** |
@@ -1036,7 +1036,7 @@ Aktualizace tagů gateway.
 
 Aktualizace atributů gateways.
 
-| **URL** | POST http://\<URL\>/cxf/api/v1​/mqtt​/endpoints​/{id}​/ping |
+| **URL** | POST https://\<URL\>/cxf/api/v1​/mqtt​/endpoints​/{id}​/ping |
 | --- | --- |
 | **Filtr** |
 | **Řazení** |
@@ -1051,7 +1051,7 @@ Aktualizace atributů gateways.
 
 Vrátí seznam všech mqtt zařízení (včetně tagů, atributů a seznamu skupin, do kterých jsou přiřazena).
 
-| **URL** | GET http://\<URL\>/cxf/api/v1/mqtt​/devices​/ |
+| **URL** | GET https://\<URL\>/cxf/api/v1/mqtt​/devices​/ |
 | --- | --- |
 | **Filtr** | deviceId<br/>custDeviceName<br/>custServiceId<br/>status<br/>enabled<br/>enableTime<br/>disableTime<br/>suspended<br/>suspendTime<br/>resumeTime<br/>provisionTime<br/>customerId<br/>projectId<br/>lastMessageIn<br/>lastMessageOut<br/>tags<br/>deviceGroupId |
 | **Řazení** | deviceId<br/>custDeviceName<br/>custServiceId<br/>status<br/>enabled<br/>enableTime<br/>disableTime<br/>suspended<br/>suspendTime<br/>resumeTime<br/>provisionTime<br/>customerId<br/>projectId<br/>lastMessageIn<br/>lastMessageOut<br/>tags |
@@ -1064,7 +1064,7 @@ Import MQTT zařízení (lze importovat více než jedno zařízení najednou). 
 
 Importní dávka musí obsahovat pouze jednu službu a projekt.
 
-| **URL** | POST http://\<URL\>/cxf/api/v1/mqtt​/devices​/ |
+| **URL** | POST https://\<URL\>/cxf/api/v1/mqtt​/devices​/ |
 | --- | --- |
 | **Filtr** |
 | **Řazení** |
@@ -1075,7 +1075,7 @@ Importní dávka musí obsahovat pouze jednu službu a projekt.
 
 Našeptávač pro MQTT zařízení.
 
-| **URL** | GET http://\<URL\>/cxf/api/v1/mqtt​/devices​/suggestions |
+| **URL** | GET https://\<URL\>/cxf/api/v1/mqtt​/devices​/suggestions |
 | --- | --- |
 | **Filtr** | projectId |
 | **Řazení** |
@@ -1086,7 +1086,7 @@ Našeptávač pro MQTT zařízení.
 
 Vrátí informace o mqtt zařízení (včetně tagů, atributů a seznamu skupin, do kterých je přiřazeno).
 
-| **URL** | GET http://\<URL\>/cxf/api/v1/mqtt​/devices​/{id} |
+| **URL** | GET https://\<URL\>/cxf/api/v1/mqtt​/devices​/{id} |
 | --- | --- |
 | **Filtr** |
 | **Řazení** |
@@ -1097,7 +1097,7 @@ Vrátí informace o mqtt zařízení (včetně tagů, atributů a seznamu skupin
 
 Editace mqtt zařízení.
 
-| **URL** | PUT http://\<URL\>/cxf/api/v1/mqtt​/devices​/{id} |
+| **URL** | PUT https://\<URL\>/cxf/api/v1/mqtt​/devices​/{id} |
 | --- | --- |
 | **Filtr** |
 | **Řazení** |
@@ -1108,7 +1108,7 @@ Editace mqtt zařízení.
 
 Výmaz mqtt zařízení. Zařízení nelze vymazat, pokud je přiřazeno do skupiny zařízení.
 
-| **URL** | DELETE http://\<URL\>/cxf/api/v1/mqtt​/devices​/{id} |
+| **URL** | DELETE https://\<URL\>/cxf/api/v1/mqtt​/devices​/{id} |
 | --- | --- |
 | **Filtr** |
 | **Řazení** |
@@ -1119,7 +1119,7 @@ Výmaz mqtt zařízení. Zařízení nelze vymazat, pokud je přiřazeno do skup
 
 Aktualizace tagů mqtt zařízení.
 
-| **URL** | PUT http://\<URL\>/cxf/api/v1/mqtt​/devices​/{id}/tags |
+| **URL** | PUT https://\<URL\>/cxf/api/v1/mqtt​/devices​/{id}/tags |
 | --- | --- |
 | **Filtr** |
 | **Řazení** |
@@ -1130,7 +1130,7 @@ Aktualizace tagů mqtt zařízení.
 
 Aktualizace atributů mqtt zařízení.
 
-| **URL** | PUT http://\<URL\>/cxf/api/v1/mqtt​/devices​/{id}/attributes |
+| **URL** | PUT https://\<URL\>/cxf/api/v1/mqtt​/devices​/{id}/attributes |
 | --- | --- |
 | **Filtr** |
 | **Řazení** |
@@ -1141,7 +1141,7 @@ Aktualizace atributů mqtt zařízení.
 
 Zjištění stavu importu zařízení.
 
-| **URL** | GET http://\<URL\>/cxf/api/v1/mqtt​/devices/import​/{id} |
+| **URL** | GET https://\<URL\>/cxf/api/v1/mqtt​/devices/import​/{id} |
 | --- | --- |
 | **Filtr** |
 | **Řazení** |
@@ -1152,7 +1152,7 @@ Zjištění stavu importu zařízení.
 
 Výpis stavu counterů na zařízení.
 
-| **URL** | GET http://\<URL\>/cxf/api/v1/mqtt​/devices/counters |
+| **URL** | GET https://\<URL\>/cxf/api/v1/mqtt​/devices/counters |
 | --- | --- |
 | **Filtr** |
 | **Řazení** |
@@ -1163,7 +1163,7 @@ Výpis stavu counterů na zařízení.
 
 Povolení zařízení (implicitní stav). Zprávy z takového zařízení jsou přijímány na platformu a jsou doručovány.
 
-| **URL** | POST http://\<URL\>/cxf/api/v1/mqtt​/devices​/{id}​/enable |
+| **URL** | POST https://\<URL\>/cxf/api/v1/mqtt​/devices​/{id}​/enable |
 | --- | --- |
 | **Filtr** |
 | **Řazení** |
@@ -1174,7 +1174,7 @@ Povolení zařízení (implicitní stav). Zprávy z takového zařízení jsou p
 
 Pozastavení zařízení. Zprávy z takového zařízení jsou přijímány na platformu, ale nejsou doručovány.
 
-| **URL** | DELETE http://\<URL\>/cxf/api/v1/mqtt​/devices​/{id}​/enable |
+| **URL** | DELETE https://\<URL\>/cxf/api/v1/mqtt​/devices​/{id}​/enable |
 | --- | --- |
 | **Filtr** |
 | **Řazení** |
@@ -1187,7 +1187,7 @@ Zobrazení zpráv odeslaných na zařízení.
 
 Maximální rozpětí mezi query parametry from a to je 31 dní.
 
-| **URL** | GET http://\<URL\>/cxf/api/v1/mqtt​/devices​/{id}​/down​/messages |
+| **URL** | GET https://\<URL\>/cxf/api/v1/mqtt​/devices​/{id}​/down​/messages |
 | --- | --- |
 | **Filtr** | data |
 | **Řazení** | messageTime |
@@ -1198,7 +1198,7 @@ Maximální rozpětí mezi query parametry from a to je 31 dní.
 
 Odeslání zprávy na MQTT zařízení.
 
-| **URL** | POST http://\<URL\>/cxf/api/v1/mqtt​/devices​/{id}​/down​/messages |
+| **URL** | POST https://\<URL\>/cxf/api/v1/mqtt​/devices​/{id}​/down​/messages |
 | --- | --- |
 | **Filtr** |
 | **Řazení** |
@@ -1211,7 +1211,7 @@ Výpis zpráv z MQTT zařízení.
 
 Maximální rozpětí mezi query parametry from a to je 31 dní.
 
-| **URL** | GET http://\<URL\>/cxf/api/v1/mqtt​/devices​/{id}​/up​/messages |
+| **URL** | GET https://\<URL\>/cxf/api/v1/mqtt​/devices​/{id}​/up​/messages |
 | --- | --- |
 | **Filtr** | data |
 | **Řazení** | messageTime |
@@ -1224,7 +1224,7 @@ Výpis doručení zprávy na endpointy.
 
 Parametr messageId je validován konstantou 2021-04-20 06:26 V případě požadavku před touto konstantou dojde k odpovědi s response code 303 a textem v body : „MessageId datetime is less than minimal 2021-04-20 06:26:00.000"
 
-| **URL** | GET http://\<URL\>/cxf/api/v1/mqtt​/devices​/{id}​/up​/messages/{messageId}/deliveries |
+| **URL** | GET https://\<URL\>/cxf/api/v1/mqtt​/devices​/{id}​/up​/messages/{messageId}/deliveries |
 | --- | --- |
 | **Filtr** |
 | **Řazení** |
@@ -1237,7 +1237,7 @@ Denní statistika zpráv odeslaných na MQTT zařízení.
 
 Maximální rozpětí mezi query parametry from a to je 31 dní.
 
-| **URL** | GET http://\<URL\>/cxf/api/v1/mqtt​/devices​/{id}​/down​/messages/stats |
+| **URL** | GET https://\<URL\>/cxf/api/v1/mqtt​/devices​/{id}​/down​/messages/stats |
 | --- | --- |
 | **Filtr** |
 | **Řazení** |
@@ -1250,7 +1250,7 @@ Denní statistika zpráv z MQTT zařízení. Jedná se o kompletní počty, tj. 
 
 Maximální rozpětí mezi query parametry from a to je 31 dní.
 
-| **URL** | GET http://\<URL\>/cxf/api/v1/mqtt​/devices​/{id}​/up​/messages/stats |
+| **URL** | GET https://\<URL\>/cxf/api/v1/mqtt​/devices​/{id}​/up​/messages/stats |
 | --- | --- |
 | **Filtr** |
 | **Řazení** |
@@ -1265,7 +1265,7 @@ Maximální rozpětí mezi query parametry from a to je 31 dní.
 
 Vrátí seznam všech lora zařízení (včetně tagů, atributů a seznamu skupin, do kterých jsou přiřazena).
 
-| **URL** | GET http://\<URL\>/cxf/api/v1/lora​/devices​/ |
+| **URL** | GET https://\<URL\>/cxf/api/v1/lora​/devices​/ |
 | --- | --- |
 | **Filtr** | deviceId<br/>custDeviceName<br/>custServiceId<br/>status<br/>enabled<br/>enableTime<br/>disableTime<br/>suspended<br/>suspendTime<br/>resumeTime<br/>provisionTime<br/>customerId<br/>projectId<br/>lastMessageIn<br/>lastMessageOut<br/>tags<br/>signalStrength<br/>bateryStatus<br/>deviceType<br/>deviceGroupId<br/>deviceStatus |
 | **Řazení** | deviceId<br/>custDeviceName<br/>custServiceId<br/>enabled<br/>enableTime<br/>disableTime<br/>status<br/>suspended<br/>suspendTime<br/>resumeTime<br/>provisionTime<br/>customerId<br/>projectId<br/>lastMessageIn<br/>lastMessageOut<br/>tags<br/>signalStrength<br/>bateryStatus<br/>deviceType<br/>deviceStatus |
@@ -1276,7 +1276,7 @@ Vrátí seznam všech lora zařízení (včetně tagů, atributů a seznamu skup
 
 Našeptávač pro lora zařízení.
 
-| **URL** | GET http://\<URL\>/cxf/api/v1/lora/devices​/suggestions |
+| **URL** | GET https://\<URL\>/cxf/api/v1/lora/devices​/suggestions |
 | --- | --- |
 | **Filtr** | projectId |
 | **Řazení** |
@@ -1289,7 +1289,7 @@ Hromadný import ABP zařízení z CSV souboru (definice dle dokumentace). Prov�
 
 Importní dávka musí obsahovat pouze jednu službu a projekt.
 
-| **URL** | POST http://\<URL\>/cxf/api/v1/lora​/devices​/abp​/csv |
+| **URL** | POST https://\<URL\>/cxf/api/v1/lora​/devices​/abp​/csv |
 | --- | --- |
 | **Filtr** |
 | **Řazení** |
@@ -1302,7 +1302,7 @@ Hromadný import OTAA zařízení z CSV souboru (definice dle dokumentace). Prov
 
 Importní dávka musí obsahovat pouze jednu službu a projekt.
 
-| **URL** | POST http://\<URL\>/cxf/api/v1/lora​/devices​/otaa​/csv |
+| **URL** | POST https://\<URL\>/cxf/api/v1/lora​/devices​/otaa​/csv |
 | --- | --- |
 | **Filtr** |
 | **Řazení** |
@@ -1315,7 +1315,7 @@ Hromadný import ABP zařízení. Provádí se asynchronně. Pokud je základní
 
 Importní dávka musí obsahovat pouze jednu službu a projekt.
 
-| **URL** | POST http://\<URL\>/cxf/api/v1/lora​/devices​/abp​ |
+| **URL** | POST https://\<URL\>/cxf/api/v1/lora​/devices​/abp​ |
 | --- | --- |
 | **Filtr** |
 | **Řazení** |
@@ -1328,7 +1328,7 @@ Hromadný import OTAA zařízení. Provádí se asynchronně. Pokud je základn�
 
 Importní dávka musí obsahovat pouze jednu službu a projekt.
 
-| **URL** | POST http://\<URL\>/cxf/api/v1/lora​/devices​/otaa​ |
+| **URL** | POST https://\<URL\>/cxf/api/v1/lora​/devices​/otaa​ |
 | --- | --- |
 | **Filtr** |
 | **Řazení** |
@@ -1339,7 +1339,7 @@ Importní dávka musí obsahovat pouze jednu službu a projekt.
 
 Vrátí informace o lora zařízení (včetně tagů, atributů a seznamu skupin, do kterých je přiřazeno).
 
-| **URL** | GET http://\<URL\>/cxf/api/v1/lora​/devices​/{id} |
+| **URL** | GET https://\<URL\>/cxf/api/v1/lora​/devices​/{id} |
 | --- | --- |
 | **Filtr** |
 | **Řazení** |
@@ -1350,7 +1350,7 @@ Vrátí informace o lora zařízení (včetně tagů, atributů a seznamu skupin
 
 Editace lora zařízení.
 
-| **URL** | PUT http://\<URL\>/cxf/api/v1/lora​/devices​/{id} |
+| **URL** | PUT https://\<URL\>/cxf/api/v1/lora​/devices​/{id} |
 | --- | --- |
 | **Filtr** |
 | **Řazení** |
@@ -1361,7 +1361,7 @@ Editace lora zařízení.
 
 Výmaz lora zařízení. Zařízení nelze vymazat, pokud je přiřazeno do skupiny zařízení.
 
-| **URL** | DELETE http://\<URL\>/cxf/api/v1/lora​/devices​/{id} |
+| **URL** | DELETE https://\<URL\>/cxf/api/v1/lora​/devices​/{id} |
 | --- | --- |
 | **Filtr** |
 | **Řazení** |
@@ -1372,7 +1372,7 @@ Výmaz lora zařízení. Zařízení nelze vymazat, pokud je přiřazeno do skup
 
 Aktualizace tagů lora zařízení.
 
-| **URL** | PUT http://\<URL\>/cxf/api/v1/lora​/devices​/{id}/tags |
+| **URL** | PUT https://\<URL\>/cxf/api/v1/lora​/devices​/{id}/tags |
 | --- | --- |
 | **Filtr** |
 | **Řazení** |
@@ -1383,7 +1383,7 @@ Aktualizace tagů lora zařízení.
 
 Aktualizace atributů lora zařízení.
 
-| **URL** | PUT http://\<URL\>/cxf/api/v1/lora/devices​/{id}/attributes |
+| **URL** | PUT https://\<URL\>/cxf/api/v1/lora/devices​/{id}/attributes |
 | --- | --- |
 | **Filtr** |
 | **Řazení** |
@@ -1394,7 +1394,7 @@ Aktualizace atributů lora zařízení.
 
 Zjištění stavu importu zařízení.
 
-| **URL** | GET http://\<URL\>/cxf/api/v1/lora​/devices/import​/{id} |
+| **URL** | GET https://\<URL\>/cxf/api/v1/lora​/devices/import​/{id} |
 | --- | --- |
 | **Filtr** |
 | **Řazení** |
@@ -1405,7 +1405,7 @@ Zjištění stavu importu zařízení.
 
 Výpis stavu counterů na zařízení.
 
-| **URL** | GET http://\<URL\>/cxf/api/v1/lora​/devices/counters |
+| **URL** | GET https://\<URL\>/cxf/api/v1/lora​/devices/counters |
 | --- | --- |
 | **Filtr** |
 | **Řazení** |
@@ -1416,7 +1416,7 @@ Výpis stavu counterů na zařízení.
 
 Povolení zařízení (implicitní stav). Zprávy z takového zařízení jsou přijímány na platformu a jsou doručovány.
 
-| **URL** | POST http://\<URL\>/cxf/api/v1/mqtt​/devices​/{id}​/enable |
+| **URL** | POST https://\<URL\>/cxf/api/v1/mqtt​/devices​/{id}​/enable |
 | --- | --- |
 | **Filtr** |
 | **Řazení** |
@@ -1427,7 +1427,7 @@ Povolení zařízení (implicitní stav). Zprávy z takového zařízení jsou p
 
 Pozastavení zařízení. Zprávy z takového zařízení jsou přijímány na platformu, ale nejsou doručovány.
 
-| **URL** | DELETE http://\<URL\>/cxf/api/v1/lora​/devices​/{id}​/enable |
+| **URL** | DELETE https://\<URL\>/cxf/api/v1/lora​/devices​/{id}​/enable |
 | --- | --- |
 | **Filtr** |
 | **Řazení** |
@@ -1440,7 +1440,7 @@ Zobrazení zpráv odeslaných na zařízení.
 
 Maximální rozpětí mezi query parametry from a to je 31 dní.
 
-| **URL** | GET http://\<URL\>/cxf/api/v1/lora​/devices​/{id}​/down​/messages |
+| **URL** | GET https://\<URL\>/cxf/api/v1/lora​/devices​/{id}​/down​/messages |
 | --- | --- |
 | **Filtr** | data |
 | **Řazení** | messageTime |
@@ -1451,7 +1451,7 @@ Maximální rozpětí mezi query parametry from a to je 31 dní.
 
 Odeslání zprávy na lora zařízení.
 
-| **URL** | POST http://\<URL\>/cxf/api/v1/lora​/devices​/{id}​/down​/messages |
+| **URL** | POST https://\<URL\>/cxf/api/v1/lora​/devices​/{id}​/down​/messages |
 | --- | --- |
 | **Filtr** |
 | **Řazení** |
@@ -1464,7 +1464,7 @@ Výpis zpráv z lora zařízení.
 
 Maximální rozpětí mezi query parametry from a to je 31 dní.
 
-| **URL** | GET http://\<URL\>/cxf/api/v1/lora/devices​/{id}​/up​/messages |
+| **URL** | GET https://\<URL\>/cxf/api/v1/lora/devices​/{id}​/up​/messages |
 | --- | --- |
 | **Filtr** | data<br/>id |
 | **Řazení** | messageTimeid |
@@ -1477,7 +1477,7 @@ Výpis doručení zprávy na endpointy.
 
 Parametr messageId je validován konstantou 2021-04-20 06:26 V případě požadavku před touto konstantou dojde k odpovědi s response code 303 a textem v body : „MessageId datetime is less than minimal 2021-04-20 06:26:00.000"
 
-| **URL** | GET http://\<URL\>/cxf/api/v1/lora​/devices​/{id}​/up​/messages/{messageId}/deliveries |
+| **URL** | GET https://\<URL\>/cxf/api/v1/lora​/devices​/{id}​/up​/messages/{messageId}/deliveries |
 | --- | --- |
 | **Filtr** |
 | **Řazení** |
@@ -1488,7 +1488,7 @@ Parametr messageId je validován konstantou 2021-04-20 06:26 V případě požad
 
 Zjištění síly signálu dle souřadnic a typu zařízení.
 
-| **URL** | POST http://\<URL\>/cxf/api/v1/lora/signal/{id} |
+| **URL** | POST https://\<URL\>/cxf/api/v1/lora/signal/{id} |
 | --- | --- |
 | **Filtr** |
 | **Řazení** |
@@ -1501,7 +1501,7 @@ Denní statistika zpráv odeslaných na LoRa zařízení.
 
 Maximální rozpětí mezi query parametry from a to je 31 dní.
 
-| **URL** | GET http://\<URL\>/cxf/api/v1/lora​/devices​/{id}​/down​/messages/stats |
+| **URL** | GET https://\<URL\>/cxf/api/v1/lora​/devices​/{id}​/down​/messages/stats |
 | --- | --- |
 | **Filtr** |
 | **Řazení** |
@@ -1514,7 +1514,7 @@ Denní statistika zpráv z LoRa zařízení. Jedná se o kompletní počty, tj. 
 
 Maximální rozpětí mezi query parametry from a to je 31 dní.
 
-| **URL** | GET http://\<URL\>/cxf/api/v1/lora​/devices​/{id}​/up​/messages/stats |
+| **URL** | GET https://\<URL\>/cxf/api/v1/lora​/devices​/{id}​/up​/messages/stats |
 | --- | --- |
 | **Filtr** |
 | **Řazení** |
@@ -1525,7 +1525,7 @@ Maximální rozpětí mezi query parametry from a to je 31 dní.
 
 Aktualizace parametrů lora zařízení.
 
-| **URL** | PUT http://\<URL\>/cxf/api/v1/lora/devices​/{id}/parameters |
+| **URL** | PUT https://\<URL\>/cxf/api/v1/lora/devices​/{id}/parameters |
 | --- | --- |
 | **Filtr** |
 | **Řazení** |
@@ -1536,7 +1536,7 @@ Aktualizace parametrů lora zařízení.
 
 Aktivace LoRa zařízení z prekativního stavu
 
-| **URL** | PUT http://\<URL\>/cxf/api/v1/lora/devices​/{id}/activate |
+| **URL** | PUT https://\<URL\>/cxf/api/v1/lora/devices​/{id}/activate |
 | --- | --- |
 | **Filtr** |
 | **Řazení** |
@@ -1549,7 +1549,7 @@ Aktivace LoRa zařízení z prekativního stavu
 
 Vrátí seznam všech skupin zařízení (včetně tagů a atributů).
 
-| **URL** | GET http://\<URL\>/cxf/api/v1/device-groups |
+| **URL** | GET https://\<URL\>/cxf/api/v1/device-groups |
 | --- | --- |
 | **Filtr** | deviceGroupId<br/>projectId<br/>deviceGroupName<br/>enabled<br/>lastEnableTime<br/>lastDisableTime |
 | **Řazení** | deviceGroupId<br/>projectId<br/>deviceGroupName<br/>enabled<br/>lastEnableTime<br/>lastDisableTime |
@@ -1560,7 +1560,7 @@ Vrátí seznam všech skupin zařízení (včetně tagů a atributů).
 
 Založení skupiny zařízení
 
-| **URL** | POST http://\<URL\>/cxf/api/v1/device-groups |
+| **URL** | POST https://\<URL\>/cxf/api/v1/device-groups |
 | --- | --- |
 | **Filtr** |
 | **Řazení** |
@@ -1571,7 +1571,7 @@ Založení skupiny zařízení
 
 Našeptávač pro skupiny zařízení.
 
-| **URL** | GET http://\<URL\>/cxf/api/v1/device-groups​/suggestions |
+| **URL** | GET https://\<URL\>/cxf/api/v1/device-groups​/suggestions |
 | --- | --- |
 | **Filtr** | projectId |
 | **Řazení** |
@@ -1582,7 +1582,7 @@ Našeptávač pro skupiny zařízení.
 
 Vrátí informace o skupině zařízení (včetně tagů a atributů).
 
-| **URL** | GET http://\<URL\>/cxf/api/v1/device-groups​/{id} |
+| **URL** | GET https://\<URL\>/cxf/api/v1/device-groups​/{id} |
 | --- | --- |
 | **Filtr** |
 | **Řazení** |
@@ -1593,7 +1593,7 @@ Vrátí informace o skupině zařízení (včetně tagů a atributů).
 
 Editace skupiny zařízení.
 
-| **URL** | PUT http://\<URL\>/cxf/api/v1/device-groups​/{id} |
+| **URL** | PUT https://\<URL\>/cxf/api/v1/device-groups​/{id} |
 | --- | --- |
 | **Filtr** |
 | **Řazení** |
@@ -1604,7 +1604,7 @@ Editace skupiny zařízení.
 
 Výmaz skupiny zařízení. Skupinu nelze vymazat, pokud je k ní přiřazeny endpointy nebo zařízení.
 
-| **URL** | DELETE http://\<URL\>/cxf/api/v1/device-groups​/{id} |
+| **URL** | DELETE https://\<URL\>/cxf/api/v1/device-groups​/{id} |
 | --- | --- |
 | **Filtr** |
 | **Řazení** |
@@ -1615,7 +1615,7 @@ Výmaz skupiny zařízení. Skupinu nelze vymazat, pokud je k ní přiřazeny en
 
 Aktualizace tagů skupiny zařízení.
 
-| **URL** | PUT http://\<URL\>/cxf/api/v1/device-groups​/{id}​/tags |
+| **URL** | PUT https://\<URL\>/cxf/api/v1/device-groups​/{id}​/tags |
 | --- | --- |
 | **Filtr** |
 | **Řazení** |
@@ -1626,7 +1626,7 @@ Aktualizace tagů skupiny zařízení.
 
 Aktualizace atributů skupiny zařízení.
 
-| **URL** | PUT http://\<URL\>/cxf/api/v1/device-groups​/{id}​/attributes |
+| **URL** | PUT https://\<URL\>/cxf/api/v1/device-groups​/{id}​/attributes |
 | --- | --- |
 | **Filtr** |
 | **Řazení** |
@@ -1637,7 +1637,7 @@ Aktualizace atributů skupiny zařízení.
 
 Výpis zjednodušeného seznamu zařízení přiřazených ke skupině. Pro detail k zařízení je třeba provést extra dotaz.
 
-| **URL** | GET http://\<URL\>/cxf/api/v1/device-groups​/devices |
+| **URL** | GET https://\<URL\>/cxf/api/v1/device-groups​/devices |
 | --- | --- |
 | **Filtr** | deviceId<br/>deviceProtocol<br/>projectId<br/>custDeviceName |
 | **Řazení** | deviceId<br/>deviceProtocol<br/>projectId<br/>custDeviceName |
@@ -1648,7 +1648,7 @@ Výpis zjednodušeného seznamu zařízení přiřazených ke skupině. Pro deta
 
 Výpis zjednodušeného seznamu endpointů přiřazených ke skupině. Pro detail k endpontu je třeba provést extra dotaz.
 
-| **URL** | GET http://\<URL\>/cxf/api/v1/device-groups​/endpoints |
+| **URL** | GET https://\<URL\>/cxf/api/v1/device-groups​/endpoints |
 | --- | --- |
 | **Filtr** | custDestId<br/>projectId<br/>custDestName<br/>custDestType |
 | **Řazení** | custDestId<br/>projectId<br/>custDestName<br/>custDestType |
@@ -1659,7 +1659,7 @@ Výpis zjednodušeného seznamu endpointů přiřazených ke skupině. Pro detai
 
 Přiřazení zařízení skupině zařízení. Povolené hodnoty atributu protocol jsou _lora_ a _mqtt._
 
-| **URL** | POST http://\<URL\>/cxf/api/v1/device-groups​/{id}​/devices/{protocol}/{deviceId}​/assign |
+| **URL** | POST https://\<URL\>/cxf/api/v1/device-groups​/{id}​/devices/{protocol}/{deviceId}​/assign |
 | --- | --- |
 | **Filtr** |
 | **Řazení** |
@@ -1670,7 +1670,7 @@ Přiřazení zařízení skupině zařízení. Povolené hodnoty atributu protoc
 
 Odebrání zařízení ze skupiny. Povolené hodnoty atributu protocol jsou _lora_ a _mqtt._
 
-| **URL** | DELETE http://\<URL\>/cxf/api/v1/device-groups​/{id}​/devices​/{protocol}/{deviceId}​/assign |
+| **URL** | DELETE https://\<URL\>/cxf/api/v1/device-groups​/{id}​/devices​/{protocol}/{deviceId}​/assign |
 | --- | --- |
 | **Filtr** |
 | **Řazení** |
@@ -1681,7 +1681,7 @@ Odebrání zařízení ze skupiny. Povolené hodnoty atributu protocol jsou _lor
 
 Přiřazení endpointu skupině zařízení.
 
-| **URL** | POST http://\<URL\>/cxf/api/v1/device-groups​/{id}​/endpoints​/{endpointId}​/assign |
+| **URL** | POST https://\<URL\>/cxf/api/v1/device-groups​/{id}​/endpoints​/{endpointId}​/assign |
 | --- | --- |
 | **Filtr** |
 | **Řazení** |
@@ -1692,7 +1692,7 @@ Přiřazení endpointu skupině zařízení.
 
 Odebrání endpointu ze skupiny.
 
-| **URL** | DELETE http://\<URL\>/cxf/api/v1​/device-groups​/{id}​/endpoints​/{endpointId}​/assign |
+| **URL** | DELETE https://\<URL\>/cxf/api/v1​/device-groups​/{id}​/endpoints​/{endpointId}​/assign |
 | --- | --- |
 | **Filtr** |
 | **Řazení** |
@@ -1705,7 +1705,7 @@ Odebrání endpointu ze skupiny.
 
 Vrátí seznam všech uživatelů (včetně práv a parametrů).
 
-| **URL** | GET http://\<URL\>/cxf/api/v1/users |
+| **URL** | GET https://\<URL\>/cxf/api/v1/users |
 | --- | --- |
 | **Filtr** | userId<br/>firstName<br/>lastName<br/>phone<br/>email<br/>customerId<br/>projectId |
 | **Řazení** | userId<br/>firstName<br/>lastName<br/>phone<br/>email |
@@ -1716,7 +1716,7 @@ Vrátí seznam všech uživatelů (včetně práv a parametrů).
 
 Našeptávač pro uživatele.
 
-| **URL** | GET http://\<URL\>/cxf/api/v1​/users​/suggestions |
+| **URL** | GET https://\<URL\>/cxf/api/v1​/users​/suggestions |
 | --- | --- |
 | **Filtr** | customerId |
 | **Řazení** |
@@ -1727,7 +1727,7 @@ Našeptávač pro uživatele.
 
 Informace o uživateli (včetně práv a parametrů).
 
-| **URL** | GET http://\<URL\>/cxf/api/v1/users/{id} |
+| **URL** | GET https://\<URL\>/cxf/api/v1/users/{id} |
 | --- | --- |
 | **Filtr** |
 | **Řazení** |
@@ -1738,7 +1738,7 @@ Informace o uživateli (včetně práv a parametrů).
 
 Aktualizace uživatelských preferencí.
 
-| **URL** | PUT http://\<URL\>/cxf/api/v1/users​/{id}​ |
+| **URL** | PUT https://\<URL\>/cxf/api/v1/users​/{id}​ |
 | --- | --- |
 | **Filtr** |
 | **Řazení** |
@@ -1749,7 +1749,7 @@ Aktualizace uživatelských preferencí.
 
 Přiřazení, případně odebrání práva uživatele k danému projektu.
 
-| **URL** | GET http://\<URL\>/cxf/api/v1/users​/{id}​/customers​/{customerId}​/projects​/{projectId}​/privileges |
+| **URL** | GET https://\<URL\>/cxf/api/v1/users​/{id}​/customers​/{customerId}​/projects​/{projectId}​/privileges |
 | --- | --- |
 | **Filtr** |
 | **Řazení** |
@@ -1762,7 +1762,7 @@ Přiřazení, případně odebrání práva uživatele k danému projektu.
 
 Načtení nastavení notifikací uživatelů.
 
-| **URL** | GET http://\<URL\>/cxf/api/v1/notifications |
+| **URL** | GET https://\<URL\>/cxf/api/v1/notifications |
 | --- | --- |
 | **Filtr** | emailcustomeId |
 | **Řazení** | emailcustomeId |
@@ -1773,7 +1773,7 @@ Načtení nastavení notifikací uživatelů.
 
 Načtení nastavení notifikací uživatele.
 
-| **URL** | GET http://\<URL\>/cxf/api/v1/notifications​/customers​/{customerId} |
+| **URL** | GET https://\<URL\>/cxf/api/v1/notifications​/customers​/{customerId} |
 | --- | --- |
 | **Filtr** |
 | **Řazení** |
@@ -1784,7 +1784,7 @@ Načtení nastavení notifikací uživatele.
 
 Načtení odeslaných notifikací uživatele.
 
-| **URL** | GET http://\<URL\>/cxf/api/v1/notifications​/customers​/{customerId}​/sent |
+| **URL** | GET https://\<URL\>/cxf/api/v1/notifications​/customers​/{customerId}​/sent |
 | --- | --- |
 | **Filtr** |
 | **Řazení** |
@@ -1795,7 +1795,7 @@ Načtení odeslaných notifikací uživatele.
 
 Načtení nastavení notifikací neuživatelských emailů.
 
-| **URL** | GET http://\<URL\>/cxf/api/v1/notifications​/customers​/{customerId}​/emails |
+| **URL** | GET https://\<URL\>/cxf/api/v1/notifications​/customers​/{customerId}​/emails |
 | --- | --- |
 | **Filtr** | email |
 | **Řazení** | email |
@@ -1806,7 +1806,7 @@ Načtení nastavení notifikací neuživatelských emailů.
 
 Registrace notifikačního emailu.
 
-| **URL** | POST http://\<URL\>/cxf/api/v1/notifications​/customers​/{customerId}​/emails |
+| **URL** | POST https://\<URL\>/cxf/api/v1/notifications​/customers​/{customerId}​/emails |
 | --- | --- |
 | **Filtr** |
 | **Řazení** |
@@ -1817,7 +1817,7 @@ Registrace notifikačního emailu.
 
 Načtení nastavení notifikací neuživatelského emailu.
 
-| **URL** | GET http://\<URL\>/cxf/api/v1 ​/notifications​/customers​/{customerId}​/emails​/{email} |
+| **URL** | GET https://\<URL\>/cxf/api/v1 ​/notifications​/customers​/{customerId}​/emails​/{email} |
 | --- | --- |
 | **Filtr** |
 | **Řazení** |
@@ -1828,7 +1828,7 @@ Načtení nastavení notifikací neuživatelského emailu.
 
 Odregistrace notifikačního emailu.
 
-| **URL** | DELETE http://\<URL\>/cxf/api/v1/notifications​/customers​/{customerId}​/emails |
+| **URL** | DELETE https://\<URL\>/cxf/api/v1/notifications​/customers​/{customerId}​/emails |
 | --- | --- |
 | **Filtr** |
 | **Řazení** |
@@ -1839,7 +1839,7 @@ Odregistrace notifikačního emailu.
 
 Načtení odeslaných notifikací neuživatelského emailu.
 
-| **URL** | GET http://\<URL\>/cxf/api/v1/notifications​/customers​/{customerId}​/emails​/{email}​/sent |
+| **URL** | GET https://\<URL\>/cxf/api/v1/notifications​/customers​/{customerId}​/emails​/{email}​/sent |
 | --- | --- |
 | **Filtr** |
 | **Řazení** |
@@ -1850,7 +1850,7 @@ Načtení odeslaných notifikací neuživatelského emailu.
 
 Úprava nastavení notifikací uživatele.
 
-| **URL** | PATCHhttp://\<URL\>/cxf/api/v1/notifications​/customers​/{customerId}​/templates​/{template} |
+| **URL** | PATCHhttps://\<URL\>/cxf/api/v1/notifications​/customers​/{customerId}​/templates​/{template} |
 | --- | --- |
 | **Filtr** |
 | **Řazení** |
@@ -1862,7 +1862,7 @@ Načtení odeslaných notifikací neuživatelského emailu.
 
 Úprava nastavení notifikací neuživatelského emailu.
 
-| **URL** | PATCHhttp://\<URL\>/cxf/api/v1/notifications​/customers​/{customerId}​/templates​/{template}​/emails​/{email} |
+| **URL** | PATCHhttps://\<URL\>/cxf/api/v1/notifications​/customers​/{customerId}​/templates​/{template}​/emails​/{email} |
 | --- | --- |
 | **Filtr** |
 | **Řazení** |
@@ -1877,7 +1877,7 @@ Zobrazení kompletního auditního logu.
 
 parameters obsahuje páry klíč hodnota dle placeholderů v textu dané katalogové hlášky. Tyto jsou standardně označeny postfixem a prefixem %.
 
-| **URL** | GET http://\<URL\>/cxf/api/v1/audits |
+| **URL** | GET https://\<URL\>/cxf/api/v1/audits |
 | --- | --- |
 | **Filtr** | customerId<br/>projectId<br/>code<br/>level<br/>timestamp<br/>originator<br/>source |
 | **Řazení** | customerId<br/>projectId<br/>code<br/>level<br/>timestamp<br/>originator<br/>source |
@@ -1890,7 +1890,7 @@ Zobrazení auditního logu zákazníka.
 
 parameters obsahuje páry klíč hodnota dle placeholderů v textu dané katalogové hlášky. Tyto jsou standardně označeny postfixem a prefixem %.
 
-| **URL** | GET http://\<URL\>/cxf/api/v1/audits​/customers​/{customerId} |
+| **URL** | GET https://\<URL\>/cxf/api/v1/audits​/customers​/{customerId} |
 | --- | --- |
 | **Filtr** | customerId<br/>projectId<br/>code<br/>level<br/>timespamp<br/>originator<br/>source |
 | **Řazení** | customerId<br/>projectId<br/>code<br/>level<br/>timespamp<br/>originator<br/>source |
@@ -1903,7 +1903,7 @@ Zobrazení auditního logu projektu.
 
 parameters obsahuje páry klíč hodnota dle placeholderů v textu dané katalogové hlášky. Tyto jsou standardně označeny postfixem a prefixem %.
 
-| **URL** | GET http://\<URL\>/cxf/api/v1/audits​/projects​/{projectId} |
+| **URL** | GET https://\<URL\>/cxf/api/v1/audits​/projects​/{projectId} |
 | --- | --- |
 | **Filtr** | customerId<br/>projectId<br/>code<br/>level<br/>timestamp<br/>originator<br/>source |
 | **Řazení** | customerId<br/>projectId<br/>code<br/>level<br/>timestamp<br/>originator<br/>source |
@@ -1916,7 +1916,7 @@ Zobrazení auditního logu zařízení.
 
 parameters obsahuje páry klíč hodnota dle placeholderů v textu dané katalogové hlášky. Tyto jsou standardně označeny postfixem a prefixem %.
 
-| **URL** | GET http://\<URL\>/cxf/api/v1/audits​/devices​/{protocol}/{deviceId} |
+| **URL** | GET https://\<URL\>/cxf/api/v1/audits​/devices​/{protocol}/{deviceId} |
 | --- | --- |
 | **Filtr** | customerId<br/>projectId<br/>code<br/>level<br/>timestamp<br/>originator<br/>source |
 | **Řazení** | customerId<br/>projectId<br/>code<br/>level<br/>timestamp<br/>originator<br/>source |
@@ -1929,7 +1929,7 @@ Zobrazení auditního logu skupiny zařízení.
 
 parameters obsahuje páry klíč hodnota dle placeholderů v textu dané katalogové hlášky. Tyto jsou standardně označeny postfixem a prefixem %.
 
-| **URL** | GET http://\<URL\>/cxf/api/v1/audits​/device-groups​/{groupId} |
+| **URL** | GET https://\<URL\>/cxf/api/v1/audits​/device-groups​/{groupId} |
 | --- | --- |
 | **Filtr** | customerId<br/>projectId<br/>code<br/>level<br/>timestamp<br/>originator<br/>source |
 | **Řazení** | customerId<br/>projectId<br/>code<br/>level<br/>timestamp<br/>originator<br/>source |
@@ -1944,7 +1944,7 @@ Načtení tagu zařízení
 
 Kompletní seznam tagů.
 
-| **URL** | GET http://\<URL\>/cxf/api/v1/tags/devices |
+| **URL** | GET https://\<URL\>/cxf/api/v1/tags/devices |
 | --- | --- |
 | **Filtr** | customerId<br/>projectId<br/>deviceId<br/>tag |
 | **Řazení** | tag |
@@ -1959,7 +1959,7 @@ Načtení atributů zařízení
 
 Kompletní seznam atributů.
 
-| **URL** | GET http://\<URL\>/cxf/api/v1/tags/devices |
+| **URL** | GET https://\<URL\>/cxf/api/v1/tags/devices |
 | --- | --- |
 | **Filtr** | customerId<br/>projectId<br/>deviceId<br/>attribute<br/>value |
 | **Řazení** | attribute |
