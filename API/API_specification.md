@@ -8,9 +8,9 @@
 
 [2.Základní pravidla API](#základní-pravidla-api)
 
-[2.1.Ověření](#ověření)
+[2.1.Ověření](##ověření)
 
-[2.2.Pagination](#pagination)
+[2.2.Pagination](##pagination)
 
 [2.3.Řazení](#řazení)
 
