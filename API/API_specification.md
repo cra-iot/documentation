@@ -323,13 +323,17 @@ U všech volání je vyžadováno ověření volajícího pomocí metody _Bearer
 
 ```
 curl --request GET \
---url http://api.:8185/cxf/api/v1/customers \
---header'authorization: Bearer eyJhbGciOiJSUzI1 …' \
-Access\_token získáte požadavkem na naši SSO platformu takto:
-POST '[https://sso.cra.cz/auth/realms/CRA/protocol/openid-connect/token](https://sso.cra.cz/auth/realms/CRA/protocol/openid-connect/token)' \
+--url http://api.iot.cra.cz/cxf/api/v1/customers \
+--header 'Authorization: Bearer $access\_token' \
+```
+
+access\_token získáte požadavkem na naši SSO platformu takto:
+```
+curl --request POST \
+--url https://sso.cra.cz/auth/realms/CRA/protocol/openid-connect/token \
 --header 'Content-Type: application/x-www-form-urlencoded' \
---data-urlencode 'username=\>' \
---data-urlencode 'password=\>' \
+--data-urlencode 'username=$email\>' \
+--data-urlencode 'password=$password\>' \
 --data-urlencode 'grant\_type=password' \
 --data-urlencode 'client\_id=iot-api-client' \
 --data-urlencode 'client\_secret=41a113b7-5486-45e3-8a3d-e0b106a5d446'
