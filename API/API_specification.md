@@ -4,115 +4,115 @@
 
 # **Obsah**
 
-[1.Úvod 7](#%C3%BAvod)
+[1.Úvod 7](#úvod)
 
 [2.Základní pravidla API 7](#základní-pravidla-api)
 
-[2.1.Ověření 7](#_Toc128137631)
+[2.1.Ověření 7](#ověření)
 
-[2.2.Pagination 8](#_Toc128137632)
+[2.2.Pagination 8](#pagination)
 
-[2.3.Řazení 8](#_Toc128137633)
+[2.3.Řazení 8](#řazení)
 
-[2.4.Filtrace 8](#_Toc128137634)
+[2.4.Filtrace 8](#filtrace)
 
-[2.5.Fulltextové vyhledávání 9](#_Toc128137635)
+[2.5.Fulltextové vyhledávání 9](#fulltextové-vyhledávání)
 
-[2.6.Našeptávače 10](#_Toc128137636)
+[2.6.Našeptávače 10](#našeptávače)
 
-[2.7.Lokalizace 10](#_Toc128137637)
+[2.7.Lokalizace 10](#lokalizace)
 
-[2.8.Standardní Success Response u GET 10](#_Toc128137638)
+[2.8.Standardní Success Response u GET 10](#standardní-success-response-u-get)
 
-[2.9.Standardní Error Response 11](#_Toc128137639)
+[2.9.Standardní Error Response 11](#standardní-error-response)
 
-[2.10.Indikace v komentářích Swagger 12](#_Toc128137640)
+[2.10.Indikace v komentářích Swagger 12](#indikace-v-komentářích-swagger)
 
-[2.11.Obecné 12](#_Toc128137641)
+[2.11.Obecné 12](#obecné)
 
-[2.12.Interní poznámky 12](#_Toc128137642)
+[2.12.Interní poznámky 12](#interní-poznámky)
 
-[3.API 12](#_Toc128137643)
+[3.API 12](#api)
 
-[3.1.Customers 12](#_Toc128137644)
+[3.1.Customers 12](#customers)
 
-[3.1.1.GET ​/customers 13](#_Toc128137645)
+[3.1.1.GET ​/customers 13](#get-customers)
 
-[3.1.2.GET /customers​/{id} 13](#_Toc128137646)
+[3.1.2.GET /customers​/{id} 13](#get-customersid)
 
-[3.1.3.GET /customers​/{id}​/services 13](#_Toc128137647)
+[3.1.3.GET /customers​/{id}​/services 13](#get-customersidservices)
 
-[3.1.4.GET /customers​/{id}​/projects 14](#_Toc128137648)
+[3.1.4.GET /customers​/{id}​/projects 14](#get-customersidprojects)
 
-[3.2.Services 15](#_Toc128137649)
+[3.2.Services 15](#services)
 
-[3.2.1.GET /services 15](#_Toc128137650)
+[3.2.1.GET /services 15](#get-services)
 
-[3.2.2.GET ​/services​/{id} 16](#_Toc128137651)
+[3.2.2.GET ​/services​/{id} 16](#get-servicesid)
 
-[3.2.3.GET ​/services​/{id}​/counters 16](#_Toc128137652)
+[3.2.3.GET ​/services​/{id}​/counters 16](#get-servicesidcounters)
 
-[3.2.4.GET ​/services​/{id}​/projects 17](#_Toc128137653)
+[3.2.4.GET ​/services​/{id}​/projects 17](#get-servicesidprojects)
 
-[3.2.5.POST ​/services​/{id}​/projects​/{projectId}​/assign 17](#_Toc128137654)
+[3.2.5.POST ​/services​/{id}​/projects​/{projectId}​/assign 17](#post-servicesidprojectsprojectidassign)
 
-[3.2.6.DELETE ​/services​/{id}​/projects​/{projectId}​/assign 18](#_Toc128137655)
+[3.2.6.DELETE ​/services​/{id}​/projects​/{projectId}​/assign 18](#delete-servicesidprojectsprojectidassign)
 
-[3.2.7.POST ​/services​/{id}​/devices​/{protocol}/{deviceId}​/assign 18](#_Toc128137656)
+[3.2.7.POST ​/services​/{id}​/devices​/{protocol}/{deviceId}​/assign 18](#post-servicesiddevicesprotocoldeviceidassign)
 
-[3.3.Projects 19](#_Toc128137657)
+[3.3.Projects 19](#projects)
 
-[3.3.1.GET ​/projects 19](#_Toc128137658)
+[3.3.1.GET ​/projects 19](#get-projects)
 
-[3.3.2.POST ​/projects 19](#_Toc128137659)
+[3.3.2.POST ​/projects 19](#post-projects)
 
-[3.3.3.GET ​/projects​/{id} 20](#_Toc128137660)
+[3.3.3.GET ​/projects​/{id} 20](#get-projectsid)
 
-[3.3.4.PUT ​/projects​/{id} 20](#_Toc128137661)
+[3.3.4.PUT ​/projects​/{id} 20](#put-projectsid)
 
-[3.3.5.DELETE ​/projects​/{id} 20](#_Toc128137662)
+[3.3.5.DELETE ​/projects​/{id} 20](#delete-projectsid)
 
-[3.3.6.PUT ​/projects​/{id}​/parameters 21](#_Toc128137663)
+[3.3.6.PUT ​/projects​/{id}​/parameters 21](#put-projectsidparameters)
 
-[3.3.7.GET ​/projects​/{id}​/counters 22](#_Toc128137664)
+[3.3.7.GET ​/projects​/{id}​/counters 22](#get-projectsidcounters)
 
-[3.3.8.GET ​/projects​/{id}​/services 22](#_Toc128137665)
+[3.3.8.GET ​/projects​/{id}​/services 22](#get-projectsidservices)
 
-[3.3.9.GET ​/projects​/{id}​/endpoints​/overview 23](#_Toc128137666)
+[3.3.9.GET ​/projects​/{id}​/endpoints​/overview 23](#get-projectsidendpointsoverview)
 
-[3.3.10.GET ​/projects​/{id}​/devices​/overview 23](#_Toc128137667)
+[3.3.10.GET ​/projects​/{id}​/devices​/overview 23](#get-projectsiddevicesoverview)
 
-[3.3.11.GET /projects/{id}/device-groups/overview 24](#_Toc128137668)
+[3.3.11.GET /projects/{id}/device-groups/overview 24](#get-projectsiddevice-groupsoverview)
 
-[3.4.HTTP 24](#_Toc128137669)
+[3.4.HTTP 24](#http)
 
-[3.4.1.Endpoints 24](#_Toc128137670)
+[3.4.1.Endpoints 24](#endpoints)
 
-[3.4.1.1.GET /http​/endpoints 24](#_Toc128137671)
+[3.4.1.1.GET /http​/endpoints 24](#get-httpendpoints)
 
-[3.4.1.2.POST ​/http​/endpoints 25](#_Toc128137672)
+[3.4.1.2.POST ​/http​/endpoints 25](#post-httpendpoints)
 
-[3.4.1.3.GET ​/http​/endpoints​/suggestions 25](#_Toc128137673)
+[3.4.1.3.GET ​/http​/endpoints​/suggestions 25](#get-httpendpointssuggestions)
 
-[3.4.1.4.GET ​/http​/endpoints​/{id} 26](#_Toc128137674)
+[3.4.1.4.GET ​/http​/endpoints​/{id} 26](#get-httpendpointsid)
 
-[3.4.1.5.PUT ​/http​/endpoints​/{id} 26](#_Toc128137675)
+[3.4.1.5.PUT ​/http​/endpoints​/{id} 26](#put-httpendpointsid)
 
-[3.4.1.6.DELETE ​/http​/endpoints​/{id} 26](#_Toc128137676)
+[3.4.1.6.DELETE ​/http​/endpoints​/{id} 26](#delete-httpendpointsid)
 
-[3.4.1.7.GET ​/http​/endpoints​/{id}​/deliveries 27](#_Toc128137677)
+[3.4.1.7.GET ​/http​/endpoints​/{id}​/deliveries 27](#get-httpendpointsiddeliveries)
 
-[3.4.1.8.GET ​/http​/endpoints​/{id}​/deliveries/full-detail 27](#_Toc128137678)
+[3.4.1.8.GET ​/http​/endpoints​/{id}​/deliveries/full-detail 27](#get-httpendpointsiddeliveriesfull-detail)
 
-[3.4.1.9.POST ​/http​/endpoints​/{id}​/ping 28](#_Toc128137679)
+[3.4.1.9.POST ​/http​/endpoints​/{id}​/ping 28](#post-httpendpointsidping)
 
-[3.4.1.10.[NYI] PUT ​/http​/endpoints​/{id}​/tags 28](#_Toc128137680)
+[3.4.1.10.[NYI] PUT ​/http​/endpoints​/{id}​/tags 28](#nyi-put-httpendpointsidtags)
 
-[3.4.1.11.[NYI] PUT ​/http​/endpoints​/{id}​/attributes 29](#_Toc128137681)
+[3.4.1.11.[NYI] PUT ​/http​/endpoints​/{id}​/attributes 29](#nyi-put-httpendpointsidtags)
 
-[3.5.MQTT 29](#_Toc128137682)
+[3.5.MQTT 29](#mqtt)
 
-[3.5.1.Endpoints 29](#_Toc128137683)
+[3.5.1.Gateways 29](#get-mqttgateways)
 
 [3.5.1.1.GET /mqtt​/gateways 29](#_Toc128137684)
 
@@ -1070,7 +1070,7 @@ Aktualizace atributů endpointu.
 # MQTT
 
     1.
-# Endpoints
+# Gateways
 
       1.
 # GET /mqtt​/gateways
