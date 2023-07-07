@@ -818,7 +818,7 @@ Založení http endpointu.
 
 Našeptávač k http endpointům.
 
-| **URL** | GET http://\<URL\>/cxf/api/v1/http/endpoints /suggestions |
+| **URL** | GET http://\<URL\>/cxf/api/v1/http/endpoints/suggestions |
 | --- | --- |
 | **Filtr** | projectId |
 | **Řazení** |
@@ -940,7 +940,7 @@ Vrátí seznam všech mqtt gateways (včetně parametrů, tagů, atributů a sez
 
 Založení mqtt gateway.
 
-| **URL** | POST http://\<URL\>/cxf/api/v1/mqtt/ gateways |
+| **URL** | POST http://\<URL\>/cxf/api/v1/mqtt/gateways |
 | --- | --- |
 | **Filtr** |
 | **Řazení** |
@@ -951,7 +951,7 @@ Založení mqtt gateway.
 
 Našeptávač k mqtt gateways.
 
-| **URL** | GET http://\<URL\>/cxf/api/v1/mqtt/ gateways /suggestions |
+| **URL** | GET http://\<URL\>/cxf/api/v1/mqtt/gateways/suggestions |
 | --- | --- |
 | **Filtr** | projectId |
 | **Řazení** |
@@ -962,7 +962,7 @@ Našeptávač k mqtt gateways.
 
 Vrátí informace o mqtt gateway (včetně parametrů, tagů, atributů a seznamu skupin, do kterých je přiřazen).
 
-| **URL** | GET http://\<URL\>/cxf/api/v1/mqtt/ gateways ​/{id} |
+| **URL** | GET http://\<URL\>/cxf/api/v1/mqtt/gateways ​/{id} |
 | --- | --- |
 | **Filtr** |
 | **Řazení** |
@@ -973,7 +973,7 @@ Vrátí informace o mqtt gateway (včetně parametrů, tagů, atributů a seznam
 
 Aktualizace nastavení mqtt gateway.
 
-| **URL** | PUT http://\<URL\>/cxf/api/v1/mqtt/ gateways /​{id} |
+| **URL** | PUT http://\<URL\>/cxf/api/v1/mqtt/gateways/​{id} |
 | --- | --- |
 | **Filtr** |
 | **Řazení** |
@@ -984,7 +984,7 @@ Aktualizace nastavení mqtt gateway.
 
 Výmaz mqtt gateway. Nelze provést, pokud je gatewaypřiřazena skupině zařízení.
 
-| **URL** | DELETE http://\<URL\>/cxf/api/v1/mqtt/ gateways /​{id} |
+| **URL** | DELETE http://\<URL\>/cxf/api/v1/mqtt/gateways/​{id} |
 | --- | --- |
 | **Filtr** |
 | **Řazení** |
@@ -999,7 +999,7 @@ Maximální rozpětí mezi query parametry from a to je 31 dní.
 
 Parametr from je validován konstantou 2021-04-20 06:26 V případě požadavku před touto konstantou dojde k odpovědi s response code 303 a textem v body : „From is less than minimal 2021-04-20 06:26:00.000"
 
-| **URL** | GET http://\<URL\>/cxf/api/v1/mqtt​/ gateways ​/{id}​/deliveries |
+| **URL** | GET http://\<URL\>/cxf/api/v1/mqtt​/gateways ​/{id}​/deliveries |
 | --- | --- |
 | **Filtr** | messageId<br/>transformationId<br/>code<br/>error |
 | **Řazení** | messageId<br/>transformationId<br/>requestTime |
@@ -1014,7 +1014,7 @@ Maximální rozpětí mezi query parametry from a to je 31 dní.
 
 Parametr from je validován konstantou 2021-04-20 06:26 V případě požadavku před touto konstantou dojde k odpovědi s response code 303 a textem v body : „From is less than minimal 2021-04-20 06:26:00.000"
 
-| **URL** | GET http://\<URL\>/cxf/api/v1/mqtt​/ gateways ​/{id}​/deliveries/full-detail |
+| **URL** | GET http://\<URL\>/cxf/api/v1/mqtt​/gateways ​/{id}​/deliveries/full-detail |
 | --- | --- |
 | **Filtr** | messageId<br/>transformationId<br/>code<br/>error<br/>custDeviceName |
 | **Řazení** | messageId<br/>transformationId<br/>requestTime |
@@ -1025,7 +1025,7 @@ Parametr from je validován konstantou 2021-04-20 06:26 V případě požadavku 
 
 Aktualizace tagů gateway.
 
-| **URL** | POST http://\<URL\>/cxf/api/v1​/mqtt​/ gateways ​/{id}​/ping |
+| **URL** | POST http://\<URL\>/cxf/api/v1​/mqtt​/gateways ​/{id}​/ping |
 | --- | --- |
 | **Filtr** |
 | **Řazení** |
@@ -1152,7 +1152,7 @@ Zjištění stavu importu zařízení.
 
 Výpis stavu counterů na zařízení.
 
-| **URL** | GET http://\<URL\>/cxf/api/v1/mqtt​/devices /counters |
+| **URL** | GET http://\<URL\>/cxf/api/v1/mqtt​/devices/counters |
 | --- | --- |
 | **Filtr** |
 | **Řazení** |
@@ -1659,7 +1659,7 @@ Výpis zjednodušeného seznamu endpointů přiřazených ke skupině. Pro detai
 
 Přiřazení zařízení skupině zařízení. Povolené hodnoty atributu protocol jsou _lora_ a _mqtt._
 
-| **URL** | POST http://\<URL\>/cxf/api/v1/device-groups​/{id}​/devices/{protocol} /{deviceId}​/assign |
+| **URL** | POST http://\<URL\>/cxf/api/v1/device-groups​/{id}​/devices/{protocol}/{deviceId}​/assign |
 | --- | --- |
 | **Filtr** |
 | **Řazení** |
@@ -1670,7 +1670,7 @@ Přiřazení zařízení skupině zařízení. Povolené hodnoty atributu protoc
 
 Odebrání zařízení ze skupiny. Povolené hodnoty atributu protocol jsou _lora_ a _mqtt._
 
-| **URL** | DELETE http://\<URL\>/cxf/api/v1/device-groups​/{id}​/devices​/{protocol} /{deviceId}​/assign |
+| **URL** | DELETE http://\<URL\>/cxf/api/v1/device-groups​/{id}​/devices​/{protocol}/{deviceId}​/assign |
 | --- | --- |
 | **Filtr** |
 | **Řazení** |
@@ -1773,7 +1773,7 @@ Načtení nastavení notifikací uživatelů.
 
 Načtení nastavení notifikací uživatele.
 
-| **URL** | GET http://\<URL\>/cxf/api/v1 /notifications​/customers​/{customerId} |
+| **URL** | GET http://\<URL\>/cxf/api/v1/notifications​/customers​/{customerId} |
 | --- | --- |
 | **Filtr** |
 | **Řazení** |
@@ -1784,7 +1784,7 @@ Načtení nastavení notifikací uživatele.
 
 Načtení odeslaných notifikací uživatele.
 
-| **URL** | GET http://\<URL\>/cxf/api/v1 /notifications​/customers​/{customerId}​/sent |
+| **URL** | GET http://\<URL\>/cxf/api/v1/notifications​/customers​/{customerId}​/sent |
 | --- | --- |
 | **Filtr** |
 | **Řazení** |
@@ -1850,7 +1850,7 @@ Načtení odeslaných notifikací neuživatelského emailu.
 
 Úprava nastavení notifikací uživatele.
 
-| **URL** | PATCHhttp://\<URL\>/cxf/api/v1 /notifications​/customers​/{customerId}​/templates​/{template} |
+| **URL** | PATCHhttp://\<URL\>/cxf/api/v1/notifications​/customers​/{customerId}​/templates​/{template} |
 | --- | --- |
 | **Filtr** |
 | **Řazení** |
