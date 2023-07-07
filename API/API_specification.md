@@ -130,9 +130,9 @@
 
 [3.5.1.8.GET ​/mqtt​/gateways​/{id}​/deliveries/full-detail](#get-mqttgatewaysiddeliveriesfull-detail)
 
-[3.5.1.9.(NYI) PUT ​/mqtt​/gateways​/{id}​/tags](#nyi-put-mqttgatewaysidtags)
+[3.5.1.9.[NYI] PUT ​/mqtt​/gateways​/{id}​/tags](#nyi-put-mqttgatewaysidtags)
 
-[3.5.1.10.(NYI) PUT ​/mqtt​/gateways​/{id}​/attributes](#nyi-put-mqttgatewaysidattributes)
+[3.5.1.10.[NYI] PUT ​/mqtt​/gateways​/{id}​/attributes](#nyi-put-mqttgatewaysidattributes)
 
 [3.6.MQTT](#mqtt-1)
 
@@ -218,97 +218,97 @@
 
 [3.7.1.20.​POST /lora/signal/{id})](#post-lorasignalid)
 
-[3.7.1.21.GET /lora/devices​/{id}​/down​/messages/stats](#_Toc128137736)
+[3.7.1.21.GET /lora/devices​/{id}​/down​/messages/stats](#get-loradevicesiddownmessagesstats)
 
-[3.7.1.22.​GET lora/devices​/{id}​/up​/messages/stats](#_Toc128137737)
+[3.7.1.22.​GET lora/devices​/{id}​/up​/messages/stats](#get-loradevicesidupmessagesstats)
 
-[3.7.1.23. PUT /lora/devices/{id}/parameters](#_Toc128137738)
+[3.7.1.23. PUT /lora/devices/{id}/parameters](#put-loradevicesidparameters)
 
-[3.7.1.24. POST /lora/devices/{id}/activate](#_Toc128137739)
+[3.7.1.24. POST /lora/devices/{id}/activate](#post-loradevicesidactivate)
 
-[3.8.Device Groups](#_Toc128137740)
+[3.8.Device Groups](#device-groups)
 
-[3.8.1.GET ​/device-groups](#_Toc128137741)
+[3.8.1.GET ​/device-groups](#get-device-groups)
 
-[3.8.2.POST ​/device-groups](#_Toc128137742)
+[3.8.2.POST ​/device-groups](#post-device-groups)
 
-[3.8.3.GET ​/device-groups​/suggestions](#_Toc128137743)
+[3.8.3.GET ​/device-groups​/suggestions](#get-device-groupssuggestions)
 
-[3.8.4.GET ​/device-groups​/{id}](#_Toc128137744)
+[3.8.4.GET ​/device-groups​/{id}](#get-device-groupsid)
 
-[3.8.5.PUT ​/device-groups​/{id}](#_Toc128137745)
+[3.8.5.PUT ​/device-groups​/{id}](#put-device-groupsid)
 
-[3.8.6.DELETE ​/device-groups​/{id}](#_Toc128137746)
+[3.8.6.DELETE ​/device-groups​/{id}](#delete-device-groupsid)
 
-[3.8.7.[NYI] PUT ​/device-groups​/{id}​/tags](#_Toc128137747)
+[3.8.7.[NYI] PUT ​/device-groups​/{id}​/tags](#nyi-put-device-groupsidtags)
 
-[3.8.8.[NYI] PUT /device-groups​/{id}​/attributes](#_Toc128137748)
+[3.8.8.[NYI] PUT /device-groups​/{id}​/attributes](#nyi-put-device-groupsidattributes)
 
-[3.8.9.GET ​/device-groups​/devices](#_Toc128137749)
+[3.8.9.GET ​/device-groups​/devices](#get-device-groupsdevices)
 
-[3.8.10.GET ​/device-groups​/endpoints](#_Toc128137750)
+[3.8.10.GET ​/device-groups​/endpoints](#get-device-groupsendpoints)
 
-[3.8.11.POST ​/device-groups​/{id}​/devices/{protocol} ​/{deviceId}​/assign](#_Toc128137751)
+[3.8.11.POST ​/device-groups​/{id}​/devices/{protocol} ​/{deviceId}​/assign](#post-device-groupsiddevicesprotocol-deviceidassign)
 
-[3.8.12.DELETE ​/device-groups​/{id}​/devices​/{protocol}/{deviceId}​/assign](#_Toc128137752)
+[3.8.12.DELETE ​/device-groups​/{id}​/devices​/{protocol}/{deviceId}​/assign](#delete-device-groupsiddevicesprotocoldeviceidassign)
 
-[3.8.13.POST ​/device-groups​/{id}​/endpoints​/{endpointId}​/assign](#_Toc128137753)
+[3.8.13.POST ​/device-groups​/{id}​/endpoints​/{endpointId}​/assign](#post-device-groupsidendpointsendpointidassign)
 
-[3.8.14.DELETE ​/device-groups​/{id}​/endpoints​/{endpointId}​/assign](#_Toc128137754)
+[3.8.14.DELETE ​/device-groups​/{id}​/endpoints​/{endpointId}​/assign](#delete-device-groupsidendpointsendpointidassign)
 
-[3.9.Users](#_Toc128137755)
+[3.9.Users](#users)
 
-[3.9.1.GET ​/users](#_Toc128137756)
+[3.9.1.GET ​/users](#get-users)
 
-[3.9.2.GET ​/users​/suggestions](#_Toc128137757)
+[3.9.2.GET ​/users​/suggestions](#get-userssuggestions)
 
-[3.9.3.GET ​/users​/{id}](#_Toc128137758)
+[3.9.3.GET ​/users​/{id}](#get-usersid)
 
-[3.9.4.PUT ​/users​/{id}0](#_Toc128137759)
+[3.9.4.PUT ​/users​/{id}0](#put-usersid)
 
-[3.9.5.PUT ​/users​/{id}​/customers​/{customerId}​/projects​/{projectId}​/privileges](#_Toc128137760)
+[3.9.5.PUT ​/users​/{id}​/customers​/{customerId}​/projects​/{projectId}​/privileges](#put-usersidcustomerscustomeridprojectsprojectidprivileges)
 
-[3.10.Notifications](#_Toc128137761)
+[3.10.Notifications](#notifications)
 
-[3.10.1.GET ​/notifications](#_Toc128137762)
+[3.10.1.GET ​/notifications](#get-notifications)
 
-[3.10.2.GET ​/notifications​/customers​/{customerId}](#_Toc128137763)
+[3.10.2.GET ​/notifications​/customers​/{customerId}](#get-notificationscustomerscustomerid)
 
-[3.10.3.[NYI] GET ​/notifications​/customers​/{customerId}​/sent](#_Toc128137764)
+[3.10.3.[NYI] GET ​/notifications​/customers​/{customerId}​/sent](#nyi-get-notificationscustomerscustomeridsent)
 
-[3.10.4.GET ​/notifications​/customers​/{customerId}​/emails](#_Toc128137765)
+[3.10.4.GET ​/notifications​/customers​/{customerId}​/emails](#get-notificationscustomerscustomeridemails)
 
-[3.10.5.POST /notifications​/customers​/{customerId}​/emails](#_Toc128137766)
+[3.10.5.POST /notifications​/customers​/{customerId}​/emails](#post-notificationscustomerscustomeridemails)
 
-[3.10.6.GET ​/notifications​/customers​/{customerId}​/emails​/{email}](#_Toc128137767)
+[3.10.6.GET ​/notifications​/customers​/{customerId}​/emails​/{email}](#get-notificationscustomerscustomeridemailsemail)
 
-[3.10.7.DELETE ​/notifications​/customers​/{customerId}​/emails​/{email}](#_Toc128137768)
+[3.10.7.DELETE ​/notifications​/customers​/{customerId}​/emails​/{email}](#delete-notificationscustomerscustomeridemailsemail)
 
-[3.10.8.[NYI] GET ​/notifications​/customers​/{customerId}​/emails​/{email}​/sent](#_Toc128137769)
+[3.10.8.[NYI] GET ​/notifications​/customers​/{customerId}​/emails​/{email}​/sent](#nyi-get-notificationscustomerscustomeridemailsemailsent)
 
-[3.10.9.PATCH ​/notifications​/customers​/{customerId}​/templates​/{template}](#_Toc128137770)
+[3.10.9.PATCH ​/notifications​/customers​/{customerId}​/templates​/{template}](#patch-notificationscustomerscustomeridtemplatestemplate)
 
-[3.10.10.PATCH ​/notifications​/customers​/{customerId}​/templates​/{template}​/emails​/{email}](#_Toc128137771)
+[3.10.10.PATCH ​/notifications​/customers​/{customerId}​/templates​/{template}​/emails​/{email}](#patch-notificationscustomerscustomeridtemplatestemplateemailsemail)
 
-[3.11.Audits](#_Toc128137772)
+[3.11.Audits](#audits)
 
-[3.11.1.GET /audits](#_Toc128137773)
+[3.11.1.GET /audits](#get-audits)
 
-[3.11.2.GET ​/audits​/customers​/{customerId}](#_Toc128137774)
+[3.11.2.GET ​/audits​/customers​/{customerId}](#get-auditscustomerscustomerid)
 
-[3.11.3.GET ​/audits​/projects​/{projectId}](#_Toc128137775)
+[3.11.3.GET ​/audits​/projects​/{projectId}](#get-auditsprojectsprojectid)
 
-[3.11.4.[NYI] GET ​/audits​/devices​/{protocol}/{deviceId}](#_Toc128137776)
+[3.11.4.[NYI] GET ​/audits​/devices​/{protocol}/{deviceId}](#nyi-get-auditsdevicesprotocoldeviceid)
 
-[3.11.5.[NYI] GET ​/audits​/device-groups​/{groupId}](#_Toc128137777)
+[3.11.5.[NYI] GET ​/audits​/device-groups​/{groupId}](#nyi-get-auditsdevice-groupsgroupid)
 
-[3.12.Tags](#_Toc128137778)
+[3.12.Tags](#tags)
 
-[3.12.1 GET /tags/devices](#_Toc128137779)
+[3.12.1 GET /tags/devices](#get-tagsdevices)
 
-[3.13 Attributes](#_Toc128137780)
+[3.13 Attributes](#attributes)
 
-[3.13.1 GET /attributes/devices](#_Toc128137781)
+[3.13.1 GET /attributes/devices](#get-attributesdevices)
 
 # Úvod
 
@@ -1847,7 +1847,7 @@ Maximální rozpětí mezi query parametry from a to je 31 dní.
 | **Katalog** |
  |
 
-# 3.7.1.23. PUT /lora/devices/{id}/parameters
+# PUT /lora/devices/{id}/parameters
 
 Aktualizace parametrů lora zařízení.
 
@@ -1861,7 +1861,7 @@ Aktualizace parametrů lora zařízení.
 | **Katalog** |
  |
 
-# 3.7.1.24. POST /lora/devices/{id}/activate
+# POST /lora/devices/{id}/activate
 
 Aktivace LoRa zařízení z prekativního stavu
 
@@ -2381,7 +2381,7 @@ parameters obsahuje páry klíč hodnota dle placeholderů v textu dané katalog
   1.
 # Tags
 
-# 3.12.1 GET /tags/devices
+# GET /tags/devices
 
 Načtení tagu zařízení
 
@@ -2395,9 +2395,9 @@ Kompletní seznam tagů.
 | **Katalog** |
  |
 
-# 3.13 Attributes
+# Attributes
 
-# 3.13.1 GET /attributes/devices
+# GET /attributes/devices
 
 Načtení atributů zařízení
 
