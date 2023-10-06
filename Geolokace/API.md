@@ -8,9 +8,9 @@ GET https://node-red.iot.cra.cz/devices/lora/{id}/geo/messages
 URI parametry:
 id * - string - DevEUI Zařízení
 
-Path parametry:
-from * - string - datum a čas od (yyyy-MM-dd'T'HH:mm:ss.SSSXXX) - příklad: 2022-11-23T00:00:00.000Z
-to * - string - datum a čas do (yyyy-MM-dd'T'HH:mm:ss.SSSXXX) - příklad: 2022-11-26T23:59:59.000Z
+Path parametry:<br>
+from * - string - datum a čas od (yyyy-MM-dd'T'HH:mm:ss.SSSXXX) - příklad: 2022-11-23T00:00:00.000Z<br>
+to * - string - datum a čas do (yyyy-MM-dd'T'HH:mm:ss.SSSXXX) - příklad: 2022-11-26T23:59:59.000Z<br>
 limit - integer($int32) - minimum: 1 - maximum: 1000 - query row limit, např. 20 - default value : 10
 
 Response:
