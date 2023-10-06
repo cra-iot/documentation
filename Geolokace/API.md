@@ -1,4 +1,4 @@
-![image](https://github.com/cra-iot/documentation/assets/118526137/861bf3fa-520f-43e7-966a-0e591e5126bb)# API Geolokace
+# API Geolokace
 
 Geolokační zprávy lze vyčítat přes API, podobně jako jiné LoRAWAN zprávy.
 
