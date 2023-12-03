@@ -370,9 +370,17 @@ Operátory:
 | **Operátor** | **Význam** |
 | --- | --- |
 | eq | rovnost (implicitní) |
-| lte | menší než |
-| gte | větší než |
+| noteq | [NYI] není rovno |
+| regexp | [NYI] ruegulární výraz |
+| in | [NYI] jen tyto |
+| notin | [NYI] mimo tyto |
+| lt | [NYI] menší než |
+| lte | menší nebo rovno |
+| gt | [NYI] větší než |
+| gte | větší nebo rovno |
 | like | klasický „like" s tím že wildcard je doplněn jen jako postfix |
+
+NYI - bude dostupné od 1.2.2024
 
 Atribut tags připouští použití seznamu slov oddělených znakem „,", ale pouze v případě, že je použit operátor eq.
 
