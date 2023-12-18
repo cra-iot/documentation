@@ -125,10 +125,14 @@ kde header musí obsahovat, že kódování je v json a sessionId.
 V body bude pak seznam těchto parametrů:
 | Parametr	| Popis |
 | ---	| --- |
-| tenantId	| ID účtu - je k dispozici po přihlášení do GUI |
-| label	| Poznámka k MQTT gateway |
-| protocol	| Hodnota: MQTT |
-| address	| Jméno topicu ve formátu: $customerId/$tenantId/gate/<jmeno> |
+| projectId	| ID účtu - je k dispozici po přihlášení do GUI |
+| custDestName	|  Název MQTT gateway |
+| custDestDescription	| Poznámka pro MQTT gateway |
+| custDestParameters	| Jméno topicu ve formátu: $customerId/$tenantId/gate/<gatewayId> |
+| custDestEnabled	| zda má být aktivní - true/false |
+| transformationId	| Poznámka k MQTT gateway |
+
+Id MQTT dateway, tedy gatewayId, je definováno v custDestParameters
 
 Příklad:
 ```bash
@@ -158,7 +162,9 @@ $address/devices/$tech/$clientId/down/#
 Pro LoRa to bude tedy např.:
 $address/devices/lora/48FFFFFFA11B0069/down
 a pro LoRa musí být obsah JSON ve stejném formátu jako pro REST, tj.:
-{ "cmd": "tx", "port":10, "data":"00","seqno":12, "confirmed":true, "EUI":"48FFFFFFA11B0069"}.
+```json 
+{ "cmd": "tx", "port":10, "data":"00","seqno":12, "confirmed":true, "EUI":"48FFFFFFA11B0069"}
+```
 
 Pro MQTT je možné poslat zprávy standardním způsobem pro MQTT komunikaci, tj. včetně subtopiců. Formát zpráv není nijak omezen. Topic pro odeslání zpráv do připojeného MQTT zařízení vypadá tedy takto (kde „rele“ je subtopic, do kterého chceme zapsat): 
 $address/devices/mqtt/zasuvkaOkno/down/rele.
