@@ -82,12 +82,8 @@ Klient pro CRA IoT platformu, resp. jeho MQTT broker použije následující par
 | port	| 8883	| Port, na kterém broker čeká na spojení
 | username	| Uživatelské jméno	to, které jste uvedli při zakládání zařízení |
 | password	| Heslo	| to, které jste uvedli při zakládání zařízení |
-| topic up	| topik pro 
-posílání zpráv	do něj, a všech vnořených, lze udělat publish. Má tento tvar: 
-$customerId/$tenantId/in/$clientId/* |
-| topic down	| topic pro 
-příjem zpráv	do něj lze udělat subscribe. Má tvar (# čte ze všech vnořených): 
-$customerId/$tenantId/out/$clientId/# |
+| topic up	| topik pro posílání zpráv	do něj, a všech vnořených, lze udělat publish. Má tento tvar: $customerId/$tenantId/in/$clientId/* |
+| topic down	| topic pro příjem zpráv	do něj lze udělat subscribe. Má tvar (# čte ze všech vnořených): $customerId/$tenantId/out/$clientId/# |
 | qos	| QoS	| tento parametr se uvádí až při odesílání zprávy |
 
 
