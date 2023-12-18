@@ -35,6 +35,64 @@ Pro MQTT zařízení je potřeba chápat následující parametry:
 | endpointName	| jméno Endpointu v IoT platformě	| bez mezer, češtiny |
 | qos	| kvalita doručování (QoS) používá klient spojení	| 0 - odešle min. jednou, 1 - odesílá, dokud nedostane potvrzení, 2 - doručení jednou |
 
+MQTT zařízení lze vytvořit přes REST „POST ImportMQTT“:
+https://api.iot.cra.cz/cxf/IOTServices/v2/ImportMQTT
+kde header musí obsahovat, že kódování je v json a sessionId.
+
+V body bude pak seznam těchto parametrů:
+| Parametr	| Popis |
+| ---	| --- |
+| clientId	| Libovolné jméno vašeho zařízení |
+| label	| Poznámka k zařízení |
+| tech	| Hodnota: MQTT |
+| username	| uživatelské jméno |
+| password	| heslo |
+| tenantId	| ID účtu - je k dispozici po přihlášení do GUI |
+| serviceId	| V GUI /Služby |
+
+
+Příklad:
+```bash
+curl --location --request POST 'https://api.iot.cra.cz/cxf/IOTServices/v2/ImportMQTT' \
+--header 'Content-Type: application/json' \
+--header 'sessionId: 11b00070-6716-11ea-bcc4-97141855c777' \
+--data-raw '[
+ {
+  "clientId": "zasuvkaOkno",
+  "label": "MQTT zasuvka okno",
+  "tech": "MQTT",
+  "username": "root",
+  "password": "toor",
+  "tenantId": "T202003241250003xdv",
+  "serviceId": "OP-20-01704-00002s01"
+ }
+]'
+```
+
+### Připojení a komunikace
+Klient pro CRA IoT platformu, resp. jeho MQTT broker použije následující parametry:
+| Parametr	| Popis	| Detail/poznámka |
+| ---	| ---	| --- |
+| Name	| jméno klienta	| Jakýkoliv text, IoT platforma nepoužívá. |
+| Validate certificate	| zapnuto/vypnuto	| Zda má klient ověřovat platnost certifikátu. Mělo by fungovat obojí. |
+| Encryption	| tls zapnuto	| spojení je kryptované, i když máme port 8883 |
+| protocol	| mqtt://	| ev. mqtts, pokud nemáte možnost přepnout Encryption |
+| MQTT client ID	| $clientId	| Uveďte jméno zařízení, ke kterému patří username |
+| host	| mqtt.iot.cra.cz	| URL, kde je umístěn CRA MQTT broker |
+| port	| 8883	| Port, na kterém broker čeká na spojení
+| username	| Uživatelské jméno	to, které jste uvedli při zakládání zařízení |
+| password	| Heslo	| to, které jste uvedli při zakládání zařízení |
+| topic up	| topik pro 
+posílání zpráv	do něj, a všech vnořených, lze udělat publish. Má tento tvar: 
+$customerId/$tenantId/in/$clientId/* |
+| topic down	| topic pro 
+příjem zpráv	do něj lze udělat subscribe. Má tvar (# čte ze všech vnořených): 
+$customerId/$tenantId/out/$clientId/# |
+| qos	| QoS	| tento parametr se uvádí až při odesílání zprávy |
+
+
+
+
 ## MQTT gateway
 MQTT gateway má více funkcí. Lze do něj nasměrovat zprávy z platformy, včetně LoRa zpráv. Lze přes něj odesílat zprávy (říkáme Downlink zprávy) do všech typů zařízení (jak MQTT,tak i LoRaWAN). 
 MQTT gatewat má dokonce i samostatnou část vyhrazenou pro shodnou funkčnost jako běžný broker. 
