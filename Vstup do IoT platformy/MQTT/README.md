@@ -80,11 +80,11 @@ Klient pro CRA IoT platformu, resp. jeho MQTT broker použije následující par
 | ---	| ---	| --- |
 | Name	| jméno klienta	| Jakýkoliv text, IoT platforma nepoužívá. |
 | Validate certificate	| zapnuto/vypnuto	| Zda má klient ověřovat platnost certifikátu. Mělo by fungovat obojí. |
-| Encryption	| tls zapnuto	| spojení je kryptované, i když máme port 8883 |
+| Encryption	| tls zapnuto	| spojení je kryptované, máme port 8883 |
 | protocol	| mqtt://	| ev. mqtts, pokud nemáte možnost přepnout Encryption |
 | MQTT client ID	| $clientId	| Uveďte jméno zařízení, ke kterému patří username |
 | host	| mqtt.iot.cra.cz	| URL, kde je umístěn CRA MQTT broker |
-| port	| 8883	| Port, na kterém broker čeká na spojení
+| port	| 8883	| Port, na kterém broker čeká na spojení |
 | username	| Uživatelské jméno	| to, které jste uvedli při zakládání zařízení |
 | password	| Heslo	| to, které jste uvedli při zakládání zařízení |
 | topic up	| topik pro posílání zpráv	| do něj, a všech vnořených, lze udělat publish. Má tento tvar: $customerId/$tenantId/in/$clientId/* |
