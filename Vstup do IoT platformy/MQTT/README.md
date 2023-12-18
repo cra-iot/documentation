@@ -148,25 +148,38 @@ curl --location --request POST 'https://api.iot.cra.cz/cxf/api/v1/mqtt/gateways'
 ```
 
 ### Příjem zpráv ze zařízení
-Po založení MQTT gateway lze udělat nasměrování zpráv stejně, jako u HTTP Endpointu. Tj. mít skupinu (nově již "Datový tok"), přiřadit k ní zařízení a skupinu přiřadit k MQTT gateway. Tím, budou zprávy zmíněného zařízené k dispozici ke čtení v MQTT gateway v topicu (použít metodu subcribe):
-$address/devices/$tech/$clientId/up/# (kde v $address nahraďte tečky za lomítka)
-Kde $tech je buď mqtt nebo lora, podle typu zařízení. A $clientId je ID zařízení, tj. u LoRa DevEUI.
-Pokud chcete číst zprávy ze všech nasměrovaných MQTT zařízení, pak topic:
-$address/devices/mqtt/*/up/# (případně $address/devices/mqtt/+/up/#)
+Po založení MQTT gateway lze udělat nasměrování zpráv stejně, jako u HTTP Endpointu. Tj. mít skupinu (nově již "Datový tok"), přiřadit k ní zařízení a skupinu přiřadit k MQTT gateway. Tím, budou zprávy zmíněného zařízené k dispozici ke čtení v MQTT gateway v topicu (použít metodu subcribe): <br>
+* $address/devices/$tech/$clientId/up/# <br>
+(kde v $address obsahuje tečky za lomítka)
+
+Kde $tech je buď mqtt nebo lora, podle typu zařízení.<br>
+$clientId je ID zařízení, tj. u LoRa DevEUI.
+
+Pokud chcete číst zprávy ze všech nasměrovaných MQTT zařízení, pak topic:<br>
+$address/devices/mqtt/*/up/#<br> 
+(případně $address/devices/mqtt/+/up/#)
+
 Zprávy od LoRa zařízení jsou v root topicu a mají formát JSON, jako při stažení přes REST.
-To znamená topic: $address/devices/lora/*/up (tj. nepoužívejte /# na konci)
+
+To znamená topic:<br>$address/devices/lora/*/up<br>
+(tj. nepoužívejte /# na konci)
+
 Případně zkuste „+“ namíst „*“. Někteří MQTT klienti to tak potřebují.
-Odesílání zpráv do zařízení
-MQTT gateway lze využít také pro odesílání zpráv do zařízení. Těmto zprávám říkáme Downlink zprávy, dle principu LoRa. Topic pro odesílání je tento:
-$address/devices/$tech/$clientId/down/#
-Pro LoRa to bude tedy např.:
-$address/devices/lora/48FFFFFFA11B0069/down
+
+**Odesílání zpráv do zařízení**<br>
+MQTT gateway lze využít také pro odesílání zpráv do zařízení. Těmto zprávám říkáme Downlink zprávy, dle principu LoRa.
+
+Topic pro odesílání je tento:<br>
+$address/devices/$tech/$clientId/down/#<br>
+
+Pro LoRa to bude tedy např.:<br>
+$address/devices/lora/48FFFFFFA11B0069/down<br>
 a pro LoRa musí být obsah JSON ve stejném formátu jako pro REST, tj.:
 ```json 
 { "cmd": "tx", "port":10, "data":"00","seqno":12, "confirmed":true, "EUI":"48FFFFFFA11B0069"}
 ```
 
-Pro MQTT je možné poslat zprávy standardním způsobem pro MQTT komunikaci, tj. včetně subtopiců. Formát zpráv není nijak omezen. Topic pro odeslání zpráv do připojeného MQTT zařízení vypadá tedy takto (kde „rele“ je subtopic, do kterého chceme zapsat): 
+Pro MQTT je možné poslat zprávy standardním způsobem pro MQTT komunikaci, tj. včetně subtopiců. Formát zpráv není nijak omezen. Topic pro odeslání zpráv do připojeného MQTT zařízení vypadá tedy takto (kde „rele“ je subtopic, do kterého chceme zapsat):<br>
 $address/devices/mqtt/zasuvkaOkno/down/rele.
 
 ### Smazání MQTT gateway
