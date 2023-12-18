@@ -19,21 +19,21 @@ Do CRA IoT platformy lze posílat IoT zprávy také přes MQTT protokol. V tomto
 To lze udělat jako přes GUI, tak přes REST API.
 
 Pro MQTT zařízení je potřeba chápat následující parametry:
-| Parametr | Popis | Detail/poznámka
-| username	| Uživatelské jméno	| pro přihlášení k MQTT brokeru
-| password	| Heslo	| pro přihlášení k MQTT brokeru
-| topic up	| topik pro posílání zpráv	| do něj lze udělat publish
-| topic down	| topic pro příjem zpráv	| do něj lze udělat subscribe
-| customerId	| CRA: ID zákazníka 	| je potřeba pro plnou cestu k topiku
-| tenantId	| CRA: ID účtu	| je potřeba pro plnou cestu k topiku a založení zařízení
-| serviceId	| CRA: ID služby	| je potřeba určit, ke které služby bude patřit
-| label	| CRA: poznámka k zařízení/endpointu	| pole pro popis
-| tech	| typ technologie	| v našem případě „MQTT“
-| clientName	| identifikátor MQTT klienta	| v CRA platformě nehraje žádnou roli 
-| clientId	| jméno zařízení v IoT platformě	| bez mezer, češtiny
-| endpointName	| jméno Endpointu v IoT platformě	| bez mezer, češtiny
-| qos	| kvalita doručování (QoS) používá klient spojení	| 0 - odešle min. jednou, 1 - odesílá, dokud nedostane potvrzení, 2 - doručení jednou
-
+| Parametr | Popis | Detail/poznámka |
+| --- | --- | --- |
+| username	| Uživatelské jméno	| pro přihlášení k MQTT brokeru |
+| password	| Heslo	| pro přihlášení k MQTT brokeru |
+| topic up	| topik pro posílání zpráv	| do něj lze udělat publish |
+| topic down	| topic pro příjem zpráv	| do něj lze udělat subscribe |
+| customerId	| CRA: ID zákazníka 	| je potřeba pro plnou cestu k topiku |
+| tenantId	| CRA: ID účtu	| je potřeba pro plnou cestu k topiku a založení zařízení |
+| serviceId	| CRA: ID služby	| je potřeba určit, ke které služby bude patřit |
+| label	| CRA: poznámka k zařízení/endpointu	| pole pro popis |
+| tech	| typ technologie	| v našem případě „MQTT“ |
+| clientName	| identifikátor MQTT klienta	| v CRA platformě nehraje žádnou roli |
+| clientId	| jméno zařízení v IoT platformě	| bez mezer, češtiny |
+| endpointName	| jméno Endpointu v IoT platformě	| bez mezer, češtiny |
+| qos	| kvalita doručování (QoS) používá klient spojení	| 0 - odešle min. jednou, 1 - odesílá, dokud nedostane potvrzení, 2 - doručení jednou |
 
 ## MQTT gateway
 MQTT gateway má více funkcí. Lze do něj nasměrovat zprávy z platformy, včetně LoRa zpráv. Lze přes něj odesílat zprávy (říkáme Downlink zprávy) do všech typů zařízení (jak MQTT,tak i LoRaWAN). 
