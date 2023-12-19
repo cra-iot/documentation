@@ -384,6 +384,11 @@ NYI - bude dostupné od 1.2.2024
 
 Atribut tags připouští použití seznamu slov oddělených znakem „,", ale pouze v případě, že je použit operátor eq, in nebo notin (je potřeba uvést bez mezery za čárkou a lze vložit o těchto uvozovek ').
 
+Pozor, pokud voláte dotaz v aplikaci PostMan, je potřeba v requestu přesnou v "Setting" položku "Encode URL automatically" na Off (defaultně je na On).
+
+![image](https://github.com/cra-iot/documentation/assets/118526137/40590753-ce40-4a37-af39-81ba9c098e62)
+
+
 Příklad: 
 - customerName[like]=CRA
 - customerName[in]='CRA','Radiokomunikace'
