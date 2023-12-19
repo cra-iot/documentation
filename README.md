@@ -8,3 +8,5 @@
 
 [Výstup z IoT platformy](Výstup%20z%20IoT%20platformy)
 
+[Zařízení](Zařízení)
+
