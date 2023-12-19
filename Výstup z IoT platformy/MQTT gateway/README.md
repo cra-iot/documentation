@@ -74,4 +74,4 @@ Pro MQTT je možné poslat zprávy standardním způsobem pro MQTT komunikaci, t
 $address/devices/mqtt/zasuvkaOkno/down/rele.
 
 ### Smazání MQTT gateway
-MQTT gateway lze smazat přes klasický REST „DELETE $URI/mqtt/gateways/{gatewayId}”.
+MQTT gateway lze smazat přes klasický REST „DELETE \$URI/mqtt/gateways/{gatewayId}”.
