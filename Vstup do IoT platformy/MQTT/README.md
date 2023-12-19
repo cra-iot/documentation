@@ -36,8 +36,8 @@ Pro MQTT zařízení je potřeba chápat následující parametry:
 | gatewayId	| jméno Gateway v IoT platformě	| bez mezer, češtiny |
 | qos	| kvalita doručování (QoS) používá klient spojení	| 0 - odešle min. jednou, 1 - odesílá, dokud nedostane potvrzení, 2 - doručení jednou |
 
-MQTT zařízení lze vytvořit přes REST „POST ImportMQTT“:
-[https://api.iot.cra.cz/cxf/IOTServices/v2/ImportMQTT](https://api.iot.cra.cz/cxf/IOTServices/v2/ImportMQTT)
+MQTT zařízení lze vytvořit přes REST „POST ImportMQTT“:<br>
+[https://api.iot.cra.cz/cxf/IOTServices/v2/ImportMQTT](https://api.iot.cra.cz/cxf/IOTServices/v2/ImportMQTT)<br>
 kde header musí obsahovat, že kódování je v json a sessionId.
 
 V body bude pak seznam těchto parametrů:
