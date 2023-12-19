@@ -8,4 +8,4 @@ CRA IoT platforma podporuje tyto metody:
 
 Plánujeme ještě:
 - doručováno do cizího MQTT brokeru
-- notifikace Email, SMS, Slack, Teams, atp.
+- notifikace Email, SMS, Slack, Teams atp.
