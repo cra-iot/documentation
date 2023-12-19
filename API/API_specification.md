@@ -382,13 +382,15 @@ Operátory:
 
 NYI - bude dostupné od 1.2.2024
 
-Atribut tags připouští použití seznamu slov oddělených znakem „,", ale pouze v případě, že je použit operátor eq.
+Atribut tags připouští použití seznamu slov oddělených znakem „,", ale pouze v případě, že je použit operátor eq, in nebo notin (je potřeba uvést bez mezery za čárkou a lze vložit o těchto uvozovek ').
 
-Příklad: customerName[like]=CRA
+Příklad: 
+- customerName[like]=CRA
+- customerName[in]='CRA','Radiokomunikace'
 
 V řeči SQL bude výsledkem dotaz:
-
-*SELECT \* FROM customers WHERE customerName LIKE 'CRA%';*
+- *SELECT \* FROM customers WHERE customerName LIKE 'CRA%';*
+- *SELECT \* FROM customers WHERE customerName IN ('CRA', 'Radiokomunikace');*
 
 Pokud je uveden více než jeden filtrační parametr, tak tyto jsou spojeny pomocí logického operátoru AND.
 
