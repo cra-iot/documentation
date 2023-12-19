@@ -37,7 +37,7 @@ Pro MQTT zařízení je potřeba chápat následující parametry:
 | qos	| kvalita doručování (QoS) používá klient spojení	| 0 - odešle min. jednou, 1 - odesílá, dokud nedostane potvrzení, 2 - doručení jednou |
 
 MQTT zařízení lze vytvořit přes REST „POST ImportMQTT“:<br>
-[https://api.iot.cra.cz/cxf/IOTServices/v2/ImportMQTT](https://api.iot.cra.cz/cxf/IOTServices/v2/ImportMQTT)<br>
+[https://api.iot.cra.cz/cxf/api/v1/mqtt/devices](https://api.iot.cra.cz/cxf/api/v1/mqtt/devices)<br>
 kde header musí obsahovat, že kódování je v json a sessionId.
 
 V body bude pak seznam těchto parametrů:
@@ -54,7 +54,7 @@ V body bude pak seznam těchto parametrů:
 
 Příklad:
 ```bash
-curl --location --request POST 'https://api.iot.cra.cz/cxf/IOTServices/v2/ImportMQTT' \
+curl --location --request POST 'https://api.iot.cra.cz/cxf/api/v1/mqtt/devices' \
 --header 'Content-Type: application/json' \
 --header 'sessionId: 11b00070-6716-11ea-bcc4-97141855c777' \
 --data-raw '[
