@@ -5,7 +5,7 @@ CRA pro vás začátkem roku 2021 vystavilo nové API, společně s novým port�
 Nové API využívá dvoufázovou autentizaci, ve spolupráci s naším centrálním SSO.
 
 Swagger dokumentace k API je umístěna zde:
-https://app.swaggerhub.com/apis-docs/cra-iot/GUI/
+https://api.iot.cra.cz/cxf/api/v1/
 
 Informace, které se do Swagger nevešly, najdete v tomto článku: [API dokumentace](API_specification.md)
 
@@ -33,7 +33,3 @@ Následné API requesty mají hlavní URI: https://api.iot.cra.cz/cxf/api/v1/
 Tj. dotaz na získání informací na jaké máte přístup zákazníky je takto:
 GET 'https://api.iot.cra.cz/cxf/api/v1/customers' \\
 --header 'Authorization: Bearer << access token >>'
-
-Pro ty z vás, kteří používají starší API, je jeho popis dostupný zde:
-https://app.swaggerhub.com/apis-docs/cra-iot/craiot
-ale pozor, toto API bude v do léta 2023 vypnuto!!!

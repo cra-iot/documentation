@@ -238,7 +238,7 @@
 
 [3.8.6 DELETE ​/device-groups​/{id}](#delete-device-groupsid)
 
-[3.8.7 [NYI] PUT ​/device-groups​/{id}​/tags](#nyi-put-device-groupsidtags)
+[3.8.7 PUT ​/device-groups​/{id}​/tags](#nyi-put-device-groupsidtags)
 
 [3.8.8 [NYI] PUT /device-groups​/{id}​/attributes](#nyi-put-device-groupsidattributes)
 
@@ -370,17 +370,15 @@ Operátory:
 | **Operátor** | **Význam** |
 | --- | --- |
 | eq | rovnost (implicitní) |
-| noteq | [NYI] není rovno |
-| regexp | [NYI] ruegulární výraz |
-| in | [NYI] jen tyto |
-| notin | [NYI] mimo tyto |
-| lt | [NYI] menší než |
+| noteq | není rovno |
+| regexp | ruegulární výraz |
+| in | jen tyto |
+| notin | mimo tyto |
+| lt | menší než |
 | lte | menší nebo rovno |
-| gt | [NYI] větší než |
+| gt | větší než |
 | gte | větší nebo rovno |
 | like | klasický „like" s tím že wildcard je doplněn jen jako postfix |
-
-NYI - bude dostupné od 1.2.2024
 
 Atribut tags připouští použití seznamu slov oddělených znakem „,", ale pouze v případě, že je použit operátor eq, in nebo notin (je potřeba uvést bez mezery za čárkou a lze vložit o těchto uvozovek ').
 
@@ -1626,7 +1624,7 @@ Výmaz skupiny zařízení. Skupinu nelze vymazat, pokud je k ní přiřazeny en
 | **Fulltext** | Ne |
 | **Katalog** |
 
-# [NYI] PUT ​/device-groups​/{id}​/tags
+# PUT ​/device-groups​/{id}​/tags
 
 Aktualizace tagů skupiny zařízení.
 
