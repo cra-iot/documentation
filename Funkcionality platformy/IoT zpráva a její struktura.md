@@ -7,7 +7,7 @@ Díky tomu má i IoT zpráva vnitřní strukturu inspirovanou touto technologií
 Vlastní zpráva je v JSON formátu a má tyto atributy:
 - [cmd (command type)](#cmd)
 - [seqno (sequence number)](#seqno)
-- [EUI (deviceId)](#EUI)
+- [EUI (deviceId)](#eui)
 - [ts (timestamp)](#ts)
 - [fcnt (frame counter)](#fcnt)
 - [port (port)](#port)
