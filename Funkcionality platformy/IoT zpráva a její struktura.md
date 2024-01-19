@@ -64,10 +64,14 @@ Unikátní je vždy v rámci technologie (LoRa, MQTT, HTTP, UDP, atp.).
 ### port
   port = port as sent by the end device
 
+  Příklad: "port": 2,
+
 ### freq
   freq = frequence
 
   Příklad: "freq\":868100000
+
+  Frekvence, na které byla zpráva vysílána
 
 ### toa
   toa = time on air
@@ -91,9 +95,35 @@ Unikátní je vždy v rámci technologie (LoRa, MQTT, HTTP, UDP, atp.).
 ### gws
   gws = list of gateways
 
-  Příklad: 
+  Příklad: "gws": [{"rssi": -102, "snr": 4.5, "ts": 1705681716051,....
+  
+  Detailněji:
+  ```JSON 
+  "gws": [
+    {
+      "rssi": -105,
+      "snr": -13.2,
+      "ts": 1705682132640,
+      "tmms": 875979118909,
+      "time": "2024-01-19T16:35:32.596439000Z",
+      "gweui": "647FDAFFFF00808A",
+      "ant": 0,
+      "lat": 50.037834,
+      "lon": 14.518459
+    },
+  ```
 
-  Seznam IoT GW které přijali tuto zprávu.
+  Seznam IoT GW které přijali tuto zprávu. 
+  
+  Každý záznam obsahuje tyto atributy:
+  * "rssi" - rádio rssi
+  * "snr" - rádio snr
+  * "ts" - timestamp - interní čas z GW
+  * "time" - GPS čas přijetí - dle ISO 8601 s přesností na nanosecondy
+  * "tmms" - UTC čas přijetí - v UNIX čase -  dostupné jen u gateway s GPS
+  * "gweui" - id IoT GW
+//  * "ant" - 
+  * "lat" a "lon" - součadnice IoT GW
 
 ### rssi
   rssi = frame rssi, in dBm, as integer number
@@ -111,16 +141,6 @@ Unikátní je vždy v rámci technologie (LoRa, MQTT, HTTP, UDP, atp.).
 
 ### tech
  (technology)](#tech)
-
-### data
-  data - decrypted data payload as hexadecimal string, only present if APPSKEY is assigned to device
-
-  Příklad: "data": "0108870e8b01b3",
-
-### encdata
-  encdata = encrypted data payload as hexadecimal string, only present if APPSKEY is not assigned to device
-
-  Příklad: "encdata": null,
 
 ### bat
   bat = device battery status, response to the DevStatusReq LoRaWAN MAC Command
@@ -143,6 +163,16 @@ Ve filtru v GUI se požávájí následující filtry:
 |<=52  | méně než 20%      |
 |=255  | N/A ~ nezjištěno  |
 |=0    |externí napájení   |
+
+### data
+  data - decrypted data payload as hexadecimal string, only present if APPSKEY is assigned to device
+
+  Příklad: "data": "0108870e8b01b3",
+
+### encdata
+  encdata = encrypted data payload as hexadecimal string, only present if APPSKEY is not assigned to device
+
+  Příklad: "encdata": null,
 
 ### _id
   _id - message identifier
