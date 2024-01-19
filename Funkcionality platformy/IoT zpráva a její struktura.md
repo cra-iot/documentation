@@ -116,8 +116,8 @@ Unikátní je vždy v rámci technologie (LoRa, MQTT, HTTP, UDP, atp.).
   Seznam IoT GW které přijali tuto zprávu. 
   
   Každý záznam obsahuje tyto atributy:
-  * "rssi" - rádio rssi
-  * "snr" - rádio snr
+  * ["rssi"](#rssi) - rádio rssi
+  * ["snr"](#snr) - rádio snr
   * "ts" - timestamp - interní čas z GW
   * "time" - GPS čas přijetí - dle ISO 8601 s přesností na nanosecondy
   * "tmms" - UTC čas přijetí - v UNIX čase -  dostupné jen u gateway s GPS
