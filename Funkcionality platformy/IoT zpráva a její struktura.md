@@ -9,37 +9,125 @@ Vlastní zpráva je v JSON formátu a má tyto atributy:
 - [seqno (sequence number)](#seqno)
 - [EUI (deviceId)](#EUI)
 - [ts (timestamp)](#ts)
-- [tech (technology)](#tech)
+- [fcnt (frame counter)](#fcnt)
+- [port (port)](#port)
+- [freq (in Hz)](#freq)
+- [toa (in dBm)](#toa)
+- [dr (in dB)](#dr)
+- [ack (acknowledgement)](#ack)
+- [gws (gateways)](#gws)
+- [bat (battery level)](#bat)
 - [data (payload)](#data)
 - [encdata (encrypted payload)](#encdata)
-- [bat (battery level)](#bat)
+- [tech (technology)](#tech)
+- [_id (Identifier)](#id)
 
 ## Detailní informace k atributům
-### cmd (timestamp)
+### cmd
+  cmd = command type, identifies type of message, rx = uplink message, gw = gateway message
+
   Příklad: "cmd": gw,
 
   Jde o typ zprávy. Typy jsou:
   - rx - jde o LoRaWAN RX zprávu. Tj. LoRaWAN zpráva, kterou zachytila první IoT GW. Shodná zprávy z ostatních GW, které ji poslali pozdeji už není poslána jako RX, ale informace o ostatních IoT LoRaWAN GW se objeví v "gw" zprávě
   - gw - jde o LoRaWAN GW zprávu. Tj. deduplikována z více RX zpráv
 
-### seqno (global seqno)
+### seqno
+  seqno = global sequence number
+
   Příklad: "seqno": 1210628284,
+
   Globální sekvenční číslo. CRA specifické globální číslo LoRaWAN zprávy. 
 
 ### EUI 
-Příklad: "EUI": "0004A30B001968C8",
+  EUI = device EUI = device Extended Unique Identifier, 16 hex digits (without dashes)
 
-Původně LoRa unikátní identifikátor, využíváno však plošně přes platformu.
+  Příklad: "EUI": "0004A30B001968C8",
+
+  Původně LoRa unikátní identifikátor, využíváno však plošně přes platformu.
 Unikátní je vždy v rámci technologie (LoRa, MQTT, HTTP, UDP, atp.).
 
-### ts (timestamp)
+### ts 
+  ts = server timestamp as number (milliseconds from Linux epoch)
+
   Příklad: "ts": 1685019178341,
 
-### fcnt (frame contract number)
-  "fcnt": 74021,
+  Čas přijetí v [UNIX timestamp](https://en.wikipedia.org/wiki/Unix_time) v časovém pásmu [GMT](https://cs.wikipedia.org/wiki/Greenwichsk%C3%BD_st%C5%99edn%C3%AD_%C4%8Das), i když je ČR v [CET](https://cs.wikipedia.org/wiki/UTC%2B02:00)
+
+### fcnt
+  fcnt = frame counter, a 32-bit number
+
+  Příklad: "fcnt": 74021,
+
+  Pořadové číslo uplink zprávy z pohledu zařízení.
+
+### port
+  port = port as sent by the end device
+
+### freq
+  freq = frequence
+
+  Příklad: "freq\":868100000
+
+### toa
+  toa = time on air
+
+  Příklad: "toa": 1318,
+
+  Čas, jak dlouho byla zpráva vysílána
+
+### dr
+  dr = radio data rate - spreading factor, bandwidth and coding rate
+
+  Příklad: "dr":"SF12 BW125 4/5"
+
+### ack
+  Příklad: "ack" = false
+
+  ack = acknowledgement flag as set by device
+
+  Potvrzení o přijetí DL (downlink) zprávy. Nemusí být obsaženo ve zprávě.
+
+### gws
+  gws = list of gateways
+
+  Příklad: 
+
+  Seznam IoT GW které přijali tuto zprávu.
+
+### rssi
+  rssi = frame rssi, in dBm, as integer number
+
+  Příklad: "rssi": -110,
+
+  Při RX zprávě je v hlavní struktuře JSONu, v GW zprávě je u gateway, která ji přijala v gws části JSONu
+
+### snr
+  snr = frame snr, in dB, one decimal place
+
+  Příklad: "snr": -10.2,
+  
+  Při RX zprávě je v hlavní struktuře JSONu, v GW zprávě je u gateway, která ji přijala v gws části JSONu
+
+### tech
+ (technology)](#tech)
+
+### data
+  data - decrypted data payload as hexadecimal string, only present if APPSKEY is assigned to device
+
+  Příklad: "data": "0108870e8b01b3",
+
+### encdata
+  encdata = encrypted data payload as hexadecimal string, only present if APPSKEY is not assigned to device
+
+  Příklad: "encdata": null,
 
 ### bat
-Stav baterie v decimální hodnota 0-255 stavu baterie, odpovídající 0-100%
+  bat = device battery status, response to the DevStatusReq LoRaWAN MAC Command
+
+  Příklad: "bat": 255,
+
+  Stav baterie v decimální hodnota 0-255 stavu baterie, odpovídající 0-100%
 
 Detailně pak takto:
 1-254=odpovídá stavu baterie 0-100%
@@ -56,12 +144,16 @@ Ve filtru v GUI se požávájí následující filtry:
 |=255  | N/A ~ nezjištěno  |
 |=0    |externí napájení   |
 
+### _id
+  _id - message identifier
 
-## dopopsat
-  "seqno": 977937300,
-  "bat": 255,
-  "data": "0108870e8b01b3",
-  "encdata": null,
-  "EUI": "000DB53112743570"
+  Příklad: "_id": "65aa7fdb244659031da4154c"
+  
+  Unikátní identifikátor zprávy
 
-Standardní LoRa atributy
+### tech
+  tech - technology
+
+  Příklad: "tech": "mqtt",
+
+  Identifikátor technologie, kterou byla zpráva přijata. Nejde o povinný parametr. U LoRaWAN chybí.
