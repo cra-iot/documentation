@@ -122,7 +122,6 @@ Unikátní je vždy v rámci technologie (LoRa, MQTT, HTTP, UDP, atp.).
   * "time" - GPS čas přijetí - dle ISO 8601 s přesností na nanosecondy
   * "tmms" - UTC čas přijetí - v UNIX čase -  dostupné jen u gateway s GPS
   * "gweui" - id IoT GW
-//  * "ant" - 
   * "lat" a "lon" - součadnice IoT GW
 
 ### rssi
