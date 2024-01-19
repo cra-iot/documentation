@@ -19,8 +19,8 @@ Vlastní zpráva je v JSON formátu a má tyto atributy:
 - [bat (battery level)](#bat)
 - [data (payload)](#data)
 - [encdata (encrypted payload)](#encdata)
-- [tech (technology)](#tech)
 - [_id (Identifier)](#id)
+- [tech (technology)](#tech)
 
 ## Detailní informace k atributům
 ### cmd
