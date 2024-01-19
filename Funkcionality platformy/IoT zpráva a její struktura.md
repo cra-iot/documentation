@@ -35,13 +35,3 @@ Ve filtru v GUI se požávájí následující filtry:
 |<=52  | méně než 20%      |
 |=255  | N/A ~ nezjištěno  |
 |=0    |externí napájení   |
-
-
-## dopopsat
-  "seqno": 977937300,
-  "bat": 255,
-  "data": "0108870e8b01b3",
-  "encdata": null,
-  "EUI": "000DB53112743570"
-
-Standardní LoRa atributy
