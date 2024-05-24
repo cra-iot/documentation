@@ -4,36 +4,7 @@
 
 - [změna formátu zprávy](#změna formátu zprávy)
 
-ff
-fff
-sf
-we
-rge
-ge
-
-
-ey
-
-eyy
-eywywy
-rty
-wry
-wryw
-
 ### změna formátu zprávy
 
-ff
-fff
-sf
-we
-rge
-ge
+•	seqno – bude nově null, ostatní operátoři takovou hodnotu nemají. Globální číslo zprávy je vlastně jen v čase generované číslo CRA network serverem a není v LoRaWAN stadnardnu nijak podpořeno.
 
-
-ey
-
-eyy
-eywywy
-rty
-wry
-wryw
