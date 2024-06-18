@@ -4,7 +4,7 @@
 
 - změny ve formátu zprávy z čidla
 
-### změna formátu zprávy
+### Popis změn ve formátu zprávy z čidla
 
 * **seqno** - nově bude vždy **null**
 * **bat** - nově bude vždy s hodnotou **255**. LoRaWAN standardně nepodporuje stav baterie. Ten je podle konkrétního čidla obsažen v payloadu.
