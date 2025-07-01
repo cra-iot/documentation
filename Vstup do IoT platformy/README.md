@@ -7,4 +7,4 @@ Více najdete v detailním popisu pro každý typ rozhraní:
 - [LoRaWAN](LoRaWAN/README.md) - bude popsáno později
 - [MQTT](MQTT/README.md)
 - [HTTP](HTTP/README.md) - bude popsáno později
-- [UDP](UDP/README.md) - bude popsáno později
+- [UDP](UDP/README.md)
