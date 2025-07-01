@@ -20,36 +20,39 @@ Do CRA IoT platformy lze posílat IoT zprávy také přes MQTT protokol. V tomto
 To lze udělat jako přes GUI, tak přes REST API.
 
 Pro MQTT zařízení je potřeba chápat následující parametry:
-| Parametr | Popis | Detail/poznámka |
-| --- | --- | --- |
-| username	| Uživatelské jméno	| pro přihlášení k MQTT brokeru |
-| password	| Heslo	| pro přihlášení k MQTT brokeru |
-| topic up	| topik pro posílání zpráv	| do něj lze udělat publish |
-| topic down	| topic pro příjem zpráv	| do něj lze udělat subscribe |
-| customerId	| CRA: ID zákazníka 	| je potřeba pro plnou cestu k topiku |
-| tenantId	| CRA: ID účtu	| je potřeba pro plnou cestu k topiku a založení zařízení |
-| serviceId	| CRA: ID služby	| je potřeba určit, ke které služby bude patřit |
-| label	| CRA: poznámka k zařízení/gateway	| pole pro popis |
-| tech	| typ technologie	| v našem případě „MQTT“ |
-| clientName	| identifikátor MQTT klienta	| v CRA platformě nehraje žádnou roli |
-| clientId	| jméno zařízení v IoT platformě	| bez mezer, češtiny |
-| gatewayId	| jméno Gateway v IoT platformě	| bez mezer, češtiny |
-| qos	| kvalita doručování (QoS) používá klient spojení	| 0 - odešle min. jednou, 1 - odesílá, dokud nedostane potvrzení, 2 - doručení jednou |
+
+
+| Parametr   | Popis                                           | Detail/poznámka                                                                     |
+|------------|-------------------------------------------------|-------------------------------------------------------------------------------------|
+| username   | Uživatelské jméno                               | pro přihlášení k MQTT brokeru                                                       |
+| password   | Heslo                                           | pro přihlášení k MQTT brokeru                                                       |
+| topic up   | topik pro posílání zpráv                        | do něj lze udělat publish                                                           |
+| topic down | topic pro příjem zpráv                          | do něj lze udělat subscribe                                                         |
+| customerId | CRA: ID zákazníka                               | je potřeba pro plnou cestu k topiku                                                 |
+| tenantId   | CRA: ID účtu                                    | je potřeba pro plnou cestu k topiku a založení zařízení                             |
+| serviceId  | CRA: ID služby                                  | je potřeba určit, ke které služby bude patřit                                       |
+| label      | CRA: poznámka k zařízení/gateway                | pole pro popis                                                                      |
+| tech       | typ technologie                                 | v našem případě „MQTT“                                                              |
+| clientName | identifikátor MQTT klienta                      | v CRA platformě nehraje žádnou roli                                                 |
+| clientId   | jméno zařízení v IoT platformě                  | bez mezer, češtiny                                                                  |
+| gatewayId  | jméno Gateway v IoT platformě                   | bez mezer, češtiny                                                                  |
+| qos        | kvalita doručování (QoS) používá klient spojení | 0 - odešle min. jednou, 1 - odesílá, dokud nedostane potvrzení, 2 - doručení jednou |
 
 MQTT zařízení lze vytvořit přes REST „POST ImportMQTT“:<br>
 [https://api.iot.cra.cz/cxf/api/v1/mqtt/devices](https://api.iot.cra.cz/cxf/api/v1/mqtt/devices)<br>
 kde header musí obsahovat, že kódování je v json a sessionId.
 
 V body bude pak seznam těchto parametrů:
-| Parametr	| Popis |
-| ---	| --- |
-| clientId	| Libovolné jméno vašeho zařízení |
-| label	| Poznámka k zařízení |
-| tech	| Hodnota: MQTT |
-| username	| uživatelské jméno |
-| password	| heslo |
-| tenantId	| ID účtu - je k dispozici po přihlášení do GUI |
-| serviceId	| V GUI /Služby |
+
+| Parametr  | Popis                                         |
+|-----------|-----------------------------------------------|
+| clientId  | Libovolné jméno vašeho zařízení               |
+| label     | Poznámka k zařízení                           |
+| tech      | Hodnota: MQTT                                 |
+| username  | uživatelské jméno                             |
+| password  | heslo                                         |
+| tenantId  | ID účtu - je k dispozici po přihlášení do GUI |
+| serviceId | V GUI /Služby                                 |
 
 
 Příklad:
@@ -77,20 +80,21 @@ Pokud chcete poslat zprávu do MQTT zařízení z IoT platformy (musí být při
 
 ### Připojení a komunikace
 Klient pro CRA IoT platformu, resp. jeho MQTT broker použije následující parametry:
-| Parametr	| Popis	| Detail/poznámka |
-| ---	| ---	| --- |
-| Name	| jméno klienta	| Jakýkoliv text, IoT platforma nepoužívá. |
-| Validate certificate	| zapnuto/vypnuto	| Zda má klient ověřovat platnost certifikátu. Mělo by fungovat obojí. |
-| Encryption	| tls zapnuto	| spojení je kryptované, máme port 8883 |
-| protocol	| mqtt://	| ev. mqtts, pokud nemáte možnost přepnout Encryption |
-| MQTT client ID	| $clientId	| Uveďte jméno zařízení, ke kterému patří username |
-| host	| mqtt.iot.cra.cz	| URL, kde je umístěn CRA MQTT broker |
-| port	| 8883	| Port, na kterém broker čeká na spojení |
-| username	| Uživatelské jméno	| to, které jste uvedli při zakládání zařízení |
-| password	| Heslo	| to, které jste uvedli při zakládání zařízení |
-| topic up	| topik pro posílání zpráv	| do něj, a všech vnořených, lze udělat publish. Má tento tvar: $customerId/$tenantId/in/$clientId/* |
-| topic down	| topic pro příjem zpráv	| do něj lze udělat subscribe. Má tvar (# čte ze všech vnořených): $customerId/$tenantId/out/$clientId/# |
-| qos	| QoS	| tento parametr se uvádí až při odesílání zprávy |
+
+| Parametr             | Popis                    | Detail/poznámka                                                                                        |
+|----------------------|--------------------------|--------------------------------------------------------------------------------------------------------|
+| Name                 | jméno klienta            | Jakýkoliv text, IoT platforma nepoužívá.                                                               |
+| Validate certificate | zapnuto/vypnuto          | Zda má klient ověřovat platnost certifikátu. Mělo by fungovat obojí.                                   |
+| Encryption           | tls zapnuto              | spojení je kryptované, máme port 8883                                                                  |
+| protocol             | mqtt://                  | ev. mqtts, pokud nemáte možnost přepnout Encryption                                                    |
+| MQTT client ID       | $clientId                | Uveďte jméno zařízení, ke kterému patří username                                                       |
+| host                 | mqtt.iot.cra.cz          | URL, kde je umístěn CRA MQTT broker                                                                    |
+| port                 | 8883                     | Port, na kterém broker čeká na spojení                                                                 |
+| username             | Uživatelské jméno        | to, které jste uvedli při zakládání zařízení                                                           |
+| password             | Heslo                    | to, které jste uvedli při zakládání zařízení                                                           |
+| topic up             | topik pro posílání zpráv | do něj, a všech vnořených, lze udělat publish. Má tento tvar: $customerId/$tenantId/in/$clientId/*     |
+| topic down           | topic pro příjem zpráv   | do něj lze udělat subscribe. Má tvar (# čte ze všech vnořených): $customerId/$tenantId/out/$clientId/# |
+| qos                  | QoS                      | tento parametr se uvádí až při odesílání zprávy                                                        |
 
 
 Jelikož mají všichni MQTT uživatelé stejná práva, tak může i device číst nebo zapisovat do přiděleného topiku …/broker, který má chování jako samostatný Broker mimo CRA IoT platformu. 
