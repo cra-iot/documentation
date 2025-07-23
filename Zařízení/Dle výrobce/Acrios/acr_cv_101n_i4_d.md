@@ -3,6 +3,15 @@
 Ukázka kódu (Lua) pro vytvoření payload ve formatu CRA ([UDP](../../../Vstup%20do%20IoT%20platformy/UDP/CRa_protocol/version_1_0.md)) pro Acrios zařízení:
 
 ```lua
+
+------- NB-IoT --------
+protocol = "UDP"        -- UDP or TCP
+APN = "iot.melita.io"
+PLMNID = "23001"
+
+ip = "84.244.71.169"
+port = 5003
+
 -- Marcker for begin/end of message
 beginMsg = 0xAB
 endMsg = 0xBA
