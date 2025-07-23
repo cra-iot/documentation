@@ -9,7 +9,7 @@ protocol = "UDP"        -- UDP
 APN = "iot.melita.io"
 PLMNID = "23001"
 
-ip = "84.244.71.169"
+ip = "84.244.71.165"
 port = 5003
 
 -- Marcker for begin/end of message
