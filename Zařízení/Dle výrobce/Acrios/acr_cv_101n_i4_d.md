@@ -5,7 +5,7 @@ Ukázka kódu (Lua) pro vytvoření payload ve formatu CRA ([UDP](../../../Vstup
 ```lua
 
 ------- NB-IoT --------
-protocol = "UDP"        -- UDP or TCP
+protocol = "UDP"        -- UDP
 APN = "iot.melita.io"
 PLMNID = "23001"
 
