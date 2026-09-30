@@ -34,6 +34,103 @@ je funkce napsaná. Slouží především pro filtrování nabídky v portálu �
 při přiřazení nekontroluje, že `type` a `subType` odpovídají místu, kam funkci
 přiřazujete.
 
+## Vstupní zpráva
+
+Proměnná `message` je vždy **řetězec** a obsahuje tělo zprávy v té podobě,
+v jaké do dané transformace vstupuje. První transformace v pořadí dostane
+zprávu tak, jak přišla ze vstupního rozhraní, každá další pak dostane výstup
+té předchozí.
+
+Podoba zprávy na vstupu se liší podle technologie, kterou zpráva do platformy
+přišla:
+
+### LoRaWAN
+
+Na vstupu je [IoT zpráva](../IoT%20zpráva%20a%20její%20struktura.md) v JSON.
+Naměřená data jsou v atributu `data` jako hexadecimální řetězec:
+
+```json
+{
+  "cmd": "gw",
+  "seqno": 1203319294,
+  "EUI": "000DB53112743570",
+  "ts": 1705048875592,
+  "fcnt": 787465,
+  "port": 2,
+  "freq": 867900000,
+  "toa": 102,
+  "dr": "SF8 BW125 4/5",
+  "ack": false,
+  "gws": [{ "rssi": -108, "snr": 4.2, "gweui": "647FDAFFFF0069F5" }],
+  "bat": 255,
+  "data": "010af0061e01c8",
+  "_id": "65a0fb2bed4643031c768ce8"
+}
+```
+
+Transformace, která z payloadu počítá fyzické veličiny, tedy pracuje
+s `m.data`:
+
+```javascript
+function (message) {
+  var m = JSON.parse(message);
+  var teplota = parseInt(m.data.slice(2, 6), 16) / 10;
+  return JSON.stringify({ EUI: m.EUI, ts: m.ts, teplota: teplota });
+}
+```
+
+### MQTT
+
+Zprávu z MQTT zařízení platforma zabalí do obálky s informacemi o topicu:
+
+```json
+{
+  "qos": 1,
+  "topic_full": "10147695.T202003241250003xdv.devices.mqtt.zasuvkaOkno.up",
+  "topic": "up",
+  "data": { "teplota": 21.5 },
+  "base64": false
+}
+```
+
+| Atribut      | Obsah                                                         |
+|--------------|---------------------------------------------------------------|
+| `qos`        | QoS, se kterým zařízení zprávu publikovalo                    |
+| `topic_full` | celý topic včetně adresy účtu                                 |
+| `topic`      | koncová část topicu (subtopic), do které zařízení publikovalo |
+| `data`       | vlastní payload zařízení                                      |
+| `base64`     | příznak, že obsah `data` je zakódovaný v Base64               |
+
+Je-li payload platný JSON, vloží se do `data` tak, jak je — `data` je pak
+objekt nebo pole, nikoli řetězec. V ostatních případech je `data` řetězec.
+Payload, který není platný text nebo obsahuje řídicí znaky, platforma zakóduje
+do Base64 a nastaví `base64` na `true`; příznak se nastaví i tehdy, když
+payload pouze odpovídá tvaru Base64.
+
+### UDP
+
+Na vstupu je to, co zařízení odeslalo, ve formátu daného
+[UDP portu](../../Vstup%20do%20IoT%20platformy/UDP/README.md). Například čidlo
+Netlia posílá:
+
+```json
+{
+  "payload": "023002953000054718005f40630000050303000000",
+  "imsi": "230029530000547"
+}
+```
+
+### Výstupní transformace a integrační obálka
+
+Zprávy doručované na [HTTP endpoint](../../Výstup%20z%20IoT%20platformy/HTTP/README.md)
+platforma běžně zabaluje do integrační obálky
+(`{"type": "D", "data": ..., "tech": ..., "tags": [...]}`).
+
+Pokud je ale na výstupu nastavená výstupní transformace (`OUT`), obálka se
+**nepoužije**. Transformace dostane na vstup samotnou zprávu bez obálky a na
+endpoint se doručí přesně to, co transformace vrátí. Pokud obálku potřebujete,
+musí si ji taková transformace sestavit sama.
+
 ## Podporované jazyky
 
 | `definitionType` | Jazyk      | Běhové prostředí   |
