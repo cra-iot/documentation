@@ -129,12 +129,16 @@ Základní URI podle prostředí a způsob přihlášení najdete v sekci
 | `PUT`    | `/projects/{projectId}/transformations/{transformationId}` | úprava transformace                 |
 | `DELETE` | `/projects/{projectId}/transformations/{transformationId}` | smazání transformace                |
 
+Zakládat, upravovat a mazat transformace lze pouze pod účtem, ke kterému máte
+přístup — u cizího účtu vrátí API odpověď `403`. Správa transformací v portálu
+je zatím vyhrazena administrátorům CRA, přes API ale transformace založit lze.
+
 Pro čtení doporučujeme `GET /transformations`. Volání pod
 `/projects/{projectId}/` zná u atributu `type` jen starší hodnoty, takže
 u funkcí typu `IN`, `PAYLOAD` a `DATAFLOW` vrátí `type` nevyplněný.
 
-Výpis obsahuje veřejné transformace a dále transformace těch účtů, ke kterým má
-přihlášený uživatel administrátorské oprávnění.
+Výpis obsahuje veřejné transformace a dále transformace účtů, ke kterým máte
+přístup.
 
 ### Tělo požadavku pro POST a PUT
 
