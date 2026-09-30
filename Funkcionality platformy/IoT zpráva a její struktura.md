@@ -29,7 +29,7 @@ Vlastní zpráva je v JSON formátu a má tyto atributy:
   Příklad: "cmd": gw,
 
   Jde o typ zprávy. Typy jsou:
-  - rx - jde o LoRaWAN RX zprávu. Tj. LoRaWAN zpráva, kterou zachytila první IoT GW. Shodná zprávy z ostatních GW, které ji poslali pozdeji už není poslána jako RX, ale informace o ostatních IoT LoRaWAN GW se objeví v "gw" zprávě
+  - rx - jde o LoRaWAN RX zprávu. Tj. LoRaWAN zpráva, kterou zachytila první IoT GW. Shodné zprávy z ostatních GW, které ji poslaly později už není poslána jako RX, ale informace o ostatních IoT LoRaWAN GW se objeví v "gw" zprávě
   - gw - jde o LoRaWAN GW zprávu. Tj. deduplikována z více RX zpráv
 
 ### seqno
@@ -69,7 +69,7 @@ Unikátní je vždy v rámci technologie (LoRa, MQTT, HTTP, UDP, atp.).
 ### freq
   freq = frequence
 
-  Příklad: "freq\":868100000
+  Příklad: "freq": 868100000
 
   Frekvence, na které byla zpráva vysílána
 
@@ -113,7 +113,7 @@ Unikátní je vždy v rámci technologie (LoRa, MQTT, HTTP, UDP, atp.).
     },
   ```
 
-  Seznam IoT GW které přijali tuto zprávu. 
+  Seznam IoT GW, které přijaly tuto zprávu. 
   
   Každý záznam obsahuje tyto atributy:
   * ["rssi"](#rssi) - rádio rssi
@@ -123,7 +123,7 @@ Unikátní je vždy v rámci technologie (LoRa, MQTT, HTTP, UDP, atp.).
   * "tmms" - UTC čas přijetí - v UNIX čase -  dostupné jen u gateway s GPS
   * "gweui" - id IoT GW
   * "ant" - číslo rádiového rozhraní - prakticky vždy bude 0
-  * "lat" a "lon" - součadnice IoT GW
+  * "lat" a "lon" - souřadnice IoT GW
 
 ### rssi
   rssi = frame rssi, in dBm, as integer number
@@ -147,14 +147,14 @@ Unikátní je vždy v rámci technologie (LoRa, MQTT, HTTP, UDP, atp.).
 
   Příklad: "bat": 255,
 
-  Stav baterie v decimální hodnota 0-255 stavu baterie, odpovídající 0-100%
+  Stav baterie v decimální hodnotě 0-255, odpovídající 0-100 %
 
 Detailně pak takto:
 1-254=odpovídá stavu baterie 0-100%
 0= je tedy externí napájení
 255=stav baterie není přenášen
 
-Ve filtru v GUI se požávájí následující filtry:
+Ve filtru v GUI se používají následující filtry:
 | DEC  | Hodnota ve filtru |
 |------|-------------------|
 |>152  | 100%-60%          |

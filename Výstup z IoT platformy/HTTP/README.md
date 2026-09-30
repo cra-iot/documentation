@@ -1,6 +1,6 @@
 # Doručování zpráv na HTTP "Endpoint"
 
-Jde o metodu známou jako Webhook. V naší IoT platformě ji nazýváme už historicky "Výstypy/HTTP endpoint"
+Jde o metodu známou jako Webhook. V naší IoT platformě ji nazýváme už historicky "Výstupy/HTTP endpoint"
 
 Takový endpoint si můžete vyrobit jakýmikoliv programovacími prostředky, případně již použít existující na nějakém hotovém softwaru.
 

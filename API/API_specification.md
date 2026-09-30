@@ -772,7 +772,7 @@ Vrátí seznam všech služeb (včetně parametrů), které jsou přiřazeny pro
 
 Analytický přehled o endpointech na projektu.
 
-| **URL** | GET https://\<URL\>/cxf/api/v1/projects/{id}/endpoint/overview |
+| **URL** | GET https://\<URL\>/cxf/api/v1​/projects​/{id}​/endpoints​/overview |
 | --- | --- |
 | **Filtr** |
 | **Řazení** |
@@ -901,11 +901,11 @@ Parametr from je validován konstantou 2021-04-20 06:26 V případě požadavku 
 | **Fulltext** | Ne |
 | **Katalog** |
 
-# POST ​/http​/endpoints​/{id}​/ping
+# GET ​/http​/endpoints​/{id}​/ping
 
 Test http endpointu. Zašle požadavek dle specifikace a vrátí odpověď.
 
-| **URL** | POST https://\<URL\>/cxf/api/v1​/http​/endpoints​/{id}​/ping |
+| **URL** | GET https://\<URL\>/cxf/api/v1​/http​/endpoints​/{id}​/ping |
 | --- | --- |
 | **Filtr** |
 | **Řazení** |
@@ -916,7 +916,7 @@ Test http endpointu. Zašle požadavek dle specifikace a vrátí odpověď.
 
 Aktualizace tagů endpointu.
 
-| **URL** | POST https://\<URL\>/cxf/api/v1​/http​/endpoints​/{id}​/ping |
+| **URL** | PUT https://\<URL\>/cxf/api/v1​/http​/endpoints​/{id}​/tags |
 | --- | --- |
 | **Filtr** |
 | **Řazení** |
@@ -927,7 +927,7 @@ Aktualizace tagů endpointu.
 
 Aktualizace atributů endpointu.
 
-| **URL** | POST https://\<URL\>/cxf/api/v1​/http​/endpoints​/{id}​/ping |
+| **URL** | PUT https://\<URL\>/cxf/api/v1​/http​/endpoints​/{id}​/attributes |
 | --- | --- |
 | **Filtr** |
 | **Řazení** |
@@ -1038,7 +1038,7 @@ Parametr from je validován konstantou 2021-04-20 06:26 V případě požadavku 
 
 Aktualizace tagů gateway.
 
-| **URL** | POST https://\<URL\>/cxf/api/v1​/mqtt​/gateways ​/{id}​/ping |
+| **URL** | PUT https://\<URL\>/cxf/api/v1​/mqtt​/gateways​/{id}​/tags |
 | --- | --- |
 | **Filtr** |
 | **Řazení** |
@@ -1049,7 +1049,7 @@ Aktualizace tagů gateway.
 
 Aktualizace atributů gateways.
 
-| **URL** | POST https://\<URL\>/cxf/api/v1​/mqtt​/endpoints​/{id}​/ping |
+| **URL** | PUT https://\<URL\>/cxf/api/v1​/mqtt​/gateways​/{id}​/attributes |
 | --- | --- |
 | **Filtr** |
 | **Řazení** |
@@ -1165,7 +1165,7 @@ Zjištění stavu importu zařízení.
 
 Výpis stavu counterů na zařízení.
 
-| **URL** | GET https://\<URL\>/cxf/api/v1/mqtt​/devices/counters |
+| **URL** | GET https://\<URL\>/cxf/api/v1​/mqtt​/devices​/{id}​/counters |
 | --- | --- |
 | **Filtr** |
 | **Řazení** |
@@ -1418,7 +1418,7 @@ Zjištění stavu importu zařízení.
 
 Výpis stavu counterů na zařízení.
 
-| **URL** | GET https://\<URL\>/cxf/api/v1/lora​/devices/counters |
+| **URL** | GET https://\<URL\>/cxf/api/v1​/lora/devices​/{id}​/counters |
 | --- | --- |
 | **Filtr** |
 | **Řazení** |
@@ -1429,7 +1429,7 @@ Výpis stavu counterů na zařízení.
 
 Povolení zařízení (implicitní stav). Zprávy z takového zařízení jsou přijímány na platformu a jsou doručovány.
 
-| **URL** | POST https://\<URL\>/cxf/api/v1/mqtt​/devices​/{id}​/enable |
+| **URL** | POST https://\<URL\>/cxf/api/v1​/lora​/devices​/{id}​/enable |
 | --- | --- |
 | **Filtr** |
 | **Řazení** |
@@ -1549,7 +1549,7 @@ Aktualizace parametrů lora zařízení.
 
 Aktivace LoRa zařízení z prekativního stavu
 
-| **URL** | PUT https://\<URL\>/cxf/api/v1/lora/devices​/{id}/activate |
+| **URL** | POST https://\<URL\>/cxf/api/v1/lora/devices/{id}/activate |
 | --- | --- |
 | **Filtr** |
 | **Řazení** |
@@ -1762,7 +1762,7 @@ Aktualizace uživatelských preferencí.
 
 Přiřazení, případně odebrání práva uživatele k danému projektu.
 
-| **URL** | GET https://\<URL\>/cxf/api/v1/users​/{id}​/customers​/{customerId}​/projects​/{projectId}​/privileges |
+| **URL** | PUT https://\<URL\>/cxf/api/v1​/users​/{id}​/customers​/{customerId}​/projects​/{projectId}​/privileges |
 | --- | --- |
 | **Filtr** |
 | **Řazení** |
@@ -1841,7 +1841,7 @@ Načtení nastavení notifikací neuživatelského emailu.
 
 Odregistrace notifikačního emailu.
 
-| **URL** | DELETE https://\<URL\>/cxf/api/v1/notifications​/customers​/{customerId}​/emails |
+| **URL** | DELETE https://\<URL\>/cxf/api/v1​/notifications​/customers​/{customerId}​/emails​/{email} |
 | --- | --- |
 | **Filtr** |
 | **Řazení** |
@@ -1972,7 +1972,7 @@ Načtení atributů zařízení
 
 Kompletní seznam atributů.
 
-| **URL** | GET https://\<URL\>/cxf/api/v1/tags/devices |
+| **URL** | GET https://\<URL\>/cxf/api/v1/attributes/devices |
 | --- | --- |
 | **Filtr** | customerId<br/>projectId<br/>deviceId<br/>attribute<br/>value |
 | **Řazení** | attribute |

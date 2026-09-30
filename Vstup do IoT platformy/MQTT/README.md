@@ -1,8 +1,8 @@
 # MQTT příjem
 
-CRA platforma podporuje dva druhy způsoby MQTT komunikace:
+CRA platforma podporuje dva způsoby MQTT komunikace:
 - [MQTT zařízení](#mqtt-zařízení)
-- [MQTT gateway](/Výstup%20z%20IoT%20platformy/MQTT%20gateway)
+- [MQTT gateway](../../Výstup%20z%20IoT%20platformy/MQTT%20gateway/README.md)
 
 ## MQTT obecně
 [MQTT](http://mqtt.org/) je protokol, který je optimální pro posílání malých zpráv. Je [velmi jednoduchý](https://en.wikipedia.org/wiki/MQTT) na implementaci a proto je vhodný pro IoT. Pro komunikaci je potřeba MQTT server (MQTT broker) do kterého klienti posílají (publish) zprávy a naopak je z něj také čtou (subscribe). Zprávy mohou mít prakticky libovolný obsah a jsou umístěny v takzvaných topicích (topic). Zpráva může být tedy bez formátu (raw) nebo třeba v JSON formátu. 
@@ -40,35 +40,38 @@ Pro MQTT zařízení je potřeba chápat následující parametry:
 
 MQTT zařízení lze vytvořit přes REST „POST ImportMQTT“:<br>
 [https://api.iot.cra.cz/cxf/api/v1/mqtt/devices](https://api.iot.cra.cz/cxf/api/v1/mqtt/devices)<br>
-kde header musí obsahovat, že kódování je v json a sessionId.
+kde header musí obsahovat, že kódování je v json, a přístupový token (viz [API](../../API/README.md)).
 
 V body bude pak seznam těchto parametrů:
 
-| Parametr  | Popis                                         |
-|-----------|-----------------------------------------------|
-| clientId  | Libovolné jméno vašeho zařízení               |
-| label     | Poznámka k zařízení                           |
-| tech      | Hodnota: MQTT                                 |
-| username  | uživatelské jméno                             |
-| password  | heslo                                         |
-| tenantId  | ID účtu - je k dispozici po přihlášení do GUI |
-| serviceId | V GUI /Služby                                 |
+| Parametr         | Povinný | Popis                                                       |
+|------------------|---------|-------------------------------------------------------------|
+| deviceId         | ano     | Libovolné jméno vašeho zařízení, max. 32 znaků              |
+| custDeviceName   | ano     | Název zařízení, max. 60 znaků                               |
+| custServiceId    | ano     | ID služby - v GUI /Služby                                   |
+| projectId        | ano     | ID účtu - je k dispozici po přihlášení do GUI               |
+| username         | ne      | Uživatelské jméno pro přihlášení k MQTT brokeru             |
+| password         | ne      | Heslo pro přihlášení k MQTT brokeru                         |
+| transformationId | ne      | ID transformační funkce                                     |
+| hwDeviceId       | ne      | ID zařízení z HW katalogu                                   |
+| preregistration  | ne      | Předregistrace zařízení                                     |
+
+Bez `username` a `password` se zařízení nepřihlásí k MQTT brokeru.
 
 
 Příklad:
 ```bash
 curl --location --request POST 'https://api.iot.cra.cz/cxf/api/v1/mqtt/devices' \
 --header 'Content-Type: application/json' \
---header 'sessionId: 11b00070-6716-11ea-bcc4-97141855c777' \
+--header 'Authorization: Bearer eyJhb....6d26' \
 --data-raw '[
  {
-  "clientId": "zasuvkaOkno",
-  "label": "MQTT zasuvka okno",
-  "tech": "MQTT",
+  "deviceId": "zasuvkaOkno",
+  "custDeviceName": "MQTT zasuvka okno",
+  "custServiceId": "OP-20-01704-00002s01",
+  "projectId": "T202003241250003xdv",
   "username": "root",
-  "password": "toor",
-  "tenantId": "T202003241250003xdv",
-  "serviceId": "OP-20-01704-00002s01"
+  "password": "toor"
  }
 ]'
 ```
@@ -76,7 +79,7 @@ curl --location --request POST 'https://api.iot.cra.cz/cxf/api/v1/mqtt/devices' 
 Pokud chcete poslat zprávu do MQTT zařízení z IoT platformy (musí být připojeno přes MQTT protokol a poslouchat "příkazy" pomoci subscribe), pak můžete zprávu poslat buď:
 - z GUI přes "Poslat zprávu" (v detailu MQTT zařízení) (NYI - zatím není v GUI)
 - přes naše [REST API](https://app.swaggerhub.com/apis-docs/cra-iot/GUI/1.0.40#/MQTT%20Devices/post_mqtt_devices__id__down_messages)
-- přes [MQTT gateway](/Výstup%20z%20IoT%20platformy/MQTT%20gateway)
+- přes [MQTT gateway](../../Výstup%20z%20IoT%20platformy/MQTT%20gateway/README.md)
 
 ### Připojení a komunikace
 Klient pro CRA IoT platformu, resp. jeho MQTT broker použije následující parametry:

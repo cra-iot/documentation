@@ -5,7 +5,7 @@ Hlavní seznam výrobků najdete na jejich webových stránkách: https://netlia
 Konfigurace, včetně identifikace zařízení je popsána na této stránce:
 https://github.com/Netlia/documentation/blob/main/DeviceComunication/DeviceComunication_CZ.md
 
-Pokud používáte tato čidla s připojením NB IoT, pak je potřeba převést příchozí zprávu, pokud chcete, aby jí CRA IoT cloud rozumněl (zobrazoval stav baterie, payload, uměl parsovat data na fyzické veličiny, atp.)
+Pokud používáte tato čidla s připojením NB IoT, pak je potřeba převést příchozí zprávu, pokud chcete, aby jí CRA IoT cloud rozuměl (zobrazoval stav baterie, payload, uměl parsovat data na fyzické veličiny, atp.)
 
 Při využití O2 SIM s CRA APN lze čidla nasměrovat na námi vystavený UDP port. Díky tomu začnou IoT zprávy přicházet v JSON struktuře:
 ```json

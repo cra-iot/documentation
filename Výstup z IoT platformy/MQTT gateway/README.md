@@ -3,7 +3,7 @@ MQTT gateway má více funkcí. Lze do ní nasměrovat zprávy z platformy, vče
 
 MQTT gateway má dokonce i samostatnou část vyhrazenou pro shodnou funkčnost jako běžný broker. 
 
-Přístup k MQTT gateway (potažmo brokeru) vzniká založením zařízení - ano, pro možnost využití MQTT gateway je potřeba [založit zařízení](/Vstup%20do%20IoT%20platformy/MQTT/README.md). 
+Přístup k MQTT gateway (potažmo brokeru) vzniká založením zařízení - ano, pro možnost využití MQTT gateway je potřeba [založit zařízení](../../Vstup%20do%20IoT%20platformy/MQTT/README.md). 
 Takto vzniklá identita má všechna potřebná práva (všechny identity pod jedním účtem mají identická práva).
 
 Vytvořením MQTT gateway v IoT platformě nevzniká další identita k přihlášení do MQTT brokeru. Můžete použít jakoukoliv existující. Pokud žádnou nemáte, je potřeba založit jedno zařízení, jen pro tento účel. Jak již bylo řečeno, MQTT gateway má více funkcí. Nyní si je popíšeme detailně.
@@ -11,17 +11,18 @@ Vytvořením MQTT gateway v IoT platformě nevzniká další identita k přihlá
 ### Vytvoření MQTT gateway
 MQTT gateway lze vytvořit přes REST:<br>
 POST https://api.iot.cra.cz/cxf/api/v1/mqtt/gateways<br>
-kde header musí obsahovat, že kódování je v json a sessionId.
+kde header musí obsahovat, že kódování je v json, a přístupový token (viz [API](../../API/README.md)).
 
 V body bude pak seznam těchto parametrů:
-| Parametr	| Popis |
-| ---	| --- |
-| projectId	| ID účtu - je k dispozici po přihlášení do GUI |
-| custDestName	|  Název MQTT gateway |
-| custDestDescription	| Poznámka pro MQTT gateway |
-| custDestParameters	| Jméno topicu ve formátu: $customerId/$tenantId/gate/<gatewayId> |
-| custDestEnabled	| zda má být aktivní - true/false |
-| transformationId	| Poznámka k MQTT gateway |
+
+| Parametr | Povinný | Popis |
+| --- | --- | --- |
+| projectId | ano | ID účtu - je k dispozici po přihlášení do GUI |
+| custDestName | ano | Název MQTT gateway, max. 60 znaků |
+| custDestParameters | ano | Objekt `{ "address": "..." }`, kde `address` je adresa topicu ve tvaru `$customerId.$tenantId.gate.$gatewayId` |
+| custDestEnabled | ano | Zda má být aktivní - true/false |
+| custDestDescription | ne | Poznámka k MQTT gateway, max. 60 znaků |
+| transformationId | ne | ID transformační funkce |
 
 Id MQTT gateway, tedy gatewayId, je definováno v custDestParameters
 
@@ -29,17 +30,19 @@ Příklad:
 ```bash
 curl --location --request POST 'https://api.iot.cra.cz/cxf/api/v1/mqtt/gateways' \
 --header 'Content-Type: application/json' \
---header 'sessionId: 11b00070-....-97141855c777' \
+--header 'Authorization: Bearer eyJhb....6d26' \
 --data-raw '{
-  "tenantId": "T202003241250003xdv",
-  "label": "Muj MQTT vystup",
-  "protocol": "MQTT",
-  "address": "10147695.T201903051359003xdv.gate.myMqttApp"
+  "projectId": "T202003241250003xdv",
+  "custDestName": "Muj MQTT vystup",
+  "custDestParameters": {
+    "address": "10147695.T202003241250003xdv.gate.myMqttApp"
+  },
+  "custDestEnabled": true
 }'
 ```
 
 ### Příjem zpráv ze zařízení
-Po založení MQTT gateway lze udělat nasměrování zpráv stejně, jako u HTTP Endpointu. Tj. mít skupinu (nově již "Datový tok"), přiřadit k ní zařízení a skupinu přiřadit k MQTT gateway. Tím, budou zprávy zmíněného zařízené k dispozici ke čtení v MQTT gateway v topicu (použít metodu subcribe): <br>
+Po založení MQTT gateway lze udělat nasměrování zpráv stejně, jako u HTTP Endpointu. Tj. mít skupinu (nově již "Datový tok"), přiřadit k ní zařízení a skupinu přiřadit k MQTT gateway. Tím, budou zprávy zmíněného zařízení k dispozici ke čtení v MQTT gateway v topicu (použít metodu subscribe): <br>
 * $address/devices/$tech/$clientId/up/# <br>
 (kde v $address obsahuje tečky za lomítka)
 
@@ -55,7 +58,7 @@ Zprávy od LoRa zařízení jsou v root topicu a mají formát JSON, jako při s
 To znamená topic:<br>$address/devices/lora/*/up<br>
 (tj. nepoužívejte /# na konci)
 
-Případně zkuste „+“ namíst „*“. Někteří MQTT klienti to tak potřebují.
+Případně zkuste „+“ místo „*“. Někteří MQTT klienti to tak potřebují.
 
 **Odesílání zpráv do zařízení**<br>
 MQTT gateway lze využít také pro odesílání zpráv do zařízení. Těmto zprávám říkáme Downlink zprávy, dle principu LoRa.
