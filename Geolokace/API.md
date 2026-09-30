@@ -5,18 +5,26 @@
 
 Geolokační zprávy bylo možné vyčítat přes API, podobně jako jiné LoRaWAN zprávy.
 
+## Rozhraní
+
 Rozhraní bylo dostupné na URL:
+
+```
 GET https://node-red.iot.cra.cz/devices/lora/{id}/geo/messages
+```
 
 Path parametry:
-id * - string - DevEUI Zařízení
 
-Query parametry:<br>
-from * - string - datum a čas od (yyyy-MM-dd'T'HH:mm:ss.SSSXXX) - příklad: 2022-11-23T00:00:00.000Z<br>
-to * - string - datum a čas do (yyyy-MM-dd'T'HH:mm:ss.SSSXXX) - příklad: 2022-11-26T23:59:59.000Z<br>
-limit - integer($int32) - minimum: 1 - maximum: 1000 - query row limit, např. 20 - default value : 10
+- `id` * - string - DevEUI Zařízení
 
-Response:
+Query parametry:
+
+- `from` * - string - datum a čas od (yyyy-MM-dd'T'HH:mm:ss.SSSXXX) - příklad: 2022-11-23T00:00:00.000Z
+- `to` * - string - datum a čas do (yyyy-MM-dd'T'HH:mm:ss.SSSXXX) - příklad: 2022-11-26T23:59:59.000Z
+- `limit` - integer($int32) - minimum: 1 - maximum: 1000 - query row limit, např. 20 - default value : 10
+
+## Response
+
 ```json
 {
     "status": "success",
@@ -49,14 +57,17 @@ Response:
 }
 ```
 
+## Struktura geo zprávy
+
 Struktura geo zprávy je následující:
-* `"EUI":"A81758FFFE04505A"`		Id LoRa zařízení (pozor velkými - "upper case")
-* `"ts":1638178757178`  			čas související LoRa zprávy
-* `"lat":50.10953803374609`		Zeměpisná šířka
-* `"lon":14.470567400491364`		Zeměpisná délka
-* `"alt":311.3333333333333`		Nadmořská výška
-* `"accuracy":null`			Očekávaná přesnost
-* `"method":"TDOA"`			Metoda výpočtu geo zprávy
-* `"gws":7`				Počet GW využitých pro výpočet
-* `"seqno":811021424`			Globální pořadové číslo
-* `"fcnt":79404`				LoRa pořadové číslo
+
+* `"EUI":"A81758FFFE04505A"` - Id LoRa zařízení (pozor velkými - "upper case")
+* `"ts":1638178757178` - čas související LoRa zprávy
+* `"lat":50.10953803374609` - Zeměpisná šířka
+* `"lon":14.470567400491364` - Zeměpisná délka
+* `"alt":311.3333333333333` - Nadmořská výška
+* `"accuracy":null` - Očekávaná přesnost
+* `"method":"TDOA"` - Metoda výpočtu geo zprávy
+* `"gws":7` - Počet GW využitých pro výpočet
+* `"seqno":811021424` - Globální pořadové číslo
+* `"fcnt":79404` - LoRa pořadové číslo

@@ -1,17 +1,18 @@
-
 # Protokol CRA (1.0)
 
-### Struktura zprávy
-```
+## Struktura zprávy
+
+```text
 ┌────────┬──────────┬─────────────┬──────────────┬────────────┬───────────┬────────┐
 │ Start  │ Hlavička │ ID zařízení │ Velikost dat │ Data       │ Kontrolní │ Konec  │
 │ (1 B)  │ (1 B)    │ (4 B)       │ (2 B)        │ (n B)      │ součet    │ (1 B)  │
 │        │          │             │              │            │ (1 B)     │        │
 └────────┴──────────┴─────────────┴──────────────┴────────────┴───────────┴────────┘
 ```
+
 Celková délka = 1 + 1 + 4 + 2 + n + 1 + 1 = n + 10 bytů
 
-#### Popis polí
+### Popis polí
 
 | Pole             | Velikost | Hodnota/Poznámka                                       |
 |------------------|----------|--------------------------------------------------------|
@@ -23,18 +24,19 @@ Celková délka = 1 + 1 + 4 + 2 + n + 1 + 1 = n + 10 bytů
 | Kontrolní součet | 1 B      | XOR všech bytů od `Hlavičky` po konec `Užitečných dat` |
 | Konec marker     | 1 B      | `0xBA` – značící konec rámce                           |
 
-### Bitové schéma hlavičky
-```
+## Bitové schéma hlavičky
+
+```text
  ┌──7──┬──6──┬──5──┬──4──┬──3──┬──2──┬──1──┬──0──┐
  │  v1 │  v0 │  t1 │  t0 │  p3 │  p2 │  p1 │  p0 │
  └─────┴─────┴─────┴─────┴─────┴─────┴─────┴─────┘
 ```
 
 - v1–v0: verze protokolu `(0b01 → 0x40)`
-- t1–t0: typ zprávy     `(0b01 → 0x10)`
+- t1–t0: typ zprávy `(0b01 → 0x10)`
 - p3–p0: typ užitečných dat `(0b0001 → 0x01)`
 
-### Příklad hex-dumpu
+## Příklad hex-dumpu
 
 Pro `deviceId = 0x123456` a `payload = "TEST"` (ASCII 54 45 53 54):
 
@@ -51,7 +53,7 @@ Pro `deviceId = 0x123456` a `payload = "TEST"` (ASCII 54 45 53 54):
 | Kontrolní součet    | `9F` – XOR hodnot 51, AC, 56, 34, 12, 04, 00, 54, 45, 53, 54 |
 | Konec               | `BA`                                                         |
 
-### Validace a chybové stavy
+## Validace a chybové stavy
 
 - **Ověření začátečního/konečného markeru** – rámec musí začínat `0xAB` a končit `0xBA`
 - **Ověření kontrolního součtu** – pokud XOR(hlavička…užitečná data) ≠ kontrolní součet, zpráva je neplatná.
