@@ -77,7 +77,7 @@ curl --location --request POST 'https://api.iot.cra.cz/cxf/api/v1/mqtt/devices' 
 ```
 
 Pokud chcete poslat zprávu do MQTT zařízení z IoT platformy (musí být připojeno přes MQTT protokol a poslouchat "příkazy" pomoci subscribe), pak můžete zprávu poslat buď:
-- z GUI přes "Poslat zprávu" (v detailu MQTT zařízení) (NYI - zatím není v GUI)
+- z GUI přes "Poslat zprávu" (v detailu MQTT zařízení)
 - přes naše [REST API](https://app.swaggerhub.com/apis-docs/cra-iot/GUI/1.0.40#/MQTT%20Devices/post_mqtt_devices__id__down_messages)
 - přes [MQTT gateway](../../Výstup%20z%20IoT%20platformy/MQTT%20gateway/README.md)
 

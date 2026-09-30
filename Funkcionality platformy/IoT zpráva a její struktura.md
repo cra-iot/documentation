@@ -12,10 +12,12 @@ Vlastní zpráva je v JSON formátu a má tyto atributy:
 - [fcnt (frame counter)](#fcnt)
 - [port (port)](#port)
 - [freq (in Hz)](#freq)
-- [toa (in dBm)](#toa)
-- [dr (in dB)](#dr)
+- [toa (time on air, in ms)](#toa)
+- [dr (data rate)](#dr)
 - [ack (acknowledgement)](#ack)
 - [gws (gateways)](#gws)
+- [rssi (signal strength, in dBm)](#rssi)
+- [snr (signal to noise ratio, in dB)](#snr)
 - [bat (battery level)](#bat)
 - [data (payload)](#data)
 - [encdata (encrypted payload)](#encdata)
@@ -120,7 +122,7 @@ Unikátní je vždy v rámci technologie (LoRa, MQTT, HTTP, UDP, atp.).
   * ["snr"](#snr) - rádio snr
   * "ts" - timestamp - interní čas z GW
   * "time" - GPS čas přijetí - dle ISO 8601 s přesností na nanosecondy
-  * "tmms" - UTC čas přijetí - v UNIX čase -  dostupné jen u gateway s GPS
+  * "tmms" - GPS čas přijetí (milisekundy od GPS epochy, nikoliv UNIX čas) - dostupné jen u gateway s GPS
   * "gweui" - id IoT GW
   * "ant" - číslo rádiového rozhraní - prakticky vždy bude 0
   * "lat" a "lon" - souřadnice IoT GW
@@ -138,9 +140,6 @@ Unikátní je vždy v rámci technologie (LoRa, MQTT, HTTP, UDP, atp.).
   Příklad: "snr": -10.2,
   
   Při RX zprávě je v hlavní struktuře JSONu, v GW zprávě je u gateway, která ji přijala v gws části JSONu
-
-### tech
- (technology)](#tech)
 
 ### bat
   bat = device battery status, response to the DevStatusReq LoRaWAN MAC Command

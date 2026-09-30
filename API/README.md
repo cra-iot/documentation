@@ -1,6 +1,6 @@
 # API pro CRA IoT platformu
 
-CRA pro vás začátkem roku 2021 vystavilo nové API, společně s novým portálem.
+CRA v roce 2021 vystavilo nové API, společně s novým portálem.
 
 Nové API využívá dvoufázovou autentizaci, ve spolupráci s naším centrálním SSO.
 
@@ -28,7 +28,12 @@ Je tedy potřeba jen nahradit váš email a heslo.
 Detailní popis autentizačního API najdete zde: 
 https://access.redhat.com/documentation/en-us/red_hat_single_sign-on/7.2/html/api_documentation/index
 
-Následné API requesty mají hlavní URI: https://api.iot.cra.cz/cxf/api/v1/
+Následné API requesty mají hlavní URI podle prostředí:
+
+| Prostředí | API                                     | Portál                         | SSO                     |
+|-----------|-----------------------------------------|--------------------------------|-------------------------|
+| Produkce  | https://api.iot.cra.cz/cxf/api/v1/      | https://portal.iot.cra.cz      | https://sso.cra.cz      |
+| Test      | https://test-api.iot.cra.cz/cxf/api/v1/ | https://test-portal.iot.cra.cz | https://test-sso.cra.cz |
 
 Tj. dotaz na získání informací na jaké máte přístup zákazníky je takto:
 GET 'https://api.iot.cra.cz/cxf/api/v1/customers' \\

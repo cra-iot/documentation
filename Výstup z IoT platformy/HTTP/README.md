@@ -13,7 +13,7 @@ Odchozí zpráva je zapouzdřena do integrační obálky. Vše je předáváno v
 |type | STRING | Identifikuje typ integračního rámci. Pro příchozí zprávy platí hodnota „D“. |
 |data | STRING | Datová zpráva |
 |tech | STRING | Technologie použitá pro přenos dat. Pro LoRa bude rovna „L“ |
-|tags | STRING | Tagy zařízení, ze kterého zpráva přišla |
+|tags | ARRAY of STRING | Tagy zařízení, ze kterého zpráva přišla |
 
 Příklad zprávy je:
 
