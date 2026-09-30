@@ -32,6 +32,8 @@ V body bude pak seznam těchto parametrů:
 
 Id MQTT gateway, tedy gatewayId, je definováno v custDestParameters
 
+`transformationId` je ID [transformace](../../Funkcionality%20platformy/Transformace/README.md), která se spustí nad zprávou těsně před doručením do této gateway.
+
 Příklad:
 
 ```bash

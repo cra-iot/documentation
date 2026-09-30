@@ -64,6 +64,8 @@ V body bude pak seznam těchto parametrů:
 
 Bez `username` a `password` se zařízení nepřihlásí k MQTT brokeru.
 
+`transformationId` je ID [transformace](../../Funkcionality%20platformy/Transformace/README.md), která se spustí nad zprávou z tohoto zařízení.
+
 Příklad:
 
 ```bash

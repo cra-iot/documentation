@@ -16,7 +16,7 @@ Při využití O2 SIM s CRA APN lze čidla nasměrovat na námi vystavený UDP p
 ```
 ale to je stále pro CRA IoT cloud nesrozumitelné.
 
-Je potřeba definovat transformaci pro Netlia čidlo.
+Je potřeba definovat [transformaci](../../../Funkcionality%20platformy/Transformace/README.md) pro Netlia čidlo.
 
 Zde je příklad transformace (zatím není implementováno převádění stavu baterie na DEC hodnotu jako je uvedena u LoRa zařízení)
 ```javascript
