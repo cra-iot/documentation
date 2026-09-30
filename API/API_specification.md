@@ -102,11 +102,11 @@
 
 [3.4.1.8 GET ​/http​/endpoints​/{id}​/deliveries/full-detail](#get-httpendpointsiddeliveriesfull-detail)
 
-[3.4.1.9 POST ​/http​/endpoints​/{id}​/ping](#post-httpendpointsidping)
+[3.4.1.9 GET ​/http​/endpoints​/{id}​/ping](#get-httpendpointsidping)
 
-[3.4.1.10 [NYI] PUT ​/http​/endpoints​/{id}​/tags](#nyi-put-httpendpointsidtags)
+[3.4.1.10 PUT ​/http​/endpoints​/{id}​/tags](#put-httpendpointsidtags)
 
-[3.4.1.11 [NYI] PUT ​/http​/endpoints​/{id}​/attributes](#nyi-put-httpendpointsidtags)
+[3.4.1.11 PUT ​/http​/endpoints​/{id}​/attributes](#put-httpendpointsidattributes)
 
 [3.5 MQTT](#mqtt)
 
@@ -128,9 +128,9 @@
 
 [3.5.1.8 GET ​/mqtt​/gateways​/{id}​/deliveries/full-detail](#get-mqttgatewaysiddeliveriesfull-detail)
 
-[3.5.1.9 [NYI] PUT ​/mqtt​/gateways​/{id}​/tags](#nyi-put-mqttgatewaysidtags)
+[3.5.1.9 PUT ​/mqtt​/gateways​/{id}​/tags](#put-mqttgatewaysidtags)
 
-[3.5.1.10 [NYI] PUT ​/mqtt​/gateways​/{id}​/attributes](#nyi-put-mqttgatewaysidattributes)
+[3.5.1.10 PUT ​/mqtt​/gateways​/{id}​/attributes](#put-mqttgatewaysidattributes)
 
 [3.6 MQTT](#mqtt-1)
 
@@ -238,9 +238,9 @@
 
 [3.8.6 DELETE ​/device-groups​/{id}](#delete-device-groupsid)
 
-[3.8.7 PUT ​/device-groups​/{id}​/tags](#nyi-put-device-groupsidtags)
+[3.8.7 PUT ​/device-groups​/{id}​/tags](#put-device-groupsidtags)
 
-[3.8.8 [NYI] PUT /device-groups​/{id}​/attributes](#nyi-put-device-groupsidattributes)
+[3.8.8 PUT /device-groups​/{id}​/attributes](#put-device-groupsidattributes)
 
 [3.8.9 GET ​/device-groups​/devices](#get-device-groupsdevices)
 
@@ -272,7 +272,7 @@
 
 [3.10.2 GET ​/notifications​/customers​/{customerId}](#get-notificationscustomerscustomerid)
 
-[3.10.3 [NYI] GET ​/notifications​/customers​/{customerId}​/sent](#nyi-get-notificationscustomerscustomeridsent)
+[3.10.3 GET ​/notifications​/customers​/{customerId}​/sent](#get-notificationscustomerscustomeridsent)
 
 [3.10.4 GET ​/notifications​/customers​/{customerId}​/emails](#get-notificationscustomerscustomeridemails)
 
@@ -282,7 +282,7 @@
 
 [3.10.7 DELETE ​/notifications​/customers​/{customerId}​/emails​/{email}](#delete-notificationscustomerscustomeridemailsemail)
 
-[3.10.8 [NYI] GET ​/notifications​/customers​/{customerId}​/emails​/{email}​/sent](#nyi-get-notificationscustomerscustomeridemailsemailsent)
+[3.10.8 GET ​/notifications​/customers​/{customerId}​/emails​/{email}​/sent](#get-notificationscustomerscustomeridemailsemailsent)
 
 [3.10.9 PATCH ​/notifications​/customers​/{customerId}​/templates​/{template}](#patch-notificationscustomerscustomeridtemplatestemplate)
 
@@ -296,9 +296,9 @@
 
 [3.11.3 GET ​/audits​/projects​/{projectId}](#get-auditsprojectsprojectid)
 
-[3.11.4 [NYI] GET ​/audits​/devices​/{protocol}/{deviceId}](#nyi-get-auditsdevicesprotocoldeviceid)
+[3.11.4 GET ​/audits​/devices​/{protocol}/{deviceId}](#get-auditsdevicesprotocoldeviceid)
 
-[3.11.5 [NYI] GET ​/audits​/device-groups​/{groupId}](#nyi-get-auditsdevice-groupsgroupid)
+[3.11.5 GET ​/audits​/device-groups​/{groupId}](#get-auditsdevice-groupsgroupid)
 
 [3.12 Tags](#tags)
 
@@ -311,6 +311,11 @@
 # Úvod
 
 Tento dokument slouží jako doprovodný dokument k dodanému swagger. Definuje základy použití API a také v případě potřeby upřesňuje použití konkrétních REST volání.
+
+Seznam volání v tomto dokumentu není úplný - kompletním a závazným zdrojem je vždy swagger.
+Zde nejsou popsána zejména volání pro UDP zařízení (`/udp/devices`), transformace
+(`/transformations`, `/projects/{id}/transformations`), SIM karty (`/simcards`)
+a HW katalog (`/hwdevices`).
 
 # Základní pravidla API
 
@@ -772,7 +777,7 @@ Vrátí seznam všech služeb (včetně parametrů), které jsou přiřazeny pro
 
 Analytický přehled o endpointech na projektu.
 
-| **URL** | GET https://\<URL\>/cxf/api/v1/projects/{id}/endpoint/overview |
+| **URL** | GET https://\<URL\>/cxf/api/v1​/projects​/{id}​/endpoints​/overview |
 | --- | --- |
 | **Filtr** |
 | **Řazení** |
@@ -901,33 +906,33 @@ Parametr from je validován konstantou 2021-04-20 06:26 V případě požadavku 
 | **Fulltext** | Ne |
 | **Katalog** |
 
-# POST ​/http​/endpoints​/{id}​/ping
+# GET ​/http​/endpoints​/{id}​/ping
 
 Test http endpointu. Zašle požadavek dle specifikace a vrátí odpověď.
 
-| **URL** | POST https://\<URL\>/cxf/api/v1​/http​/endpoints​/{id}​/ping |
+| **URL** | GET https://\<URL\>/cxf/api/v1​/http​/endpoints​/{id}​/ping |
 | --- | --- |
 | **Filtr** |
 | **Řazení** |
 | **Fulltext** | Ne |
 | **Katalog** |
 
-# [NYI] PUT ​/http​/endpoints​/{id}​/tags
+# PUT ​/http​/endpoints​/{id}​/tags
 
 Aktualizace tagů endpointu.
 
-| **URL** | POST https://\<URL\>/cxf/api/v1​/http​/endpoints​/{id}​/ping |
+| **URL** | PUT https://\<URL\>/cxf/api/v1​/http​/endpoints​/{id}​/tags |
 | --- | --- |
 | **Filtr** |
 | **Řazení** |
 | **Fulltext** | Ne |
 | **Katalog** |
 
-# [NYI] PUT ​/http​/endpoints​/{id}​/attributes
+# PUT ​/http​/endpoints​/{id}​/attributes
 
 Aktualizace atributů endpointu.
 
-| **URL** | POST https://\<URL\>/cxf/api/v1​/http​/endpoints​/{id}​/ping |
+| **URL** | PUT https://\<URL\>/cxf/api/v1​/http​/endpoints​/{id}​/attributes |
 | --- | --- |
 | **Filtr** |
 | **Řazení** |
@@ -1034,22 +1039,22 @@ Parametr from je validován konstantou 2021-04-20 06:26 V případě požadavku 
 | **Fulltext** | Ne |
 | **Katalog** |
 
-# [NYI] PUT ​/mqtt​/gateways​/{id}​/tags
+# PUT ​/mqtt​/gateways​/{id}​/tags
 
 Aktualizace tagů gateway.
 
-| **URL** | POST https://\<URL\>/cxf/api/v1​/mqtt​/gateways ​/{id}​/ping |
+| **URL** | PUT https://\<URL\>/cxf/api/v1​/mqtt​/gateways​/{id}​/tags |
 | --- | --- |
 | **Filtr** |
 | **Řazení** |
 | **Fulltext** | Ne |
 | **Katalog** |
 
-# [NYI] PUT ​/mqtt​/gateways​/{id}​/attributes
+# PUT ​/mqtt​/gateways​/{id}​/attributes
 
 Aktualizace atributů gateways.
 
-| **URL** | POST https://\<URL\>/cxf/api/v1​/mqtt​/endpoints​/{id}​/ping |
+| **URL** | PUT https://\<URL\>/cxf/api/v1​/mqtt​/gateways​/{id}​/attributes |
 | --- | --- |
 | **Filtr** |
 | **Řazení** |
@@ -1165,7 +1170,7 @@ Zjištění stavu importu zařízení.
 
 Výpis stavu counterů na zařízení.
 
-| **URL** | GET https://\<URL\>/cxf/api/v1/mqtt​/devices/counters |
+| **URL** | GET https://\<URL\>/cxf/api/v1​/mqtt​/devices​/{id}​/counters |
 | --- | --- |
 | **Filtr** |
 | **Řazení** |
@@ -1418,7 +1423,7 @@ Zjištění stavu importu zařízení.
 
 Výpis stavu counterů na zařízení.
 
-| **URL** | GET https://\<URL\>/cxf/api/v1/lora​/devices/counters |
+| **URL** | GET https://\<URL\>/cxf/api/v1​/lora/devices​/{id}​/counters |
 | --- | --- |
 | **Filtr** |
 | **Řazení** |
@@ -1429,7 +1434,7 @@ Výpis stavu counterů na zařízení.
 
 Povolení zařízení (implicitní stav). Zprávy z takového zařízení jsou přijímány na platformu a jsou doručovány.
 
-| **URL** | POST https://\<URL\>/cxf/api/v1/mqtt​/devices​/{id}​/enable |
+| **URL** | POST https://\<URL\>/cxf/api/v1​/lora​/devices​/{id}​/enable |
 | --- | --- |
 | **Filtr** |
 | **Řazení** |
@@ -1549,7 +1554,7 @@ Aktualizace parametrů lora zařízení.
 
 Aktivace LoRa zařízení z prekativního stavu
 
-| **URL** | PUT https://\<URL\>/cxf/api/v1/lora/devices​/{id}/activate |
+| **URL** | POST https://\<URL\>/cxf/api/v1/lora/devices/{id}/activate |
 | --- | --- |
 | **Filtr** |
 | **Řazení** |
@@ -1635,7 +1640,7 @@ Aktualizace tagů skupiny zařízení.
 | **Fulltext** | Ne |
 | **Katalog** |
 
-# [NYI] PUT /device-groups​/{id}​/attributes
+# PUT /device-groups​/{id}​/attributes
 
 Aktualizace atributů skupiny zařízení.
 
@@ -1762,7 +1767,7 @@ Aktualizace uživatelských preferencí.
 
 Přiřazení, případně odebrání práva uživatele k danému projektu.
 
-| **URL** | GET https://\<URL\>/cxf/api/v1/users​/{id}​/customers​/{customerId}​/projects​/{projectId}​/privileges |
+| **URL** | PUT https://\<URL\>/cxf/api/v1​/users​/{id}​/customers​/{customerId}​/projects​/{projectId}​/privileges |
 | --- | --- |
 | **Filtr** |
 | **Řazení** |
@@ -1793,7 +1798,7 @@ Načtení nastavení notifikací uživatele.
 | **Fulltext** | Ne |
 | **Katalog** |
 
-# [NYI] GET ​/notifications​/customers​/{customerId}​/sent
+# GET ​/notifications​/customers​/{customerId}​/sent
 
 Načtení odeslaných notifikací uživatele.
 
@@ -1841,14 +1846,14 @@ Načtení nastavení notifikací neuživatelského emailu.
 
 Odregistrace notifikačního emailu.
 
-| **URL** | DELETE https://\<URL\>/cxf/api/v1/notifications​/customers​/{customerId}​/emails |
+| **URL** | DELETE https://\<URL\>/cxf/api/v1​/notifications​/customers​/{customerId}​/emails​/{email} |
 | --- | --- |
 | **Filtr** |
 | **Řazení** |
 | **Fulltext** | Ne |
 | **Katalog** |
 
-# [NYI] GET ​/notifications​/customers​/{customerId}​/emails​/{email}​/sent
+# GET ​/notifications​/customers​/{customerId}​/emails​/{email}​/sent
 
 Načtení odeslaných notifikací neuživatelského emailu.
 
@@ -1923,7 +1928,7 @@ parameters obsahuje páry klíč hodnota dle placeholderů v textu dané katalog
 | **Fulltext** | Ano |
 | **Katalog** | code |
 
-# [NYI] GET ​/audits​/devices​/{protocol}/{deviceId}
+# GET ​/audits​/devices​/{protocol}/{deviceId}
 
 Zobrazení auditního logu zařízení.
 
@@ -1936,7 +1941,7 @@ parameters obsahuje páry klíč hodnota dle placeholderů v textu dané katalog
 | **Fulltext** | Ano |
 | **Katalog** | code |
 
-# [NYI] GET ​/audits​/device-groups​/{groupId}
+# GET ​/audits​/device-groups​/{groupId}
 
 Zobrazení auditního logu skupiny zařízení.
 
@@ -1972,7 +1977,7 @@ Načtení atributů zařízení
 
 Kompletní seznam atributů.
 
-| **URL** | GET https://\<URL\>/cxf/api/v1/tags/devices |
+| **URL** | GET https://\<URL\>/cxf/api/v1/attributes/devices |
 | --- | --- |
 | **Filtr** | customerId<br/>projectId<br/>deviceId<br/>attribute<br/>value |
 | **Řazení** | attribute |
