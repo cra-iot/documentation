@@ -19,8 +19,8 @@ Vlastní zpráva je v JSON formátu a má tyto atributy:
 - [bat (battery level)](#bat)
 - [data (payload)](#data)
 - [encdata (encrypted payload)](#encdata)
-- [tech (technology)](#tech)
 - [_id (Identifier)](#id)
+- [tech (technology)](#tech)
 
 ## Detailní informace k atributům
 ### cmd
@@ -122,6 +122,7 @@ Unikátní je vždy v rámci technologie (LoRa, MQTT, HTTP, UDP, atp.).
   * "time" - GPS čas přijetí - dle ISO 8601 s přesností na nanosecondy
   * "tmms" - UTC čas přijetí - v UNIX čase -  dostupné jen u gateway s GPS
   * "gweui" - id IoT GW
+  * "ant" - číslo rádiového rozhraní - prakticky vždy bude 0
   * "lat" a "lon" - součadnice IoT GW
 
 ### rssi
@@ -173,7 +174,7 @@ Ve filtru v GUI se požávájí následující filtry:
 
   Příklad: "encdata": null,
 
-### _id
+### id
   _id - message identifier
 
   Příklad: "_id": "65aa7fdb244659031da4154c"
